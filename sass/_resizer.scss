@@ -1,0 +1,20 @@
+#sidebar {
+  & > .dorako-resize {
+    width: 6px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    cursor: col-resize;
+  }
+}
+
+#chat-form {
+  --chatform-height: 100px;
+  flex: 0 0 var(--chatform-height);
+  > .dorako-resize {
+    width: 100%;
+    height: 4px;
+    position: fixed;
+    cursor: row-resize;
+  }
+}

@@ -1,0 +1,13 @@
+#chat-controls.no-chat-control-icon {
+  .chat-control-icon {
+    display: none;
+  }
+}
+
+.dorako-display-none {
+  display: none !important;
+}
+
+.combat-sidebar li.combatant .token-name {
+  z-index: 1;
+}

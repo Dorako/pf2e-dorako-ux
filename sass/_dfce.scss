@@ -1,0 +1,136 @@
+/* ----------------------------------------- */
+/* DFCE Rolltype Buttons                     */
+/* ----------------------------------------- */
+
+#chat-controls {
+  padding: 0px;
+  gap: var(--sidebar-gap);
+  .buttons {
+    gap: var(--sidebar-gap);
+    flex-wrap: nowrap;
+  }
+}
+
+#dorako-rt-buttons {
+  flex: 1 0 170px;
+}
+
+#dorako-nonrt-buttons {
+  flex: 1 1 30px !important; // Chat reactions unsets this
+
+  &:empty {
+    display: none;
+  }
+
+  > button {
+    flex: 1 1 32px;
+  }
+}
+
+/* ----------------------------------------- */
+/* DFCE Chat Merge                           */
+/* ----------------------------------------- */
+
+// Can't get rid of damage buttons, because sometimes you need to attack twice and then roll damage
+// .message.dfce-cm-top {
+//   > .message-content .message-buttons {
+//     display: none;
+//   }
+// }
+
+.message.chat-message {
+  .message-delete {
+    z-index: 1;
+  }
+
+  &.dfce-cm-top {
+    border-bottom-style: none;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 5px;
+  }
+
+  &.dfce-cm-middle,
+  &.dfce-cm-bottom {
+    position: relative;
+    border-radius: 0px;
+    margin-top: 0px !important;
+
+    .message-content {
+      padding-right: 0px;
+    }
+
+    .sender-wrapper,
+    .portrait-and-name {
+      display: none;
+    }
+
+    .message-header {
+      background: transparent !important;
+      box-shadow: none;
+      // text-shadow: 0px 0px 1px white;
+      margin: 0px;
+      padding: 0px;
+      padding-right: 5px;
+      // color: var(--color-text-dark-primary);
+    }
+    .header-meta {
+      display: none;
+    }
+  }
+
+  &.dfce-cm-middle {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-bottom: 5px;
+  }
+
+  &.dfce-cm-bottom {
+    margin-top: 0px;
+    padding-top: 0px;
+    border-radius: 0px 0px 5px 5px;
+  }
+}
+
+.message.chat-message.dorako-ui.dark-theme {
+  &.dfce-cm-middle .message-delete,
+  &.dfce-cm-bottom .message-delete {
+    color: white;
+    top: 5px;
+    text-shadow: 0px 0px 1px black;
+  }
+}
+
+.dorako-ui.light-theme {
+  &.dfce-cm-bottom,
+  &.dfce-cm-middle {
+    .dorako-header {
+      color: black !important;
+      text-shadow: 0px 1px 1px white !important;
+    }
+  }
+}
+
+.dfce-cm-middle,
+.dfce-cm-bottom {
+  .dorako-header {
+    display: none;
+  }
+  &:hover {
+    .dorako-header {
+      display: block;
+      position: absolute;
+      right: 5px;
+      top: 3px;
+      width: fit-content;
+      background: none !important;
+      box-shadow: none !important;
+      z-index: 1;
+      .portrait-and-name {
+        display: none !important;
+      }
+    }
+  }
+}

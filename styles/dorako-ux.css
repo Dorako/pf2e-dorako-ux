@@ -1,0 +1,821 @@
+@charset "UTF-8";
+.message-header {
+  background: none;
+  padding: 5px 5px 0px 5px;
+  margin: -5px -5px 0px -5px;
+  border-radius: 5px 5px 0px 0px;
+  gap: 5px;
+  align-items: center;
+}
+.message-header .message-metadata {
+  flex: 2.5;
+}
+.message-header .header-meta {
+  border-radius: 3px;
+  padding: 2px;
+  font-size: x-small;
+  align-self: center;
+  text-align: center;
+  text-shadow: none;
+  white-space: nowrap;
+}
+.message-header .player-name,
+.message-header .message-sender {
+  max-width: 160px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.message-header .portrait-and-name {
+  flex-grow: 1;
+  display: flex;
+  flex-basis: 100px;
+  gap: 5px;
+}
+.message-header .portrait-and-name .portrait-wrapper {
+  width: var(--avatar-size);
+  display: flex;
+  flex: none;
+  justify-content: center;
+  align-items: center;
+}
+.message-header .portrait-and-name .portrait-wrapper .portrait {
+  height: var(--avatar-size);
+  object-fit: contain;
+  z-index: 0;
+  border: unset;
+}
+.message-header .portrait-and-name .portrait-wrapper .portrait.actor {
+  border-radius: 3px;
+}
+.message-header .portrait-and-name .sender-wrapper {
+  display: flex;
+  gap: 3px;
+  flex-direction: column;
+  justify-content: left;
+  align-self: center;
+  z-index: 1;
+}
+.message-header .portrait-and-name .sender-wrapper .message-sender,
+.message-header .portrait-and-name .sender-wrapper .player-name {
+  align-self: flex-start;
+  line-height: initial;
+}
+
+body.compact-ui #controls .main-controls .scene-control:not(.active, .toggle),
+body.compact-ui #controls .sub-controls .control-tool:not(.active, .toggle) {
+  display: none;
+}
+body.compact-ui #controls {
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+body.compact-ui .main-controls {
+  display: flex;
+  flex-direction: column;
+}
+body.compact-ui #ui-left.active #controls .main-controls .scene-control,
+body.compact-ui #ui-left.active #controls .sub-controls .control-tool {
+  align-items: center;
+  display: flex;
+}
+body.compact-ui #controls ol.main-controls.app.control-tools {
+  width: unset;
+}
+body.compact-ui #navigation #scene-list .scene:not(.active, .view),
+body.compact-ui #navigation #nav-toggle {
+  display: none;
+}
+body.compact-ui #navigation {
+  pointer-events: all;
+}
+body.compact-ui #navigation:hover #scene-list .scene {
+  display: flex;
+}
+body.compact-ui #smalltime-app.pinned,
+body.compact-ui #players {
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+body.compact-ui #smalltime-app.pinned:hover,
+body.compact-ui #players:hover {
+  transition: opacity 0.25s ease-in-out;
+  opacity: 1;
+}
+
+.dalvyn-journal:not(.premium) {
+  /* By Dalvyn */
+  /* Custom CSS - PF2 STYLE v2.1 */
+  /* TITRES
+  ====================================================== */
+  --red: var(--primary);
+  --blue: var(--secondary);
+  --brown: #ad6f59;
+  /* TEXTE
+  ====================================================== */
+  /* SYMBOLES PF2
+  ====================================================== */
+  /* TABLES
+  ====================================================== */
+  /* TEXTES À LIRE
+  ====================================================== */
+  /* BLOCS DESCRIPTIFS (via h6)
+  ====================================================== */
+  /* Alignment (bold) */
+  /* Size (italics) */
+  /* Rarity (sub = uncommon, sup = rare, strikethrough = unique) */
+  /* Dorako */
+}
+.dalvyn-journal:not(.premium).journal-header .title,
+.dalvyn-journal:not(.premium) .journal-header .title {
+  color: var(--red) !important;
+  font-family: "Taroca Regular";
+}
+.dalvyn-journal:not(.premium).journal-entry-page h1,
+.dalvyn-journal:not(.premium) .journal-entry-page h1 {
+  color: var(--blue) !important;
+  font-family: "Taroca Regular";
+  line-height: 100%;
+  border-bottom: 0;
+}
+.dalvyn-journal:not(.premium).journal-entry-page h1:hover,
+.dalvyn-journal:not(.premium) .journal-entry-page h1:hover {
+  background-image: linear-gradient(rgba(2, 37, 110, 0), rgba(2, 37, 110, 0), rgba(2, 37, 110, 0.2666666667));
+}
+.dalvyn-journal:not(.premium).journal-entry-page h2,
+.dalvyn-journal:not(.premium) .journal-entry-page h2 {
+  color: var(--red) !important;
+  font-family: "Gin-Regular";
+  text-transform: uppercase;
+  line-height: 100%;
+  border-bottom: 0;
+}
+.dalvyn-journal:not(.premium).journal-entry-page h2:hover,
+.dalvyn-journal:not(.premium) .journal-entry-page h2:hover {
+  background-image: linear-gradient(rgba(78, 7, 7, 0), rgba(78, 7, 7, 0), rgba(78, 7, 7, 0.2666666667));
+}
+.dalvyn-journal:not(.premium).journal-entry-page h3,
+.dalvyn-journal:not(.premium) .journal-entry-page h3 {
+  color: var(--brown) !important;
+  font-family: "Gin-Regular";
+  text-transform: uppercase;
+  line-height: 100%;
+  border-bottom: 0;
+}
+.dalvyn-journal:not(.premium).journal-entry-page h3:hover,
+.dalvyn-journal:not(.premium) .journal-entry-page h3:hover {
+  background-image: linear-gradient(rgba(173, 111, 89, 0), rgba(173, 111, 89, 0), rgba(173, 111, 89, 0), rgba(173, 111, 89, 0.2666666667));
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h4,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h4 {
+  color: var(--blue) !important;
+  font-family: "Gin-Regular";
+  font-variant: small-caps;
+  font-size: 132%;
+  line-height: 100%;
+  border-bottom: 0;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h4:hover,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h4:hover {
+  background-image: linear-gradient(rgba(2, 37, 110, 0), rgba(2, 37, 110, 0), rgba(2, 37, 110, 0), rgba(2, 37, 110, 0.2666666667));
+}
+.dalvyn-journal:not(.premium).journal-entry-page h5,
+.dalvyn-journal:not(.premium) .journal-entry-page h5 {
+  line-height: 100%;
+  font-variant: small-caps;
+  font-size: var(--font-size-14);
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+.dalvyn-journal:not(.premium).journal-entry-page h5:hover,
+.dalvyn-journal:not(.premium) .journal-entry-page h5:hover {
+  background-image: linear-gradient(rgba(2, 37, 110, 0), rgba(2, 37, 110, 0), rgba(2, 37, 110, 0), rgba(2, 37, 110, 0.2666666667));
+}
+.dalvyn-journal:not(.premium).journal-entry-content, .dalvyn-journal:not(.premium).journal-entry-page .window-content,
+.dalvyn-journal:not(.premium) .journal-entry-page .window-content {
+  font-family: "Gelasio";
+}
+.dalvyn-journal:not(.premium).journal-entry-page code,
+.dalvyn-journal:not(.premium) .journal-entry-page code {
+  font-family: "pathfinder2eactions";
+  font-style: normal;
+  font-size: 150%;
+  line-height: 66%;
+}
+.dalvyn-journal:not(.premium).journal-entry-page table,
+.dalvyn-journal:not(.premium) .journal-entry-page table {
+  font-family: "roboto condensed";
+  max-width: calc(100% - 24px);
+  margin-left: auto;
+  margin-right: auto;
+}
+.dalvyn-journal:not(.premium).journal-entry-page table th,
+.dalvyn-journal:not(.premium) .journal-entry-page table th {
+  color: white;
+  background-color: var(--red);
+}
+.dalvyn-journal:not(.premium).journal-entry-page tr:nth-child(2n),
+.dalvyn-journal:not(.premium) .journal-entry-page tr:nth-child(2n) {
+  background-color: #f5efe0;
+  color: black;
+}
+.dalvyn-journal:not(.premium).journal-entry-page tr:nth-child(2n+1),
+.dalvyn-journal:not(.premium) .journal-entry-page tr:nth-child(2n+1) {
+  background-color: #efe3c8;
+  color: black;
+}
+.dalvyn-journal:not(.premium).journal-entry-page tr:hover,
+.dalvyn-journal:not(.premium) .journal-entry-page tr:hover {
+  background-color: #e9d7b0;
+  color: black;
+}
+.dalvyn-journal:not(.premium).journal-entry-page table td, .dalvyn-journal:not(.premium).journal-entry-page table th,
+.dalvyn-journal:not(.premium) .journal-entry-page table td,
+.dalvyn-journal:not(.premium) .journal-entry-page table th {
+  padding: 4px 6px;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content blockquote:not(h6 + p + ul + blockquote, h6 + p + blockquote, h6 + ul + blockquote, h6 + blockquote),
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content blockquote:not(h6 + p + ul + blockquote, h6 + p + blockquote, h6 + ul + blockquote, h6 + blockquote) {
+  border-left-width: 0;
+  border-top: 2px solid #cfbf80;
+  border-bottom: 2px solid #cfbf80;
+  background-color: var(--red);
+  border-radius: 8px;
+  color: #cfbf80;
+  padding: 4px 12px;
+  margin-left: 0;
+  margin-right: 0;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content blockquote:not(h6 + p + ul + blockquote, h6 + p + blockquote, h6 + ul + blockquote, h6 + blockquote):hover,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content blockquote:not(h6 + p + ul + blockquote, h6 + p + blockquote, h6 + ul + blockquote, h6 + blockquote):hover {
+  color: #efdfa2;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote),
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote) {
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 0;
+  margin-bottom: 0;
+  background-color: rgba(245, 239, 224, 0.6666666667);
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content :is(h6, h6 + p),
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content :is(h6, h6 + p) {
+  font-family: "Tauri-Regular";
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.15em;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 {
+  border-bottom: 1px solid black;
+  padding: 4px 12px;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p {
+  text-align: right;
+  position: relative;
+  bottom: 24px;
+  right: 12px;
+  height: 0;
+  margin: 0;
+  overflow: visible;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul {
+  clear: both;
+  display: flex;
+  font-family: "roboto condensed";
+  font-size: 94%;
+  list-style-type: none;
+  padding: 4px 12px;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li strong,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li strong {
+  font-weight: normal;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li em,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li em {
+  font-style: normal;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li sub,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li sub {
+  vertical-align: baseline;
+  font-size: 100%;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li sup,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li sup {
+  vertical-align: baseline;
+  font-size: 100%;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li s,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li s {
+  text-decoration: none;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li p,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li p {
+  margin: 0;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li p,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li p {
+  color: white;
+  border: 3px solid #dac68a;
+  border-left-width: 4px;
+  border-right-width: 4px;
+  text-transform: uppercase;
+  margin: 0;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li p,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li p {
+  background-color: #58180d;
+  padding: 2px 3px;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li p > strong,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li p > strong {
+  background-color: #576293;
+  padding: 2px 3px;
+  margin: -2px -3px;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li p > em,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li p > em {
+  background-color: #3b7b59;
+  padding: 2px 3px;
+  margin: -2px -3px;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li p > sub,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li p > sub {
+  background-color: #98513d;
+  padding: 2px 3px;
+  margin: -2px -3px;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li p > sup,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li p > sup {
+  background-color: #002664;
+  padding: 2px 3px;
+  margin: -2px -3px;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li p > s,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li p > s {
+  background-color: #54166e;
+  padding: 2px 3px;
+  margin: -2px -3px;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul + blockquote {
+  border: 0;
+  padding: 0 12px 4px 12px;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + blockquote {
+  border: 0;
+  padding: 4px 12px 4px 12px;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote p, .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote p,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul + blockquote p,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + blockquote p {
+  font-family: "roboto condensed";
+  font-style: normal;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote em, .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote em,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul + blockquote em,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + blockquote em {
+  font-style: italic;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote p:has(strong:first-child), .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote p:has(strong:first-child),
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul + blockquote p:has(strong:first-child),
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + blockquote p:has(strong:first-child) {
+  text-indent: -1em;
+  margin-left: 1em;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote p *, .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote p *,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul + blockquote p *,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + blockquote p * {
+  text-indent: 0;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote p:first-child, .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote p:first-child,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul + blockquote p:first-child,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + blockquote p:first-child {
+  margin-top: 0;
+}
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote hr, .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote hr,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + blockquote hr,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul + blockquote hr {
+  border-top: 0;
+  border-bottom: 1px solid black;
+  margin: 0;
+}
+
+.foundry2 .dalvyn-journal:not(.premium),
+.dalvyn-journal.dark-theme:not(.premium),
+.dalvyn-journal:not(.premium) .dark-theme {
+  --red: var(--primary-light);
+  --blue: var(--secondary-light);
+  --brown: #ad6f59;
+  color: var(--color-text-light-heading);
+}
+.foundry2 .dalvyn-journal:not(.premium) tbody,
+.dalvyn-journal.dark-theme:not(.premium) tbody,
+.dalvyn-journal:not(.premium) .dark-theme tbody {
+  color: black;
+}
+.foundry2 .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote),
+.foundry2 .dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote),
+.dalvyn-journal.dark-theme:not(.premium).journal-entry-page .journal-page-content :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote),
+.dalvyn-journal.dark-theme:not(.premium) .journal-entry-page .journal-page-content :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote),
+.dalvyn-journal:not(.premium) .dark-theme.journal-entry-page .journal-page-content :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote),
+.dalvyn-journal:not(.premium) .dark-theme .journal-entry-page .journal-page-content :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote) {
+  color: black;
+}
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-header .title {
+  color: var(--blue) !important;
+  font-family: "Taroca Regular";
+}
+
+/* ----------------------------------------- */
+/* DFCE Rolltype Buttons                     */
+/* ----------------------------------------- */
+#chat-controls {
+  padding: 0px;
+  gap: var(--sidebar-gap);
+}
+#chat-controls .buttons {
+  gap: var(--sidebar-gap);
+  flex-wrap: nowrap;
+}
+
+#dorako-rt-buttons {
+  flex: 1 0 170px;
+}
+
+#dorako-nonrt-buttons {
+  flex: 1 1 30px !important;
+}
+#dorako-nonrt-buttons:empty {
+  display: none;
+}
+#dorako-nonrt-buttons > button {
+  flex: 1 1 32px;
+}
+
+/* ----------------------------------------- */
+/* DFCE Chat Merge                           */
+/* ----------------------------------------- */
+.message.chat-message .message-delete {
+  z-index: 1;
+}
+.message.chat-message.dfce-cm-top {
+  border-bottom-style: none;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 5px;
+}
+.message.chat-message.dfce-cm-middle, .message.chat-message.dfce-cm-bottom {
+  position: relative;
+  border-radius: 0px;
+  margin-top: 0px !important;
+}
+.message.chat-message.dfce-cm-middle .message-content, .message.chat-message.dfce-cm-bottom .message-content {
+  padding-right: 0px;
+}
+.message.chat-message.dfce-cm-middle .sender-wrapper,
+.message.chat-message.dfce-cm-middle .portrait-and-name, .message.chat-message.dfce-cm-bottom .sender-wrapper,
+.message.chat-message.dfce-cm-bottom .portrait-and-name {
+  display: none;
+}
+.message.chat-message.dfce-cm-middle .message-header, .message.chat-message.dfce-cm-bottom .message-header {
+  background: transparent !important;
+  box-shadow: none;
+  margin: 0px;
+  padding: 0px;
+  padding-right: 5px;
+}
+.message.chat-message.dfce-cm-middle .header-meta, .message.chat-message.dfce-cm-bottom .header-meta {
+  display: none;
+}
+.message.chat-message.dfce-cm-middle {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 5px;
+}
+.message.chat-message.dfce-cm-bottom {
+  margin-top: 0px;
+  padding-top: 0px;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.message.chat-message.dorako-ui.dark-theme.dfce-cm-middle .message-delete, .message.chat-message.dorako-ui.dark-theme.dfce-cm-bottom .message-delete {
+  color: white;
+  top: 5px;
+  text-shadow: 0px 0px 1px black;
+}
+
+.dorako-ui.light-theme.dfce-cm-bottom .dorako-header, .dorako-ui.light-theme.dfce-cm-middle .dorako-header {
+  color: black !important;
+  text-shadow: 0px 1px 1px white !important;
+}
+
+.dfce-cm-middle .dorako-header,
+.dfce-cm-bottom .dorako-header {
+  display: none;
+}
+.dfce-cm-middle:hover .dorako-header,
+.dfce-cm-bottom:hover .dorako-header {
+  display: block;
+  position: absolute;
+  right: 5px;
+  top: 3px;
+  width: fit-content;
+  background: none !important;
+  box-shadow: none !important;
+  z-index: 1;
+}
+.dfce-cm-middle:hover .dorako-header .portrait-and-name,
+.dfce-cm-bottom:hover .dorako-header .portrait-and-name {
+  display: none !important;
+}
+
+#chat-controls.no-chat-control-icon .chat-control-icon {
+  display: none;
+}
+
+.dorako-display-none {
+  display: none !important;
+}
+
+.combat-sidebar li.combatant .token-name {
+  z-index: 1;
+}
+
+:root {
+  --controls-margin: 8px;
+}
+
+nav#controls {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  display: flex;
+  align-items: var(--controls-alignment);
+}
+nav#controls ol.control-tools.sub-controls > li,
+nav#controls ol.control-tools.main-controls {
+  margin-right: var(--controls-margin);
+}
+nav#controls ol.control-tools.main-control {
+  margin-right: var(--controls-margin);
+}
+nav#controls ol.control-tools li.control-tool,
+nav#controls ol.control-tools > li {
+  margin-bottom: var(--controls-margin);
+  height: var(--control-size);
+  width: var(--control-size);
+  font-size: calc(var(--control-size) - 12px);
+}
+
+.dorako-ux.sheet.pf2e.actor.npc {
+  --section-background: var(--sheet);
+  --section-header: var(--primary);
+  --section-border-color: var(--tertiary);
+  --section-outline-color: var(--gold-brown);
+  --section-header-text-color: var(--color-light-2);
+  --tag-border-color: var(--alt-dark);
+  --tag-background-color: transparent;
+  --tag-text-color: var(--alt-dark);
+  --color-border-light-highlight: var(--primary);
+  --color-border-light-primary: var(--primary-light);
+  --color-border-light-tertiary: var(--primary);
+  --color-border-light-2: var(--color-light-5);
+  --bg: var(--section-background);
+}
+.dorako-ux.sheet.pf2e.actor.npc .side-bar-section-header {
+  --color-text-dark-input: var(--color-light-2);
+}
+.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form .side-bar-section.initiative select, .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=text], .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=number] {
+  color: var(--color-text-dark-input);
+  border-color: transparent;
+}
+.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form .side-bar-section.initiative select:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form .side-bar-section.initiative select:hover:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=text]:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=text]:hover:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=number]:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=number]:hover:not(disabled) {
+  box-shadow: none;
+  border-color: transparent;
+}
+.dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form .tag-legacy {
+  background: var(--tag-background-color);
+  border-color: var(--tag-border-color);
+  color: var(--tag-text-color);
+}
+.dorako-ux.sheet.pf2e.actor.npc .tags .tag.tag_transparent,
+.dorako-ux.sheet.pf2e.actor.npc .tags .tag option.tag_transparent {
+  background: var(--tag-background-color);
+  border: 1px solid var(--tag-border-color);
+  color: var(--tag-text-color);
+  box-shadow: unset;
+}
+.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form .adjustments {
+  gap: 1px;
+}
+.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form .adjustments .trait {
+  border: 1px solid var(--tertiary);
+  outline: 1px solid var(--gold-brown);
+}
+.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form .sheet-body .entries-list .spellcasting-entry {
+  border: 1px solid var(--section-border-color);
+  outline: 1px solid var(--section-outline-color);
+}
+.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form .sheet-body .entries-list .spellcasting-entry .header {
+  background: var(--section-header);
+  border-bottom: 1px solid var(--section-border-color);
+}
+.dorako-ux.sheet.pf2e.actor.npc .side-bar-section,
+.dorako-ux.sheet.pf2e.actor.npc .section-container {
+  box-shadow: 0px 2px 5px black;
+}
+.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form ol.spell-list, .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form ol.spell-list > li.spell-level-header {
+  border-color: transparent;
+}
+.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form .notes .notes-section > h4 {
+  color: var(--color-text-dark-input);
+}
+.dorako-ux.sheet.pf2e.actor.npc .tox.tox-tinymce .tox-edit-area__iframe {
+  background: white;
+}
+.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form .side-bar-section.initiative a.roll-init {
+  margin-bottom: unset;
+}
+.dorako-ux.sheet.pf2e.actor.npc ol.spell-list > li .item-name .item-image .item-icon {
+  border-radius: 3px;
+}
+.dorako-ux.sheet.pf2e.actor.npc form .sheet-body .tab {
+  padding-top: 2px;
+}
+.dorako-ux.sheet.pf2e.actor.npc form .activity-icon {
+  font-weight: 100;
+}
+.dorako-ux.sheet.pf2e.actor.npc form input.adjustable:not(:focus).adjusted-higher,
+.dorako-ux.sheet.pf2e.actor.npc form span.adjustable.adjusted-higher {
+  color: green !important;
+}
+.dorako-ux.sheet.pf2e.actor.npc form input.adjustable:not(:focus).adjusted-lower,
+.dorako-ux.sheet.pf2e.actor.npc form span.adjustable.adjusted-lower {
+  color: red !important;
+}
+.dorako-ux.sheet.pf2e.actor.npc form .top-sections {
+  gap: 5px;
+}
+.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section {
+  background: var(--section-background);
+  background-size: cover;
+  border: 1px solid var(--section-border-color);
+  outline: 1px solid var(--section-outline-color);
+  border-radius: 3px;
+  margin: 3px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section.initiative select {
+  width: 98%;
+  margin-bottom: 2px;
+}
+.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section .side-bar-section-header {
+  align-items: center;
+  margin-bottom: unset;
+  margin-bottom: 2px;
+  padding-left: 4px;
+}
+.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section .side-bar-section-header.disabled {
+  margin-bottom: unset;
+}
+.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section.collapsed .side-bar-section-header {
+  margin-bottom: unset;
+  border-bottom: unset;
+}
+.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section.collapsed .side-bar-section-header.disabled {
+  margin-bottom: unset;
+}
+.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section.collapsed {
+  max-height: 26px;
+  transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+}
+.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section.collapsed .side-bar-section-header {
+  border-radius: 3px;
+}
+.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section.collapsed:not(.empty):hover {
+  max-height: 1000px;
+  transition: max-height 1s ease-in-out;
+}
+.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section.collapsed:not(.empty):hover .side-bar-section-header {
+  border-radius: 3px 3px 0px 0px;
+  border-bottom: 1px solid var(--section-border-color);
+}
+.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section.collapsed:not(.empty):hover .side-bar-section-content {
+  display: block;
+}
+.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section.collapsed .side-bar-section-content {
+  display: none;
+}
+.dorako-ux.sheet.pf2e.actor.npc form .section-container {
+  padding: 0px;
+  border-radius: 3px;
+  margin: 3px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  background: var(--section-background);
+  border: 1px solid var(--section-border-color);
+  outline: 1px solid var(--section-outline-color);
+  background-size: cover;
+}
+.dorako-ux.sheet.pf2e.actor.npc form .section-container .section-header {
+  background: var(--section-header);
+  border: unset;
+  border-bottom: 1px solid var(--section-border-color);
+  color: var(--section-header-text-color);
+}
+.dorako-ux.sheet.pf2e.actor.npc form .section-container .section-body {
+  border: none;
+  padding: 0;
+  padding: 5px;
+}
+.dorako-ux.sheet.pf2e.actor.npc form .section-container.toggles {
+  outline: none;
+  border-image-repeat: repeat;
+  border-image-slice: 11;
+  border-image-source: var(--ornamentation);
+  border-image-width: 14px;
+  border-style: double;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-left: 0px;
+  font-weight: 500;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  box-shadow: none;
+  background: none;
+  margin: 5px;
+}
+.dorako-ux.sheet.pf2e.actor.npc form .sidebar .image-container {
+  border: none;
+}
+.dorako-ux.sheet.pf2e.actor.npc form .sidebar .saves-section.side-bar-section {
+  display: flex;
+  flex-direction: column;
+}
+.dorako-ux.sheet.pf2e.actor.npc form .sidebar .saves-section.side-bar-section.collapsed {
+  max-height: 10rem;
+}
+.dorako-ux.sheet.pf2e.actor.npc form .sidebar .saves-section.side-bar-section.collapsed:hover {
+  max-height: 1000px;
+}
+.dorako-ux.sheet.pf2e.actor.npc form .sidebar .saves {
+  margin-top: 4px;
+  width: unset;
+}
+.dorako-ux.sheet.pf2e.actor.npc form .sidebar .save-details {
+  font-size: 14px;
+}
+.dorako-ux.sheet.pf2e.actor.npc .side-bar-section-header {
+  background: var(--section-header);
+  border-radius: 3px 3px 0px 0px;
+  color: var(--section-header-text-color);
+  margin-top: 0px;
+  height: 24px;
+  border: unset;
+  border-bottom: 1px solid var(--section-border-color);
+}
+.dorako-ux.sheet.pf2e.actor.npc .side-bar-section-header.disabled {
+  border-radius: 3px;
+}
+.dorako-ux.sheet.pf2e.actor.npc .side-bar-section-header .inventory-section .inventory-list .item .item-image {
+  border: none;
+  margin: 3px 4px 3px 6px;
+}
+.dorako-ux.sheet.pf2e.actor.npc .side-bar-section-header .side-bar .image-container,
+.dorako-ux.sheet.pf2e.actor.npc .side-bar-section-header .actions-options .actions-option {
+  cursor: pointer;
+}
+.dorako-ux.sheet.pf2e.actor.npc .side-bar-section-content {
+  width: 98%;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+#sidebar > .dorako-resize {
+  width: 6px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  cursor: col-resize;
+}
+
+#chat-form {
+  --chatform-height: 100px;
+  flex: 0 0 var(--chatform-height);
+}
+#chat-form > .dorako-resize {
+  width: 100%;
+  height: 4px;
+  position: fixed;
+  cursor: row-resize;
+}
+
+/*# sourceMappingURL=dorako-ux.css.map */

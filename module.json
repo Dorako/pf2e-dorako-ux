@@ -1,0 +1,128 @@
+{
+  "id": "pf2e-dorako-ux",
+  "title": "PF2e Dorako UX",
+  "description": "Tweaks to the Foundry UI.",
+  "url": "https://github.com/Dorako/pf2e-dorako-ux",
+  "authors": [
+    {
+      "name": "Dorako",
+      "url": "https://github.com/Dorako/pf2e-dorako-ux",
+      "email": "dirako@gmail.com",
+      "discord": "Dorako#0657",
+      "flags": {}
+    }
+  ],
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "11"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "pf2e",
+        "type": "system",
+        "compatibility": {
+          "minimum": "4.0.0",
+          "verified": "5.8.3"
+        }
+      },
+      {
+        "id": "swade",
+        "type": "system",
+        "compatibility": {
+          "minimum": "2.2.5",
+          "verified": "2.2.5"
+        }
+      },
+      {
+        "id": "fabulaultima",
+        "type": "system",
+        "compatibility": {
+          "minimum": "0.7.0",
+          "verified": "0.7.0"
+        }
+      }
+    ]
+  },
+  "media": [
+    {
+      "type": "setup",
+      "name": "Setup Screen",
+      "url": "modules/pf2e-dorako-ux/img/hero.webp"
+    }
+  ],
+  "flags": {
+    "hotReload": {
+      "extensions": [".css", ".json"]
+    }
+  },
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "languages/en.json",
+      "flags": {}
+    },
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "languages/fr.json"
+    },
+    {
+      "lang": "de",
+      "name": "Deutsch",
+      "path": "languages/de.json"
+    },
+    {
+      "lang": "pt-BR",
+      "name": "Português",
+      "path": "languages/pt.json"
+    },
+    {
+      "lang": "ja",
+      "name": "日本語",
+      "path": "languages/ja.json"
+    },
+    {
+      "lang": "cn",
+      "name": "中文（简体）",
+      "path": "languages/zh_Hans.json"
+    },
+    {
+      "lang": "zh-tw",
+      "name": "正體中文",
+      "path": "languages/zh-tw.json"
+    },
+    {
+      "lang": "es",
+      "name": "Español",
+      "path": "languages/es.json"
+    },
+    {
+      "lang": "pl",
+      "name": "polski",
+      "path": "languages/pl.json"
+    },
+    {
+      "lang": "it",
+      "name": "Italiano",
+      "path": "languages/it.json"
+    }
+  ],
+  "styles": ["styles/dorako-ux.css"],
+  "esmodules": [
+    "esmodules/settings/settings.js",
+    "esmodules/message-hooks.js",
+    "esmodules/dorako-ux/misc-hooks.js",
+    "esmodules/dorako-ux/customization.js",
+    "esmodules/dorako-ux/npc-sheet.js",
+    "esmodules/dorako-ux/radial-condition-hud.js",
+    "esmodules/dorako-ux/sidebar-resizer.js"
+  ],
+  "changelog": "https://github.com/Dorako/pf2e-dorako-ux/blob/master/CHANGELOG.md",
+  "download": "https://github.com/Dorako/pf2e-dorako-ux/archive/refs/tags/v1.11.3.zip",
+  "manifest": "https://github.com/Dorako/pf2e-dorako-ux/releases/latest/download/module.json",
+  "readme": "https://github.com/Dorako/pf2e-dorako-ux",
+  "bugs": "https://github.com/Dorako/pf2e-dorako-ux/issues"
+}

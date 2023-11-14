@@ -1,0 +1,30 @@
+:root {
+  --controls-margin: 8px;
+}
+
+nav#controls {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  display: flex;
+  align-items: var(--controls-alignment);
+
+  // Fix foundry's inconsistent gaps
+  ol.control-tools.sub-controls > li,
+  ol.control-tools.main-controls {
+    margin-right: var(--controls-margin);
+  }
+
+  ol.control-tools {
+    &.main-control {
+      margin-right: var(--controls-margin);
+    }
+
+    li.control-tool,
+    > li {
+      margin-bottom: var(--controls-margin);
+      height: var(--control-size);
+      width: var(--control-size);
+      font-size: calc(var(--control-size) - 12px);
+    }
+  }
+}

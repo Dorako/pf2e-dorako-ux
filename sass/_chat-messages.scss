@@ -1,0 +1,71 @@
+.message-header {
+  background: none;
+  padding: 5px 5px 0px 5px;
+  margin: -5px -5px -0px -5px;
+  border-radius: 5px 5px 0px 0px;
+  gap: 5px;
+  align-items: center;
+
+  .message-metadata {
+    flex: 2.5;
+  }
+
+  .header-meta {
+    border-radius: 3px;
+    padding: 2px;
+    font-size: x-small;
+    align-self: center;
+    text-align: center;
+    text-shadow: none;
+    white-space: nowrap;
+  }
+
+  .player-name,
+  .message-sender {
+    max-width: 160px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .portrait-and-name {
+    flex-grow: 1;
+    display: flex;
+    flex-basis: 100px;
+    gap: 5px;
+
+    .portrait-wrapper {
+      width: var(--avatar-size);
+      display: flex;
+      flex: none;
+      justify-content: center;
+      align-items: center;
+
+      .portrait {
+        height: var(--avatar-size);
+        object-fit: contain;
+        z-index: 0;
+        border: unset;
+
+        &.actor {
+          border-radius: 3px;
+        }
+      }
+    }
+
+    .sender-wrapper {
+      display: flex;
+      gap: 3px;
+      flex-direction: column;
+      justify-content: left;
+      align-self: center;
+      z-index: 1;
+
+      .message-sender,
+      .player-name {
+        align-self: flex-start;
+        line-height: initial;
+      }
+    }
+  }
+}
