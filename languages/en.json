@@ -1,158 +1,159 @@
 {
   "pf2e-dorako-ux": {
-    "text": {
-      "secret": "Secret",
-      "self-roll": "Self roll",
-      "gm-only": "GM only",
-      "whisper": "Whisper",
-      "from": "From",
-      "to": "to",
-      "send-to-chat": "Send",
-      "default": "Default",
-      "disabled": "Disabled",
-      "large-chatlog-warning": "Due to large chatlog, some settings will apply on next reload.",
-      "maybe-reload": "Some changes might require a reload."
-    },
     "settings": {
-      "reset-changes": "Reset Changes",
-      "avatar": {
-        "name": "Avatar",
-        "label": "Configure Avatar Settings",
-        "hint": "Configure settings related to avatars in chat messages",
-        "source": {
-          "name": "Chat avatars",
-          "hint": "Adds an avatar to chat messages",
-          "choice": {
-            "token": "Prefer token image",
-            "actor": "Prefer actor image"
-          }
-        },
-        "hide-when-token-hidden": {
-          "name": "Hide avatar when token is hidden?",
-          "hint": "Hides avatars when the speaker token is hidden"
-        },
-        "hide-gm-avatar-when-secret": {
-          "name": "Hide avatar when secret?",
-          "hint": "Hides avatars whenever GM rolls secret/private rolls"
-        },
-        "size": {
-          "name": "Size",
-          "hint": "Default of 40px"
-        },
-        "popout-support": {
-          "name": "Enable token avatar popout?",
-          "hint": "Scales the size of token avatars according to the token's scale"
-        },
-        "reacts-to-degree-of-success": {
-          "name": "Avatar reacts to critical rolls?",
-          "hint": "A critical success will glow green, and a critical failure becomes muted and dark"
-        },
-        "small-creature-token-avatar-size": {
-          "name": "Small creature avatar size",
-          "hint": "Default is 0.8"
-        },
-        "use-user-avatar": {
-          "name": "Use user avatar as fallback?",
-          "hint": "Configure user avatars by right-clicking users in the lower left area of Foundry"
-        }
+      "hide-gm-avatar-when-secret": {
+        "hint": "Hides avatars whenever GM rolls secret/private rolls",
+        "name": "Hide avatar when secret?"
       },
-      "moving": {
-        "name": "Moving",
-        "hint": "Settings related to moving stuff to different places, or changing their form",
-        "restructure-card-info": {
-          "name": "Restructure chat card info?",
-          "hint": "Makes action-cost for features more apparent, and moves spell info out of the footer"
-        },
-        "controls-alignment": {
-          "name": "Controls alignment",
-          "hint": "Changes the position of the controls",
-          "choice": {
-            "start": "Top",
-            "center": "Middle",
-            "end": "Bottom"
-          }
-        },
-        "chat-merge": {
-          "name": "Enable chat merge?",
-          "hint": "Merges messages sent in a rapid sequence together to save space"
-        },
-        "adjust-chat-controls": {
-          "name": "Adjust chat controls?",
-          "hint": "Restyles rolltype mode to buttons, and convert other chat controls to buttons"
-        },
-        "adjust-token-effects-hud": {
-          "name": "Adjust token effects HUD?",
-          "hint": "Makes effects circular and arranges them outside the token, or on the token ring for larger tokens"
-        },
-        "animate-messages": {
-          "name": "Animate messages to draw attention to certain events?",
-          "hint": "Makes whispers from players to GM draw more attention"
-        },
-        "compact-ui": {
-          "name": "Enable Compact UI?",
-          "hint": "Resizes controls, and hides inactive controls and navigation elements unless hovered"
-        },
-        "center-hotbar": {
-          "name": "Enable centered hotbar?",
-          "hint": "Also known as macrobar"
-        }
+      "hide-avatar-when-token-hidden": {
+        "hint": "Hides avatars when the speaker token is hidden",
+        "name": "Hide avatar when token is hidden?"
       },
-      "hiding": {
-        "name": "Hiding",
-        "hint": "Settings related to removing or minimizing stuff",
-        "remove-attack-info-from-damage-roll-messages": {
-          "name": "Remove attack info from damage roll messages?",
-          "hint": "Makes damage rolls take up less space by removing redundant hit information. Intended to be used with chat-merge"
-        },
-        "start-sidebar-collapsed": {
-          "name": "Collapse sidebar by default?",
-          "hint": "Uses the collapsed state as the initial state"
-        },
-        "start-navigation-collapsed": {
-          "name": "Collapse navigation by default?",
-          "hint": "Uses the collapsed state as the initial state"
-        },
-        "no-compendium-banner-images": {
-          "name": "Hide compendium banner images?",
-          "hint": "Removes the compendium banner images in the sidebar"
-        },
-        "no-logo": {
-          "name": "Hide Foundry logo?",
-          "hint": "Removes the Foundry logo in the top left"
-        },
-        "no-cards": {
-          "name": "Hide Cards tab?",
-          "hint": "Removes the Cards tab in the sidebar entirely"
-        },
-        "no-chat-control-icon": {
-          "name": "Hide chat control icon?",
-          "hint": "This is the dice icon next to roll options, it tends to crowd the UI"
-        }
+      "popout-support": {
+        "hint": "Scales the size of token avatars according to the token's scale",
+        "name": "Enable token avatar popout?"
       },
-      "other": {
-        "name": "Other",
-        "hint": "Settings that don't fit cleanly into the other categories",
-        "send-to-chat": {
-          "name": "Add 'Send' button to window header?",
-          "hint": "Sends content to chat as if sent via sheet"
+      "avatar-reacts-to-degree-of-success": {
+        "hint": "A critical success will glow green, and a critical failure becomes muted and dark",
+        "name": "Avatar reacts to critical rolls?"
+      },
+      "avatar-size": {
+        "hint": "Default of 40px",
+        "name": "Size"
+      },
+      "small-creature-token-avatar-size": {
+        "hint": "Default is 0.8",
+        "name": "Small creature avatar size"
+      },
+      "avatar-source": {
+        "choice": {
+          "actor": "Prefer actor image",
+          "token": "Prefer token image"
         },
-        "skin-crb-journal": {
-          "name": "Enable CRB styling for journals?",
-          "hint": "Instructions at www.shorturl.at/mrzN1"
+        "hint": "Adds an avatar to chat messages",
+        "name": "Chat avatars"
+      },
+      "use-user-avatar": {
+        "hint": "Configure user avatars by right-clicking users in the lower left area of Foundry",
+        "name": "Use user avatar as fallback?"
+      },
+      "no-cards": {
+        "hint": "Removes the Cards tab in the sidebar entirely",
+        "name": "Hide Cards tab?"
+      },
+      "no-chat-control-icon": {
+        "hint": "This is the dice icon next to roll options, it tends to crowd the UI",
+        "name": "Hide chat control icon?"
+      },
+      "no-compendium-banner-images": {
+        "hint": "Removes the compendium banner images in the sidebar",
+        "name": "Hide compendium banner images?"
+      },
+      "no-logo": {
+        "hint": "Removes the Foundry logo in the top left",
+        "name": "Hide Foundry logo?"
+      },
+      "remove-attack-info-from-damage-roll-messages": {
+        "hint": "Makes damage rolls take up less space by removing redundant hit information. Intended to be used with chat-merge",
+        "name": "Remove attack info from damage roll messages?"
+      },
+      "start-navigation-collapsed": {
+        "hint": "Uses the collapsed state as the initial state",
+        "name": "Collapse navigation by default?"
+      },
+      "start-sidebar-collapsed": {
+        "hint": "Uses the collapsed state as the initial state",
+        "name": "Collapse sidebar by default?"
+      },
+      "adjust-chat-controls": {
+        "hint": "Restyles rolltype mode to buttons, and convert other chat controls to buttons",
+        "name": "Adjust chat controls?"
+      },
+      "adjust-token-effects-hud": {
+        "hint": "Makes effects circular and arranges them outside the token, or on the token ring for larger tokens",
+        "name": "Adjust token effects HUD?"
+      },
+      "animate-messages": {
+        "hint": "Makes whispers from players to GM draw more attention",
+        "name": "Animate messages to draw attention to certain events?"
+      },
+      "center-hotbar": {
+        "hint": "Also known as macrobar",
+        "name": "Enable centered hotbar?"
+      },
+      "chat-merge": {
+        "hint": "Merges messages sent in a rapid sequence together to save space",
+        "name": "Enable chat merge?"
+      },
+      "compact-ui": {
+        "hint": "Resizes controls, and hides inactive controls and navigation elements unless hovered",
+        "name": "Enable Compact UI?"
+      },
+      "controls-alignment": {
+        "choice": {
+          "center": "Middle",
+          "end": "Bottom",
+          "start": "Top"
         },
-        "enable-player-tags": {
-          "name": "Enable player tags?",
-          "hint": "Adds a tag containing the name of the player next to the speaker"
+        "hint": "Changes the position of the controls",
+        "name": "Controls alignment"
+      },
+      "restructure-card-info": {
+        "hint": "Makes action-cost for features more apparent, and moves spell info out of the footer",
+        "name": "Restructure chat card info?"
+      },
+      "control-size": {
+        "hint": "(default: 36px) Changes the size of controls and navigation elements",
+        "name": "Control size"
+      },
+      "enable-player-tags": {
+        "hint": "Adds a tag containing the name of the player next to the speaker",
+        "name": "Enable player tags?"
+      },
+      "enable-rolltype-indication": {
+        "hint": "Adds a tag containing the type of roll to chat messages",
+        "name": "Enable rolltype tag?"
+      },
+      "send-to-chat": {
+        "hint": "Sends content to chat as if sent via sheet",
+        "name": "Add 'Send' button to window header?"
+      },
+      "skin-crb-journal": {
+        "hint": "Instructions at www.shorturl.at/mrzN1",
+        "name": "Enable CRB styling for journals?"
+      },
+      "menu": {
+        "avatar": {
+          "hint": "Configure settings related to avatars in chat messages",
+          "label": "Configure Avatar Settings",
+          "name": "Avatar"
         },
-        "enable-rolltype-indication": {
-          "name": "Enable rolltype tag?",
-          "hint": "Adds a tag containing the type of roll to chat messages"
+        "hiding": {
+          "hint": "Settings related to removing or minimizing stuff",
+          "name": "Hiding"
         },
-        "control-size": {
-          "name": "Control size",
-          "hint": "(default: 36px) Changes the size of controls and navigation elements"
+        "moving": {
+          "hint": "Settings related to moving stuff to different places, or changing their form",
+          "name": "Moving"
+        },
+        "other": {
+          "hint": "Settings that don't fit cleanly into the other categories",
+          "name": "Other"
         }
       }
+    },
+    "text": {
+      "default": "Default",
+      "disabled": "Disabled",
+      "from": "From",
+      "gm-only": "GM only",
+      "large-chatlog-warning": "Due to large chatlog, some settings will apply on next reload.",
+      "maybe-reload": "Some changes might require a reload.",
+      "secret": "Secret",
+      "self-roll": "Self roll",
+      "send-to-chat": "Send",
+      "to": "to",
+      "whisper": "Whisper"
     }
   }
 }

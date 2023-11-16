@@ -16,8 +16,8 @@ export class OtherSettings extends SettingsMenuDorakoUX {
   static get settings() {
     return {
       "send-to-chat": {
-        name: "pf2e-dorako-ux.settings.other.send-to-chat.name",
-        hint: "pf2e-dorako-ux.settings.other.send-to-chat.hint",
+        name: "pf2e-dorako-ux.setting.send-to-chat.name",
+        hint: "pf2e-dorako-ux.settings.send-to-chat.hint",
         scope: "world",
         config: true,
         default: true,
@@ -25,8 +25,8 @@ export class OtherSettings extends SettingsMenuDorakoUX {
         requiresReload: false,
       },
       "skin-crb-journal": {
-        name: "pf2e-dorako-ux.settings.other.skin-crb-journal.name",
-        hint: "pf2e-dorako-ux.settings.other.skin-crb-journal.hint",
+        name: "pf2e-dorako-ux.settings.skin-crb-journal.name",
+        hint: "pf2e-dorako-ux.settings.skin-crb-journal.hint",
         scope: "world",
         type: Boolean,
         default: false,
@@ -34,8 +34,8 @@ export class OtherSettings extends SettingsMenuDorakoUX {
         requiresReload: false,
       },
       "control-size": {
-        name: "pf2e-dorako-ux.settings.other.control-size.name",
-        hint: "pf2e-dorako-ux.settings.other.control-size.hint",
+        name: "pf2e-dorako-ux.settings.control-size.name",
+        hint: "pf2e-dorako-ux.settings.control-size.hint",
         scope: "client",
         type: Number,
         default: 36,
@@ -52,8 +52,8 @@ export class OtherSettings extends SettingsMenuDorakoUX {
         },
       },
       "enable-player-tags": {
-        name: "pf2e-dorako-ux.settings.other.enable-player-tags.name",
-        hint: "pf2e-dorako-ux.settings.other.enable-player-tags.hint",
+        name: "pf2e-dorako-ux.settings.enable-player-tags.name",
+        hint: "pf2e-dorako-ux.settings.enable-player-tags.hint",
         scope: "client",
         config: true,
         default: true,
@@ -67,8 +67,8 @@ export class OtherSettings extends SettingsMenuDorakoUX {
         },
       },
       "enable-rolltype-indication": {
-        name: "pf2e-dorako-ux.settings.other.enable-rolltype-indication.name",
-        hint: "pf2e-dorako-ux.settings.other.enable-rolltype-indication.hint",
+        name: "pf2e-dorako-ux.settings.enable-rolltype-indication.name",
+        hint: "pf2e-dorako-ux.settings.enable-rolltype-indication.hint",
         scope: "client",
         type: Boolean,
         default: true,

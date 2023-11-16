@@ -1,260 +1,151 @@
 {
   "pf2e-dorako-ux": {
+    "settings": {
+      "menu": {
+        "avatar": {
+          "hint": "Configurazione delle impostazioni relative agli avatar nei messaggi di chat",
+          "label": "Configura Impostazioni Avatar",
+          "name": "Impostazioni Avatar"
+        }
+      },
+      "hide-gm-avatar-when-secret": {
+        "hint": "Nasconde gli avatar ogni volta che il GM effettua tiri segreti/privati",
+        "name": "Nascondere l'avatar quando è segreto?"
+      },
+      "hide-avatar-when-token-hidden": {
+        "hint": "Nasconde gli avatar quando il token di chi parla è nascosto",
+        "name": "Nascondere l'avatar quando il token è nascosto?"
+      },
+      "popout-support": {
+        "hint": "Ridimensiona i token degli avatar in base alla scala del token",
+        "name": "Abilitare il pop-out del token dell'avatar?"
+      },
+      "avatar-reacts-to-degree-of-success": {
+        "hint": "Un successo critico illuminerà di verde, mentre un fallimento critico farà diventare muto e scuro",
+        "name": "L'avatar reagisce ai tiri critici?"
+      },
+      "avatar-size": {
+        "hint": "Predefinito di 40px",
+        "name": "Taglia"
+      },
+      "small-creature-token-avatar-size": {
+        "hint": "Il predefinito è 0.8",
+        "name": "Dimensione avatar creatura di taglia piccola"
+      },
+      "avatar-source": {
+        "choice": {
+          "actor": "Preferire l'immagine dell'attore",
+          "token": "Preferire l'immagine del token"
+        },
+        "hint": "Aggiunge un avatar ai messaggi di chat",
+        "name": "Avatar per la chat"
+      },
+      "use-user-avatar": {
+        "hint": "Configurare gli avatar dell'utente facendo clic con il tasto destro sulla lista utenti nell'area in basso a sinistra di Foundry",
+        "name": "Usare l'avatar dell'utente come soluzione alternativa?"
+      },
+      "send-to-chat": {
+        "hint": "Invia il contenuto alla chat come se fosse stato inviato tramite una scheda",
+        "name": "Aggiungere il pulsante 'Invia' all'intestazione della finestra?"
+      },
+      "skin-crb-journal": {
+        "hint": "Istruzioni su www.shorturl.at/mrzN1",
+        "name": "Attivare lo stile CRB per i diari?"
+      },
+      "adjust-chat-controls": {
+        "hint": "(Sperimentale) Converte la modalità rolltype in pulsanti e cambia anche altri controlli della chat in pulsanti",
+        "name": "Regolare i controlli della chat?"
+      },
+      "adjust-token-effects-hud": {
+        "hint": "Rende gli effetti circolari e li dispone all'esterno del token, o sull'anello del token per i token più grandi",
+        "name": "Regolare gli effetti dell'HUD dei token?"
+      },
+      "animate-messages": {
+        "hint": "Fa sì che i sussurri dei giocatori al GM attirino maggiormente l'attenzione",
+        "name": "Animare i messaggi per attirare l'attenzione su determinati eventi?"
+      },
+      "border-radius": {
+        "hint": "(predefinito: 3px) Modifica il grado di arrotondamento di molti elementi dell'interfaccia utente",
+        "name": "Arrotondamento"
+      },
+      "center-hotbar": {
+        "hint": "Conosciuta anche come barra delle macro",
+        "name": "Abilitare la barra di scelta rapida centrata?"
+      },
+      "chat-merge": {
+        "hint": "(Sperimentale) Unisce i messaggi inviati in rapida sequenza per risparmiare spazio",
+        "name": "Attivare l'unione delle chat?"
+      },
+      "compact-ui": {
+        "hint": "Ridimensiona i controlli e nasconde quelli inattivi assieme agli elementi di navigazione, a meno che non ci si sposti sopra col mouse",
+        "name": "Attivare l'interfaccia utente compatta?"
+      },
+      "control-size": {
+        "hint": "(predefinito: 36px) Modifica le dimensioni dei controlli e degli elementi di navigazione",
+        "name": "Dimensione controllo"
+      },
+      "controls-alignment": {
+        "choice": {
+          "center": "Centro",
+          "end": "Fondo",
+          "start": "Alto"
+        },
+        "hint": "Cambia la posizione dei controlli",
+        "name": "Allineamento controlli"
+      },
+      "enable-player-tags": {
+        "hint": "Aggiunge un tag contenente il nome del giocatore accanto a chi parla",
+        "name": "Abilitare le etichette dei giocatori?"
+      },
+      "enable-rolltype-indication": {
+        "hint": "Aggiunge un tag contenente il tipo di tiro ai messaggi di chat",
+        "name": "Abilitare il tag del tipo di tiro?"
+      },
+      "no-cards": {
+        "hint": "Rimuove completamente la scheda Carte dalla barra laterale",
+        "name": "Nascondere la scheda Carte?"
+      },
+      "no-chat-control-icon": {
+        "hint": "Questa è l'icona dei dadi accanto alle opzioni di lancio, tende ad affollare l'interfaccia utente",
+        "name": "Nascondere l'icona di controllo della chat?"
+      },
+      "no-compendium-banner-images": {
+        "hint": "Rimuove le immagini del banner del compendio nella barra laterale",
+        "name": "Nascondere le immagini del banner del compendio?"
+      },
+      "no-logo": {
+        "hint": "Rimuove il logo Foundry in alto a sinistra",
+        "name": "Nascondere il logo di Foundry?"
+      },
+      "remove-attack-info-from-damage-roll-messages": {
+        "hint": "Rende i tiri per i danni meno ingombranti, eliminando le informazioni ridondanti sui colpi. Da usare assieme al chat-merge",
+        "name": "Rimuovere le informazioni sull'attacco dai messaggi sui tiri per i danni?"
+      },
+      "restructure-card-info": {
+        "hint": "Rende più evidenti i costi delle azioni per le caratteristiche e sposta le informazioni sugli incantesimi dal piè di pagina",
+        "name": "Ristrutturare le informazioni della scheda di chat?"
+      },
+      "start-navigation-collapsed": {
+        "hint": "Utilizza lo stato compattato come stato iniziale",
+        "name": "Compattare la navigazione per impostazione predefinita?"
+      },
+      "start-sidebar-collapsed": {
+        "hint": "Utilizza lo stato collassato come stato iniziale",
+        "name": "Collassare la barra laterale per impostazione predefinita?"
+      }
+    },
     "text": {
-      "self-roll": "Tiro personale",
-      "gm-only": "Solo GM",
-      "whisper": "Sussurro",
-      "from": "Da",
-      "to": "a",
-      "send-to-chat": "Invia",
       "default": "Predefinito",
-      "dark": "Scuro",
-      "light": "Chiaro",
       "disabled": "Disabilitato",
+      "from": "Da",
+      "gm-only": "Solo GM",
+      "large-chatlog-warning": "A causa della lunga storia della chat, alcune impostazioni verranno applicate al prossimo caricamento.",
       "maybe-reload": "Alcune modifiche potrebbero richiedere un ricaricamento.",
       "secret": "Segreto",
-      "large-chatlog-warning": "A causa della lunga storia della chat, alcune impostazioni verranno applicate al prossimo caricamento."
-    },
-    "settings": {
-      "reset-changes": "Ripristina Modifiche",
-      "theme": {
-        "name": "Impostazioni Tema",
-        "label": "Configura Impostazioni Tema",
-        "application-theme": {
-          "name": "Tema applicazione",
-          "hint": "Influisce sulle finestre delle applicazioni renderizzate",
-          "choice": {
-            "no-theme": "Nessun tema",
-            "light-theme": "Interfaccia Dorako Chiara",
-            "dark-theme": "Interfaccia Dorako Scura",
-            "foundry2-theme": "Foundry 2"
-          }
-        },
-        "frosted-glass": {
-          "name": "Usa il vetro smerigliato",
-          "hint": "ATTENZIONE: prestazioni molto intense. Esempio: luminosità(1.5) contrasto(1.2) saturazione(1.5) sfocatura(5px)"
-        },
-        "glass-bg": {
-          "name": "Utilizzare uno sfondo di vetro alternativo",
-          "hint": "Dovrebbe funzionare un qualsiasi colore valido anche in CSS"
-        },
-        "npc-sheet-theme": {
-          "name": "Tema della scheda attore",
-          "hint": "Regola lo stile delle schede dei PNG/Pericoli/Famigli",
-          "choice": {
-            "default": "Interfaccia Dorako Predefinita",
-            "glassy": "(Sperimentale) Vetroso"
-          }
-        },
-        "chat-theme": {
-          "name": "Tema della chat",
-          "hint": "Impatta tutti i messaggi di chat",
-          "choice": {
-            "factions": "Giocatori chiaro, GM scuro",
-            "foundry2": "Foundry 2"
-          }
-        },
-        "hint": "Cambia impostazioni tema per varie applicazioni ed elementi dell'interfaccia utente",
-        "pc-sheet-theme": {
-          "name": "Tema scheda PG",
-          "hint": "Impatta le schede dei PG e dei veicoli",
-          "choice": {
-            "red": "Rosso Originale",
-            "green": "Verde Rimasterizzazione",
-            "blue": "Blu Classico"
-          }
-        },
-        "loot-sheet-theme": {
-          "name": "Tema della scheda del bottino",
-          "hint": "Impatta le schede del bottino"
-        },
-        "familiar-sheet-theme": {
-          "name": "Tema della scheda famiglio",
-          "hint": "Impatta le schede dei famigli",
-          "choice": {
-            "dark-red-header": "Intestazione Scura + Rossa"
-          }
-        },
-        "header-style": {
-          "name": "Tema dell'intestazione dei messaggi di chat",
-          "choice": {
-            "blue": "Blu",
-            "green": "Verde",
-            "tint": "Colore del giocatore",
-            "none": "Disabilitato",
-            "red": "Rosso"
-          },
-          "hint": "Aggiunge un'intestazione colorata ad ogni messaggio di chat"
-        },
-        "enable-dark-theme-journals": {
-          "name": "Attivare il tema scuro per i Diari?",
-          "hint": "Non influisce sui diari dei moduli premium"
-        }
-      },
-      "avatar": {
-        "name": "Impostazioni Avatar",
-        "label": "Configura Impostazioni Avatar",
-        "hint": "Configurazione delle impostazioni relative agli avatar nei messaggi di chat",
-        "source": {
-          "name": "Avatar per la chat",
-          "hint": "Aggiunge un avatar ai messaggi di chat",
-          "choice": {
-            "token": "Preferire l'immagine del token",
-            "actor": "Preferire l'immagine dell'attore"
-          }
-        },
-        "hide-when-token-hidden": {
-          "hint": "Nasconde gli avatar quando il token di chi parla è nascosto",
-          "name": "Nascondere l'avatar quando il token è nascosto?"
-        },
-        "hide-gm-avatar-when-secret": {
-          "name": "Nascondere l'avatar quando è segreto?",
-          "hint": "Nasconde gli avatar ogni volta che il GM effettua tiri segreti/privati"
-        },
-        "size": {
-          "name": "Taglia",
-          "hint": "Predefinito di 40px"
-        },
-        "popout-support": {
-          "hint": "Ridimensiona i token degli avatar in base alla scala del token",
-          "name": "Abilitare il pop-out del token dell'avatar?"
-        },
-        "reacts-to-degree-of-success": {
-          "name": "L'avatar reagisce ai tiri critici?",
-          "hint": "Un successo critico illuminerà di verde, mentre un fallimento critico farà diventare muto e scuro"
-        },
-        "small-creature-token-avatar-size": {
-          "name": "Dimensione avatar creatura di taglia piccola",
-          "hint": "Il predefinito è 0.8"
-        },
-        "use-user-avatar": {
-          "name": "Usare l'avatar dell'utente come soluzione alternativa?",
-          "hint": "Configurare gli avatar dell'utente facendo clic con il tasto destro sulla lista utenti nell'area in basso a sinistra di Foundry"
-        }
-      },
-      "ux": {
-        "name": "Impostazioni Esperienza Utente",
-        "label": "Configura Impostazioni Esperienza Utente",
-        "hint": "Configurare le impostazioni relative a mostrare, nascondere, rendere l'interfaccia utente meno ostruente o più chiara, spostare le cose in posizioni differenti",
-        "restructure-card-info": {
-          "name": "Ristrutturare le informazioni della scheda di chat?",
-          "hint": "Rende più evidenti i costi delle azioni per le caratteristiche e sposta le informazioni sugli incantesimi dal piè di pagina"
-        },
-        "border-radius": {
-          "name": "Arrotondamento",
-          "hint": "(predefinito: 3px) Modifica il grado di arrotondamento di molti elementi dell'interfaccia utente"
-        },
-        "control-size": {
-          "name": "Dimensione controllo",
-          "hint": "(predefinito: 36px) Modifica le dimensioni dei controlli e degli elementi di navigazione"
-        },
-        "controls-alignment": {
-          "name": "Allineamento controlli",
-          "hint": "Cambia la posizione dei controlli",
-          "choice": {
-            "start": "Alto",
-            "center": "Centro",
-            "end": "Fondo"
-          }
-        },
-        "chat-merge": {
-          "name": "Attivare l'unione delle chat?",
-          "hint": "(Sperimentale) Unisce i messaggi inviati in rapida sequenza per risparmiare spazio"
-        },
-        "adjust-chat-controls": {
-          "name": "Regolare i controlli della chat?",
-          "hint": "(Sperimentale) Converte la modalità rolltype in pulsanti e cambia anche altri controlli della chat in pulsanti"
-        },
-        "adjust-token-effects-hud": {
-          "name": "Regolare gli effetti dell'HUD dei token?",
-          "hint": "Rende gli effetti circolari e li dispone all'esterno del token, o sull'anello del token per i token più grandi"
-        },
-        "remove-attack-info-from-damage-roll-messages": {
-          "name": "Rimuovere le informazioni sull'attacco dai messaggi sui tiri per i danni?",
-          "hint": "Rende i tiri per i danni meno ingombranti, eliminando le informazioni ridondanti sui colpi. Da usare assieme al chat-merge"
-        },
-        "animate-messages": {
-          "name": "Animare i messaggi per attirare l'attenzione su determinati eventi?",
-          "hint": "Fa sì che i sussurri dei giocatori al GM attirino maggiormente l'attenzione"
-        },
-        "compact-ui": {
-          "name": "Attivare l'interfaccia utente compatta?",
-          "hint": "Ridimensiona i controlli e nasconde quelli inattivi assieme agli elementi di navigazione, a meno che non ci si sposti sopra col mouse"
-        },
-        "start-sidebar-collapsed": {
-          "name": "Collassare la barra laterale per impostazione predefinita?",
-          "hint": "Utilizza lo stato collassato come stato iniziale"
-        },
-        "start-navigation-collapsed": {
-          "hint": "Utilizza lo stato compattato come stato iniziale",
-          "name": "Compattare la navigazione per impostazione predefinita?"
-        },
-        "no-compendium-banner-images": {
-          "name": "Nascondere le immagini del banner del compendio?",
-          "hint": "Rimuove le immagini del banner del compendio nella barra laterale"
-        },
-        "no-logo": {
-          "name": "Nascondere il logo di Foundry?",
-          "hint": "Rimuove il logo Foundry in alto a sinistra"
-        },
-        "no-cards": {
-          "name": "Nascondere la scheda Carte?",
-          "hint": "Rimuove completamente la scheda Carte dalla barra laterale"
-        },
-        "no-chat-control-icon": {
-          "name": "Nascondere l'icona di controllo della chat?",
-          "hint": "Questa è l'icona dei dadi accanto alle opzioni di lancio, tende ad affollare l'interfaccia utente"
-        },
-        "center-hotbar": {
-          "name": "Abilitare la barra di scelta rapida centrata?",
-          "hint": "Conosciuta anche come barra delle macro"
-        },
-        "enable-player-tags": {
-          "name": "Abilitare le etichette dei giocatori?",
-          "hint": "Aggiunge un tag contenente il nome del giocatore accanto a chi parla"
-        },
-        "enable-rolltype-indication": {
-          "name": "Abilitare il tag del tipo di tiro?",
-          "hint": "Aggiunge un tag contenente il tipo di tiro ai messaggi di chat"
-        }
-      },
-      "misc": {
-        "name": "Impostazioni Varie",
-        "label": "Configurare le Impostazioni Varie",
-        "hint": "Configurare le impostazioni relative ad altre funzionalità di Dorako UI",
-        "enable-debug-mode": {
-          "name": "Abilitare la modalità di debug?",
-          "hint": "Aggiunge pulsanti per attivare lo stile dorako-ui e tema scuro per le finestre"
-        },
-        "send-to-chat": {
-          "name": "Aggiungere il pulsante 'Invia' all'intestazione della finestra?",
-          "hint": "Invia il contenuto alla chat come se fosse stato inviato tramite una scheda"
-        },
-        "skin-crb-journal": {
-          "name": "Attivare lo stile CRB per i diari?",
-          "hint": "Istruzioni su www.shorturl.at/mrzN1"
-        }
-      },
-      "customization": {
-        "name": "Personalizzazione",
-        "hint": "Apportare modifiche personalizzate utilizzando CSS personalizzati o escludere determinati stili di Dorako UI",
-        "excluded-applications": {
-          "name": "Applicazioni escluse",
-          "hint": "Cercate nei log il nome dell'Applicazione o chiedete su Discord"
-        },
-        "custom-css": {
-          "name": "CSS personalizzato",
-          "hint": "Scrivere il CSS in un editor esterno e incollarlo qui"
-        }
-      },
-      "external-module": {
-        "name": "Impostazioni Modulo Esterno",
-        "hint": "Aggiustamenti su come gli altri moduli sono influenzati da Dorako UI",
-        "colorize-idle-hud": {
-          "name": "Colorare il tooltip dei Token Interattivi di PF2e?",
-          "hint": "Applica un tema colorato alle icone del tooltip principale"
-        }
-      }
+      "self-roll": "Tiro personale",
+      "send-to-chat": "Invia",
+      "to": "a",
+      "whisper": "Sussurro"
     }
   }
 }

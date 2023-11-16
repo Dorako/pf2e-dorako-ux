@@ -18,8 +18,8 @@ export class HidingSettings extends SettingsMenuDorakoUX {
   static get settings() {
     return {
       "restructure-card-info": {
-        name: "pf2e-dorako-ux.settings.hiding.restructure-card-info.name",
-        hint: "pf2e-dorako-ux.settings.hiding.restructure-card-info.hint",
+        name: "pf2e-dorako-ux.settings.restructure-card-info.name",
+        hint: "pf2e-dorako-ux.settings.restructure-card-info.hint",
         scope: "world",
         type: Boolean,
         default: true,
@@ -33,8 +33,8 @@ export class HidingSettings extends SettingsMenuDorakoUX {
         },
       },
       "remove-attack-info-from-damage-roll-messages": {
-        name: "pf2e-dorako-ux.settings.hiding.remove-attack-info-from-damage-roll-messages.name",
-        hint: "pf2e-dorako-ux.settings.hiding.remove-attack-info-from-damage-roll-messages.hint",
+        name: "pf2e-dorako-ux.settings.remove-attack-info-from-damage-roll-messages.name",
+        hint: "pf2e-dorako-ux.settings.remove-attack-info-from-damage-roll-messages.hint",
         scope: "world",
         type: Boolean,
         default: true,
@@ -48,8 +48,8 @@ export class HidingSettings extends SettingsMenuDorakoUX {
         },
       },
       "start-sidebar-collapsed": {
-        name: "pf2e-dorako-ux.settings.hiding.start-sidebar-collapsed.name",
-        hint: "pf2e-dorako-ux.settings.hiding.start-sidebar-collapsed.hint",
+        name: "pf2e-dorako-ux.settings.start-sidebar-collapsed.name",
+        hint: "pf2e-dorako-ux.settings.start-sidebar-collapsed.hint",
         scope: "client",
         config: true,
         default: false,
@@ -57,8 +57,8 @@ export class HidingSettings extends SettingsMenuDorakoUX {
         requiresReload: false,
       },
       "start-navigation-collapsed": {
-        name: "pf2e-dorako-ux.settings.hiding.start-navigation-collapsed.name",
-        hint: "pf2e-dorako-ux.settings.hiding.start-navigation-collapsed.hint",
+        name: "pf2e-dorako-ux.settings.start-navigation-collapsed.name",
+        hint: "pf2e-dorako-ux.settings.start-navigation-collapsed.hint",
         scope: "client",
         config: true,
         default: false,
@@ -66,8 +66,8 @@ export class HidingSettings extends SettingsMenuDorakoUX {
         requiresReload: false,
       },
       "no-compendium-banner-images": {
-        name: "pf2e-dorako-ux.settings.hiding.no-compendium-banner-images.name",
-        hint: "pf2e-dorako-ux.settings.hiding.no-compendium-banner-images.hint",
+        name: "pf2e-dorako-ux.settings.no-compendium-banner-images.name",
+        hint: "pf2e-dorako-ux.settings.no-compendium-banner-images.hint",
         scope: "client",
         config: true,
         default: false,
@@ -78,8 +78,8 @@ export class HidingSettings extends SettingsMenuDorakoUX {
         },
       },
       "no-logo": {
-        name: "pf2e-dorako-ux.settings.hiding.no-logo.name",
-        hint: "pf2e-dorako-ux.settings.hiding.no-logo.hint",
+        name: "pf2e-dorako-ux.settings.no-logo.name",
+        hint: "pf2e-dorako-ux.settings.no-logo.hint",
         scope: "client",
         config: true,
         default: true,
@@ -94,8 +94,8 @@ export class HidingSettings extends SettingsMenuDorakoUX {
         },
       },
       "no-chat-control-icon": {
-        name: "pf2e-dorako-ux.settings.hiding.no-chat-control-icon.name",
-        hint: "pf2e-dorako-ux.settings.hiding.no-chat-control-icon.hint",
+        name: "pf2e-dorako-ux.settings.no-chat-control-icon.name",
+        hint: "pf2e-dorako-ux.settings.no-chat-control-icon.hint",
         scope: "client",
         config: true,
         default: true,
@@ -110,8 +110,8 @@ export class HidingSettings extends SettingsMenuDorakoUX {
         },
       },
       "no-cards": {
-        name: "pf2e-dorako-ux.settings.hiding.no-cards.name",
-        hint: "pf2e-dorako-ux.settings.hiding.no-cards.hint",
+        name: "pf2e-dorako-ux.settings.no-cards.name",
+        hint: "pf2e-dorako-ux.settings.no-cards.hint",
         scope: "client",
         config: true,
         default: false,

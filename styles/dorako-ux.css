@@ -1,16 +1,16 @@
 @charset "UTF-8";
-.message-header {
+.chat-message .message-header {
   background: none;
   padding: 5px 5px 0px 5px;
-  margin: -5px -5px 0px -5px;
+  margin: -5px -5px 5px -5px;
   border-radius: 5px 5px 0px 0px;
   gap: 5px;
   align-items: center;
 }
-.message-header .message-metadata {
+.chat-message .message-header .message-metadata {
   flex: 2.5;
 }
-.message-header .header-meta {
+.chat-message .message-header .header-meta {
   border-radius: 3px;
   padding: 2px;
   font-size: x-small;
@@ -18,37 +18,38 @@
   text-align: center;
   text-shadow: none;
   white-space: nowrap;
+  border: 1px solid;
 }
-.message-header .player-name,
-.message-header .message-sender {
+.chat-message .message-header .player-name,
+.chat-message .message-header .message-sender {
   max-width: 160px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 }
-.message-header .portrait-and-name {
+.chat-message .message-header .portrait-and-name {
   flex-grow: 1;
   display: flex;
   flex-basis: 100px;
   gap: 5px;
 }
-.message-header .portrait-and-name .portrait-wrapper {
+.chat-message .message-header .portrait-and-name .portrait-wrapper {
   width: var(--avatar-size);
   display: flex;
   flex: none;
   justify-content: center;
   align-items: center;
 }
-.message-header .portrait-and-name .portrait-wrapper .portrait {
+.chat-message .message-header .portrait-and-name .portrait-wrapper .portrait {
   height: var(--avatar-size);
   object-fit: contain;
   z-index: 0;
   border: unset;
 }
-.message-header .portrait-and-name .portrait-wrapper .portrait.actor {
+.chat-message .message-header .portrait-and-name .portrait-wrapper .portrait.actor {
   border-radius: 3px;
 }
-.message-header .portrait-and-name .sender-wrapper {
+.chat-message .message-header .portrait-and-name .sender-wrapper {
   display: flex;
   gap: 3px;
   flex-direction: column;
@@ -56,8 +57,8 @@
   align-self: center;
   z-index: 1;
 }
-.message-header .portrait-and-name .sender-wrapper .message-sender,
-.message-header .portrait-and-name .sender-wrapper .player-name {
+.chat-message .message-header .portrait-and-name .sender-wrapper .message-sender,
+.chat-message .message-header .portrait-and-name .sender-wrapper .player-name {
   align-self: flex-start;
   line-height: initial;
 }
@@ -446,6 +447,11 @@ body.compact-ui #players:hover {
 #dorako-rt-buttons {
   flex: 1 0 170px;
 }
+#dorako-rt-buttons button.active {
+  color: var(--color-text-light-highlight);
+  background-color: var(--color-border-highlight);
+  border: 1px solid var(--color-border-highlight-alt);
+}
 
 #dorako-nonrt-buttons {
   flex: 1 1 30px !important;
@@ -498,6 +504,7 @@ body.compact-ui #players:hover {
   margin-bottom: 0px;
   padding-top: 0px;
   padding-bottom: 5px;
+  border-bottom: none;
 }
 .message.chat-message.dfce-cm-bottom {
   margin-top: 0px;
@@ -505,23 +512,12 @@ body.compact-ui #players:hover {
   border-radius: 0px 0px 5px 5px;
 }
 
-.message.chat-message.dorako-ui.dark-theme.dfce-cm-middle .message-delete, .message.chat-message.dorako-ui.dark-theme.dfce-cm-bottom .message-delete {
-  color: white;
-  top: 5px;
-  text-shadow: 0px 0px 1px black;
-}
-
-.dorako-ui.light-theme.dfce-cm-bottom .dorako-header, .dorako-ui.light-theme.dfce-cm-middle .dorako-header {
-  color: black !important;
-  text-shadow: 0px 1px 1px white !important;
-}
-
-.dfce-cm-middle .dorako-header,
-.dfce-cm-bottom .dorako-header {
+.dfce-cm-middle .message-header,
+.dfce-cm-bottom .message-header {
   display: none;
 }
-.dfce-cm-middle:hover .dorako-header,
-.dfce-cm-bottom:hover .dorako-header {
+.dfce-cm-middle:hover .message-header,
+.dfce-cm-bottom:hover .message-header {
   display: block;
   position: absolute;
   right: 5px;
@@ -531,8 +527,8 @@ body.compact-ui #players:hover {
   box-shadow: none !important;
   z-index: 1;
 }
-.dfce-cm-middle:hover .dorako-header .portrait-and-name,
-.dfce-cm-bottom:hover .dorako-header .portrait-and-name {
+.dfce-cm-middle:hover .message-header .portrait-and-name,
+.dfce-cm-bottom:hover .message-header .portrait-and-name {
   display: none !important;
 }
 
@@ -544,8 +540,12 @@ body.compact-ui #players:hover {
   display: none !important;
 }
 
-.combat-sidebar li.combatant .token-name {
-  z-index: 1;
+.dorako-damage-roll .flavor-text > *:nth-child(-n+3) {
+  display: none;
+}
+
+.dorako-damage-roll .flavor-text > hr {
+  border-color: transparent;
 }
 
 :root {
@@ -571,6 +571,10 @@ nav#controls ol.control-tools > li {
   height: var(--control-size);
   width: var(--control-size);
   font-size: calc(var(--control-size) - 12px);
+}
+
+.combat-sidebar li.combatant .token-name {
+  z-index: 1;
 }
 
 .dorako-ux.sheet.pf2e.actor.npc {

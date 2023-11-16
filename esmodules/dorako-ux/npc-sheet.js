@@ -1,9 +1,4 @@
 Hooks.on("renderNPCSheetPF2e", (app, html, data) => {
-  const theme = game.settings.get("pf2e-dorako-ux", "theme.application-theme");
-  if (theme === "no-theme") {
-    console.debug(`${MODULE_NAME} | render${app.constructor.name} | theme: ${theme} => do not add .dorako-ux`);
-    return;
-  }
   const acDetails = app.object.attributes.ac.details;
   const collapseAc = acDetails === "";
   const hpDetails = app.object.attributes.hp.details;

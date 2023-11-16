@@ -13,6 +13,11 @@
 
 #dorako-rt-buttons {
   flex: 1 0 170px;
+  button.active {
+    color: var(--color-text-light-highlight);
+    background-color: var(--color-border-highlight);
+    border: 1px solid var(--color-border-highlight-alt);
+  }
 }
 
 #dorako-nonrt-buttons {
@@ -85,6 +90,7 @@
     margin-bottom: 0px;
     padding-top: 0px;
     padding-bottom: 5px;
+    border-bottom: none;
   }
 
   &.dfce-cm-bottom {
@@ -94,32 +100,13 @@
   }
 }
 
-.message.chat-message.dorako-ui.dark-theme {
-  &.dfce-cm-middle .message-delete,
-  &.dfce-cm-bottom .message-delete {
-    color: white;
-    top: 5px;
-    text-shadow: 0px 0px 1px black;
-  }
-}
-
-.dorako-ui.light-theme {
-  &.dfce-cm-bottom,
-  &.dfce-cm-middle {
-    .dorako-header {
-      color: black !important;
-      text-shadow: 0px 1px 1px white !important;
-    }
-  }
-}
-
 .dfce-cm-middle,
 .dfce-cm-bottom {
-  .dorako-header {
+  .message-header {
     display: none;
   }
   &:hover {
-    .dorako-header {
+    .message-header {
       display: block;
       position: absolute;
       right: 5px;

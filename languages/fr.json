@@ -1,413 +1,170 @@
 {
-  "dorako-ui.settings.pc-sheet-theme.choice.red": "Défaut",
-  "dorako-ui.settings.familiar-sheet-theme.name": "Thème de la feuille de familier",
-  "dorako-ui.settings.familiar-sheet-theme.choice.red": "Rouge",
-  "dorako-ui.settings.familiar-sheet-theme.choice.dark": "Sombre",
-  "dorako-ui.settings.familiar-sheet-theme.choice.dark-red-header": "Sombre + Titre rouge",
-  "dorako-ui.settings.chat-theme.name": "Thème de la conversation",
-  "dorako-ui.settings.chat-theme.choice.light": "Lumineux",
-  "dorako-ui.settings.chat-theme.choice.dark": "Sombre",
-  "dorako-ui.settings.chat-theme.choice.factions": "Joueurs lumineux, MJ sombre",
-  "dorako-ui.settings.header-style.name": "Style des titres",
-  "dorako-ui.settings.header-style.choice.red": "Rouge",
-  "dorako-ui.settings.header-style.choice.tint": "Couleur du joueur",
-  "dorako-ui.settings.header-style.choice.none": "Désactivé",
-  "dorako-ui.settings.use-avatars.name": "Style d'avatar",
-  "dorako-ui.settings.use-avatars.hint": "Ajoute un avatar aux messages de conversation",
-  "dorako-ui.settings.use-avatars.choice.token": "Préférence image du jeton",
-  "dorako-ui.settings.use-avatars.choice.none": "Désactivé",
-  "dorako-ui.settings.hide-gm-avatar-when-secret.name": "Cacher l'avatar sur jet secret ?",
-  "dorako-ui.settings.hide-gm-avatar-when-secret.hint": "Cache les avatars lorsque le MJ lance un test privé/secret",
-  "dorako-ui.settings.hide-avatar-when-hidden.hint": "Cache l'avatar lorsque le jeton qui parle est caché",
-  "dorako-ui.settings.avatar-size.name": "Taille de l'avatar",
-  "dorako-ui.settings.avatar-size.hint": "Taille suggérée de 40px",
-  "dorako-ui.settings.popout-token-avatars.name": "Activer le surgissement de l'avatar du jeton ?",
-  "dorako-ui.settings.avatar-reacts-to-degree-of-success.name": "L'avatar réagit aux jets critiques",
-  "dorako-ui.settings.avatar-reacts-to-degree-of-success.hint": "A succès critique va briller en vert alors qu'un échec critique sera assombri",
-  "dorako-ui.settings.small-creature-token-avatar-size.name": "Taille de l'avatar d'une créature Petite",
-  "dorako-ui.settings.small-creature-token-avatar-size.hint": "Défaut est de 0.8",
-  "dorako-ui.settings.use-user-avatar.name": "Utiliser l'avatar de l'utilisateur comme solution de repli ?",
-  "dorako-ui.settings.avatar-border.name": "Activer la bordure de l'avatar",
-  "dorako-ui.settings.avatar-border.hint": "Désactiver ce réglage si vous utilisez les avatars des jeton qui ressortent de l'assise des jetons",
-  "dorako-ui.settings.chat-input-height.name": "Hauteur de la fenêtre de conversation",
-  "dorako-ui.settings.enable-player-tags.name": "Activer les balises des joueurs ?",
-  "dorako-ui.settings.enable-player-tags.hint": "Ajoute une balise contenant le nom du joueur à côté de celui qui parle",
-  "dorako-ui.settings.rolltype-indication.name": "mode indiquant le type de jet",
-  "dorako-ui.settings.rolltype-indication.hint": "Les jets secrets sont teintés en rose et les murmures en bleu",
-  "dorako-ui.settings.rolltype-indication.choice.tags": "Balises",
-  "dorako-ui.settings.rolltype-indication.choice.both": "Balises et couleur de fond",
-  "dorako-ui.settings.rolltype-indication.choice.none": "Désactivé",
-  "dorako-ui.settings.compact-ui.name": "Activer l'IU compacte ?",
-  "dorako-ui.settings.compact-ui.hint": "Redimensionne les contrôles et cache les contrôles inactifs et les éléments de navigation à moins d'un survol",
-  "dorako-ui.settings.no-logo.name": "Cacher le logo Foundry ?",
-  "dorako-ui.settings.no-logo.hint": "Retire le logo Foundry en haut à gauche",
-  "dorako-ui.settings.backdrop-filter.name": "Utilise la transparence",
-  "dorako-ui.settings.backdrop-filter.hint": "ATTENTION : mode très intensif, pas recommandé pour les portables",
-  "dorako-ui.settings.center-hotbar.name": "Activer la barre d'outils centrée ?",
-  "dorako-ui.settings.edge-offset.name": "Décalage des bords",
-  "dorako-ui.settings.edge-offset.hint": "Décalage des bords de l'écran en pixels",
-  "dorako-ui.settings.skin-chat.name": "Thème de la conversation ?",
-  "dorako-ui.settings.skin-navigation.name": "Thème de la navigation de scène ?",
-  "dorako-ui.settings.skin-hotbar.name": "Thème de la barre d'outils ?",
-  "dorako-ui.settings.skin-controls.name": "Thème des contrôles de la scène ?",
-  "dorako-ui.settings.skin-token-hud.name": "Thème du HUD des jetons ?",
-  "dorako-ui.settings.skin-effect-panel.name": "Thème du panneau des effets ?",
-  "dorako-ui.settings.skin-sidebar.name": "Thème de la barre latérale ?",
-  "dorako-ui.settings.skin-app-ui.name": "Thème de l'app IU ?",
-  "dorako-ui.settings.skin-combat-tracker.name": "Thème du compteur de combat ?",
-  "dorako-ui.settings.skin-token-action-hud.name": "Thème du module Token action HUD ?",
-  "dorako-ui.settings.skin-window-controls.name": "Thème du module Window controls ?",
-  "dorako-ui.settings.skin-combat-carousel.name": "Thème du module Combat carousel ?",
-  "dorako-ui.settings.skin-dice-tray.name": "Thème du module Dice Tray ?",
-  "dorako-ui.text.secret": "Secret",
-  "dorako-ui.text.self-roll": "Jet privé",
-  "dorako-ui.text.gm-only": "MJ seulement",
-  "dorako-ui.text.whisper": "Murmure",
-  "dorako-ui.text.from": "De",
-  "dorako-ui.text.to": "vers",
-  "dorako-ui.settings.pc-sheet-theme.name": "Thème feuille de PJ",
-  "dorako-ui.settings.pc-sheet-theme.choice.dark": "Sombre",
-  "dorako-ui.settings.header-style.choice.blue": "Bleu",
-  "dorako-ui.settings.use-avatars.choice.actor": "Préférence image de l'acteur",
-  "dorako-ui.settings.hide-avatar-when-hidden.name": "Cacher l'avatar lorsque le jeton est caché ?",
-  "dorako-ui.settings.popout-token-avatars.hint": "Mettre à l'échelle les avatars des tokens style BB/AV pour normaliser la taille de l'assise du jeton",
-  "dorako-ui.settings.use-user-avatar.hint": "Configurer les avatars des utilisateurs en faisant un Clic-droit sur les utilisateurs dans la zone inférieure gauche de Foundry",
-  "dorako-ui.settings.skin-custom-hotbar.name": "Thème du module Custom Hotbar ?",
-  "dorako-ui.settings.rolltype-indication.choice.bg-color": "Teinte de couleur de fond",
-  "dorako-ui.settings.header-style.hint": "Affecte tous les messages de la conversation",
-  "dorako-ui.settings.send-to-chat.hint": "Envoie le contenu dans la conversation somme s'il était envoyé par la feuille",
-  "dorako-ui.settings.center-hotbar.hint": "Aussi appelée barre des macros",
-  "dorako-ui.settings.pc-sheet-theme.hint": "Affecte les feuilles des joueurs",
-  "dorako-ui.settings.familiar-sheet-theme.hint": "Affecte les feuilles de familier",
-  "dorako-ui.settings.chat-theme.hint": "Affecte tous les messages de la conversation",
-  "dorako-ui.settings.chat-input-height.hint": "Par défaut Foundry est d'env 100 px",
-  "dorako-ui.settings.send-to-chat.name": "Ajouter un bouton 'Envoi' au titre de la fenêtre ?",
-  "dorako-ui.settings.skin-crb-journal.name": "Activer le style du LdB dans les journaux ?",
-  "dorako-ui.settings.skin-crb-journal.hint": "Instructions ici www.shorturl.at/mrzN1",
-  "dorako-ui.text.send-to-chat": "Envoi",
-  "dorako-ui.settings.skin-simple-calendar.name": "Thème du module simple calendar ?",
-  "dorako-ui.settings.skin-simple-calendar.hint": "Activer le thème 'classique\" de Simple Calendar",
-  "dorako-ui.settings.restructure-card-info.name": "Restructurer les infos sur les cartes de conversation ?",
-  "dorako-ui.settings.restructure-card-info.hint": "Rend plus visible le coût des actions pour les capacités et déplace les info des sorts en dehors du pied de la carte",
-  "dorako-ui.settings.combine-attack-and-damage-roll-messages.name": "Combiner les messages de jets d'attaque et de dégât ?",
-  "dorako-ui.settings.combine-attack-and-damage-roll-messages.hint": "Les messages de jets de dégâts prennent moins de place en les combinant visuellement à ceux d'attaque",
-  "dorako-ui.settings.skin-token-action-hud.hint": "Activer 'UI Dorako' dans Token Action Hud.",
-  "dorako-ui.settings.remove-attack-info-from-damage-roll-messages.name": "Retirer les infos de l'attaque des messages de jets de dégâts ?",
-  "dorako-ui.settings.remove-attack-info-from-damage-roll-messages.hint": "Permet aux jets de dégâts de prendre moins de place en retirant les informations redondantes. Conçu pour être utilisé avec la fusion dans la conversation DFCE.",
-  "dorako-ui.settings.no-chat-control-icon.name": "Cacher l'icone de contrôle de la conversation ?",
-  "dorako-ui.settings.no-chat-control-icon.hint": "C'est l'icône de dé à côté des options de lancer qui tend à encombrer l'IU.",
-  "dorako-ui.settings.chat-input-height.CGMPhint": "La valeur par défaut de Foundry est d'environ 100px ; Notez qu'avec le paramètre \"Notifier la frappe\" du Cautious Gamemaster's Pack, la notification occupe au maximum 60px de la hauteur de la boîte de dialogue",
-  "dorako-ui.settings.npc-sheet-theme.name": "Thème de la feuille de PNJ",
-  "dorako-ui.settings.npc-sheet-theme.hint": "Affecte les feuille de PNJ",
-  "dorako-ui.settings.npc-sheet-theme.choice.default": "Par défaut",
-  "dorako-ui.settings.npc-sheet-theme.choice.light": "Clair",
-  "dorako-ui.settings.npc-sheet-theme.choice.dark": "Sombre",
-  "dorako-ui.settings.loot-sheet-theme.name": "Thème de la feuille de butin",
-  "dorako-ui.settings.loot-sheet-theme.hint": "Affecte la feuille de butin",
-  "dorako-ui.settings.loot-sheet-theme.choice.default": "Par défaut",
-  "dorako-ui.settings.loot-sheet-theme.choice.light": "Clair",
-  "dorako-ui.settings.loot-sheet-theme.choice.dark": "Sombre",
-  "dorako-ui.settings.app-sheet-theme.name": "Thème de la feuille de l'appli",
-  "dorako-ui.settings.app-sheet-theme.hint": "Affecte divers aspects de la feuille comme Filepicker et Tokenconfig",
-  "dorako-ui.settings.app-sheet-theme.choice.default": "Par défaut",
-  "dorako-ui.settings.app-sheet-theme.choice.light": "Clair",
-  "dorako-ui.settings.app-sheet-theme.choice.dark": "Sombre",
-  "dorako-ui.settings.dialog-sheet-theme.hint": "Affecte *tous* les dialogues, incluant éventuellement ceux qui ne sont pas supportés",
-  "dorako-ui.settings.dialog-sheet-theme.choice.light": "Clair",
-  "dorako-ui.settings.dialog-sheet-theme.choice.default": "Par défaut",
-  "dorako-ui.settings.dialog-sheet-theme.choice.dark": "Sombre",
-  "dorako-ui.settings.dialog-sheet-theme.name": "thème du dialogue de la feuille",
-  "dorako-ui.text.default": "Par défaut",
-  "dorako-ui.text.dark": "Sombre",
-  "dorako-ui.text.light": "Clair",
-  "dorako-ui.settings.glass-bg.hint": "toute couleur CSS valide devrait fonctionner",
-  "dorako-ui.settings.frosted-glass.name": "Utiliser le verre glacé",
-  "dorako-ui.settings.frosted-glass.hint": "ATTENTION : très gourmand en performance. Exemple : brillance (1.5) contraste (1.2) saturation (1.5) flou (5px)",
-  "dorako-ui.settings.glass-bg.name": "Utiliser comme alternative un fond en verre",
   "pf2e-dorako-ux": {
-    "text": {
-      "self-roll": "Jet privé",
-      "gm-only": "MJ seulement",
-      "from": "De",
-      "to": "à",
-      "default": "Par défaut",
-      "dark": "Sombre",
-      "light": "Clair",
-      "disabled": "Désactivé",
-      "secret": "Secret",
-      "whisper": "Murmure",
-      "send-to-chat": "Envoyé",
-      "large-chatlog-warning": "En raison de la taille du journal de la conversation, certains paramètres s'appliqueront lors du prochain rechargement.",
-      "maybe-reload": "Certains changements pourraient nécessiter un rechargement."
-    },
     "settings": {
-      "theme": {
-        "label": "Configurer les réglages du thème",
-        "dark-theme-degree": {
-          "choice": {
-            "none": "Aucune application",
-            "supported": "Toutes les bonnes applications connues",
-            "extended": "Toutes les bonnes applications connues et toutes les boîtes de dialogue",
-            "maximum": "Tout, même les choses potentiellement problématiques"
-          },
-          "name": "Utilisez le thème sombre pour…",
-          "hint": "Diminuez le degré du thème sombre si vous rencontrez des problèmes d'interface utilisateur"
-        },
-        "glass-bg": {
-          "name": "Utiliser une alternative de fond en verre",
-          "hint": "Toute couleur CSS valide devrait fonctionner"
-        },
-        "npc-sheet-theme": {
-          "name": "Thème de la feuille d'acteur",
-          "hint": "Ajuste le style des feuilles de PNJ/Danger/Familier",
-          "choice": {
-            "default": "Dorako UI par défaut",
-            "glassy": "(Expérimental) Vitreux"
-          }
-        },
-        "chat-theme": {
-          "name": "Thème de la conversation",
-          "hint": "Affecte tous les messages de la conversation",
-          "choice": {
-            "factions": "Joueurs en clair, MJ en sombre",
-            "foundry2": "Foundry 2"
-          }
-        },
-        "pc-sheet-theme": {
-          "name": "Thème de la feuille de PJ",
-          "hint": "Affecte les feuilles des PJ et des véhicules",
-          "choice": {
-            "green": "Vert du remaster",
-            "blue": "Bleu classique",
-            "red": "Rouge originel"
-          }
-        },
-        "loot-sheet-theme": {
-          "name": "Thème des feuilles de butin",
-          "hint": "Affecte les feuilles de butin"
-        },
-        "familiar-sheet-theme": {
-          "name": "Thème des feuilles de familier",
-          "hint": "Affecte les feuilles de familier",
-          "choice": {
-            "dark-red-header": "Sombre + titre rouge"
-          }
-        },
-        "header-style": {
-          "name": "Thème de titre de message de conversation",
-          "hint": "Ajoute un titre coloré à chaque message de conversation",
-          "choice": {
-            "red": "Rouge",
-            "blue": "Bleu",
-            "tint": "Couleur du joueur",
-            "none": "Désactivé",
-            "green": "Vert"
-          }
-        },
-        "name": "Réglages du thème",
-        "hint": "Modifier les paramètres du thème pour diverses applications et éléments de l'interface utilisateur",
-        "frosted-glass": {
-          "name": "Utilisez le verre dépoli",
-          "hint": "AVERTISSEMENT : Très gourmand en performances. Exemple : brightness(1.5) contrast(1.2) saturate(1.5) blur(5px)"
-        },
-        "application-theme": {
-          "hint": "Affecte les fenêtres d'application rendues",
-          "choice": {
-            "no-theme": "Pas de thème",
-            "light-theme": "Dorako UI clair",
-            "dark-theme": "Dorako UI sombre",
-            "foundry2-theme": "Foundry 2"
-          },
-          "name": "Thème de l'application"
-        },
-        "enable-dark-theme-journals": {
-          "name": "Activer le thème sombre dans les journaux ?",
-          "hint": "N'affecte par les modules de journaux premium"
+      "menu": {
+        "avatar": {
+          "hint": "Configurer les paramètres relatifs aux avatars dans les messages de la conversation",
+          "label": "Configurer les paramètres de l'avatar",
+          "name": "Paramètres de l'avatar"
         }
       },
-      "avatar": {
-        "name": "Paramètres de l'avatar",
-        "hint": "Configurer les paramètres relatifs aux avatars dans les messages de la conversation",
-        "source": {
-          "name": "Avatars de conversation",
-          "choice": {
-            "token": "Préférer l'image du jeton",
-            "actor": "Préférer l'image de l'acteur"
-          },
-          "hint": "Ajoute un avatar aux messages de la conversation"
-        },
-        "hide-when-token-hidden": {
-          "hint": "Cacher les avatars lorsque le jeton de l'orateur est caché",
-          "name": "Cacher l'avatar lorsque le jeton est caché ?"
-        },
-        "hide-gm-avatar-when-secret": {
-          "name": "Cacher l'avatar sur jet secret ?",
-          "hint": "Cache les avatars lorsque le MJ effectue des jets secrets/privés"
-        },
-        "size": {
-          "name": "Taille",
-          "hint": "Valeur par défaut de 40px"
-        },
-        "popout-support": {
-          "name": "Activer le débord de l'avatar du jeton ?",
-          "hint": "Met à l'échelle la taille des avatars des jetons en fonction de l'échelle du jeton"
-        },
-        "reacts-to-degree-of-success": {
-          "name": "L'avatar réagit aux jets critiques ?",
-          "hint": "Un succès critique brillera en vert et un échec critique sera assombri"
-        },
-        "small-creature-token-avatar-size": {
-          "name": "Taille de l'avatar des créatures Petites",
-          "hint": "Par défaut, il est de 0.8"
-        },
-        "use-user-avatar": {
-          "name": "Utiliser l'avatar de l'utilisateur comme solution de repli ?",
-          "hint": "Configurez les avatars de l'utilisateur en cliquant avec le bouton droit sur les utilisateurs dans la zone inférieure gauche de Foundry"
-        },
-        "label": "Configurer les paramètres de l'avatar"
+      "hide-gm-avatar-when-secret": {
+        "hint": "Cache les avatars lorsque le MJ effectue des jets secrets/privés",
+        "name": "Cacher l'avatar sur jet secret ?"
       },
-      "ux": {
-        "name": "Paramètres UX",
-        "label": "Configurer les paramètres de l'UX",
-        "chat-input-height": {
-          "hint": "Par défaut, Foundry la fixe à ~100 px",
-          "name": "Hauteur de la fenêtre de conversation",
-          "CGMPhint": "La valeur par défaut de Foundry est d'environ 100px ; notez qu'avec le paramètre \"Notify Typing\" du Pack du maître de jeu prudent, la notification occupe au maximum 60px de la hauteur de la fenêtre de la conversation"
-        },
-        "restructure-card-info": {
-          "name": "Restructurer les infos sur les cartes de la conversation ?",
-          "hint": "Rend le coût des actions des capacités plus évidente et déplace les informations sur les sorts hors du pied de la carte"
-        },
-        "remove-attack-info-from-damage-roll-messages": {
-          "name": "Retirer les infos de l'attaque des messages de jets de dégâts ?",
-          "hint": "Les jets de dégâts prennent moins de place en retirant les informations du coup redondantes. Destiné à être utilisé avec fusion dans la conversation"
-        },
-        "compact-ui": {
-          "name": "Activer l'interface utilisateur compacte ?",
-          "hint": "Redimensionne les contrôles et masque les contrôles inactifs et les éléments de navigation sauf au survol"
-        },
-        "no-logo": {
-          "name": "Cacher le logo de Foundry ?",
-          "hint": "Retire le logo Foundry en haut à gauche"
-        },
-        "no-cards": {
-          "name": "Cacher l'onglet Cartes ?",
-          "hint": "Supprime entièrement l'onglet Cartes de la barre latérale"
-        },
-        "no-chat-control-icon": {
-          "name": "Cacher l'icône de contrôle de la conversation ?",
-          "hint": "C'est l'icône dé à côté des options de lancé qui a tendance à encombrer l'interface utilisateur"
-        },
-        "center-hotbar": {
-          "name": "Activer la barre de raccourcis centrée ?",
-          "hint": "Aussi connue sous le nom de barre des macros"
-        },
-        "rolltype-indication": {
-          "name": "Mode d'indication de type de jet de dé",
-          "hint": "Configurer les avatars de l'utilisateur en cliquant avec le bouton droit sur les utilisateurs dans la zone inférieure gauche de Foundry",
-          "choice": {
-            "tags": "Balises",
-            "bg-color": "Teinte de couleur de fond",
-            "both": "Balises et couleur de fond",
-            "none": "Désactivé"
-          }
-        },
-        "hint": "Configurer les paramètres liés à l'affichage, à la dissimulation, à la réduction de l'obstruction ou à la clarification de l'interface utilisateur, au déplacement des éléments vers différents endroits",
-        "enable-player-tags": {
-          "hint": "Ajoute une balise contenant le nom du joueur à côté de l'orateur",
-          "name": "Activer les balises des joueurs ?"
-        },
-        "start-sidebar-collapsed": {
-          "name": "Réduire la barre latérale par défaut ?",
-          "hint": "Utilise l'état réduit au lancement"
-        },
-        "start-navigation-collapsed": {
-          "name": "Réduire la navigation par défaut ?",
-          "hint": "Utilise l'état réduit au lancement"
-        },
-        "animate-messages": {
-          "name": "Animer des messages pour attirer l'attention sur certains événements ?",
-          "hint": "Les chuchotements des joueurs au MJ attirent davantage l'attention"
-        },
-        "adjust-token-effects-hud": {
-          "name": "Ajuster les effets du HUD sur les jetons ?",
-          "hint": "Place les effets en cercle et les arrange à l'extérieur du jeton ou sur le pourtour du jetons pour les jetons plus grands"
-        },
-        "no-compendium-banner-images": {
-          "hint": "Enlève les images des bannières de compendium dans la barre latérale",
-          "name": "Cacher les bannières d'image des compendium ?"
-        },
-        "enable-rolltype-indication": {
-          "name": "Activer la balise type de jet ?",
-          "hint": "Ajoute une balise contenant le type de jet des messages de la conversation"
-        },
-        "chat-merge": {
-          "hint": "(Expérimental) Fusionne les messages envoyés en une seule séquence rapide pour économiser de l'espace",
-          "name": "Activer la fusion de la conversation ?"
-        },
-        "adjust-chat-controls": {
-          "name": "Ajuster les contrôles de la conversation ?",
-          "hint": "(Expérimental) Restyle le mode rolltype en bouton et convertit les autres contrôles de la conversation en boutons"
-        },
-        "border-radius": {
-          "hint": "(par défaut : 3px) Modifie le degré d'arrondi de nombreux éléments de l'interface utilisateur",
-          "name": "Arrondi"
-        },
-        "control-size": {
-          "hint": "(par défaut : 36px) Modifie la taille des contrôles et des éléments de navigation",
-          "name": "Taille des contrôles"
-        },
-        "controls-alignment": {
-          "name": "Alignement des contrôles",
-          "hint": "Modifie la position des contrôles",
-          "choice": {
-            "center": "Au milieu",
-            "end": "En bas",
-            "start": "En haut"
-          }
-        }
+      "hide-avatar-when-token-hidden": {
+        "hint": "Cacher les avatars lorsque le jeton de l'orateur est caché",
+        "name": "Cacher l'avatar lorsque le jeton est caché ?"
       },
-      "misc": {
-        "name": "Paramètres divers",
-        "label": "Configurer les paramètres divers",
-        "send-to-chat": {
-          "name": "Ajouter un bouton \"Envoyer\" au titre de la fenêtre ?",
-          "hint": "Envoie le contenu dans la conversation si c'est envoyé à partir de la feuille"
-        },
-        "skin-crb-journal": {
-          "name": "Activer le style du LdB dans les journaux ?",
-          "hint": "Instructions sur www.shorturl.at/mrzN1"
-        },
-        "hint": "Configurer les paramètres liés à d'autres fonctionnalités de l'interface utilisateur Dorako",
-        "skin-combat-carousel": {
-          "name": "Activer le style pour le carrousel de combat ?"
-        },
-        "enable-debug-mode": {
-          "name": "Activer le mode débogage ?",
-          "hint": "Ajoute des boutons pour activer les styles dorako-ui et sombre pour les fenêtres"
-        }
+      "popout-support": {
+        "hint": "Met à l'échelle la taille des avatars des jetons en fonction de l'échelle du jeton",
+        "name": "Activer le débord de l'avatar du jeton ?"
       },
-      "reset-changes": "Réinitialiser les changements",
-      "customization": {
-        "name": "Personnalisation",
-        "excluded-applications": {
-          "name": "Applications exclues",
-          "hint": "Regardez dans les journaux pour le nom de l'application ou demandez sur Discord"
-        },
-        "custom-css": {
-          "name": "CSS personnalisé",
-          "hint": "Écrivez du CSS dans un éditeur extérieur et copiez le ici"
-        },
-        "hint": "Faites des changements personnalisés en utilisant un CSS personnalisé ou en retirant certains styles de Dorako UI"
+      "avatar-reacts-to-degree-of-success": {
+        "hint": "Un succès critique brillera en vert et un échec critique sera assombri",
+        "name": "L'avatar réagit aux jets critiques ?"
       },
-      "external-module": {
-        "name": "Réglages du module externe",
-        "hint": "Ajustements concernant la manière dont les autres modules sont affectés par Dorako UI",
-        "colorize-idle-hud": {
-          "name": "Coloriser PF2e Interactive Token Tooltip ?",
-          "hint": "Applique un thème coloré aux icônes de l'infobulle principale"
-        }
+      "avatar-size": {
+        "hint": "Valeur par défaut de 40px",
+        "name": "Taille"
+      },
+      "small-creature-token-avatar-size": {
+        "hint": "Par défaut, il est de 0.8",
+        "name": "Taille de l'avatar des créatures Petites"
+      },
+      "avatar-source": {
+        "choice": {
+          "actor": "Préférer l'image de l'acteur",
+          "token": "Préférer l'image du jeton"
+        },
+        "hint": "Ajoute un avatar aux messages de la conversation",
+        "name": "Avatars de conversation"
+      },
+      "use-user-avatar": {
+        "hint": "Configurez les avatars de l'utilisateur en cliquant avec le bouton droit sur les utilisateurs dans la zone inférieure gauche de Foundry",
+        "name": "Utiliser l'avatar de l'utilisateur comme solution de repli ?"
+      },
+      "enable-debug-mode": {
+        "hint": "Ajoute des boutons pour activer les styles dorako-ui et sombre pour les fenêtres",
+        "name": "Activer le mode débogage ?"
+      },
+      "send-to-chat": {
+        "hint": "Envoie le contenu dans la conversation si c'est envoyé à partir de la feuille",
+        "name": "Ajouter un bouton \"Envoyer\" au titre de la fenêtre ?"
+      },
+      "skin-crb-journal": {
+        "hint": "Instructions sur www.shorturl.at/mrzN1",
+        "name": "Activer le style du LdB dans les journaux ?"
+      },
+      "adjust-chat-controls": {
+        "hint": "(Expérimental) Restyle le mode rolltype en bouton et convertit les autres contrôles de la conversation en boutons",
+        "name": "Ajuster les contrôles de la conversation ?"
+      },
+      "adjust-token-effects-hud": {
+        "hint": "Place les effets en cercle et les arrange à l'extérieur du jeton ou sur le pourtour du jetons pour les jetons plus grands",
+        "name": "Ajuster les effets du HUD sur les jetons ?"
+      },
+      "animate-messages": {
+        "hint": "Les chuchotements des joueurs au MJ attirent davantage l'attention",
+        "name": "Animer des messages pour attirer l'attention sur certains événements ?"
+      },
+      "border-radius": {
+        "hint": "(par défaut : 3px) Modifie le degré d'arrondi de nombreux éléments de l'interface utilisateur",
+        "name": "Arrondi"
+      },
+      "center-hotbar": {
+        "hint": "Aussi connue sous le nom de barre des macros",
+        "name": "Activer la barre de raccourcis centrée ?"
+      },
+      "chat-input-height": {
+        "CGMPhint": "La valeur par défaut de Foundry est d'environ 100px ; notez qu'avec le paramètre \"Notify Typing\" du Pack du maître de jeu prudent, la notification occupe au maximum 60px de la hauteur de la fenêtre de la conversation",
+        "hint": "Par défaut, Foundry la fixe à ~100 px",
+        "name": "Hauteur de la fenêtre de conversation"
+      },
+      "chat-merge": {
+        "hint": "(Expérimental) Fusionne les messages envoyés en une seule séquence rapide pour économiser de l'espace",
+        "name": "Activer la fusion de la conversation ?"
+      },
+      "compact-ui": {
+        "hint": "Redimensionne les contrôles et masque les contrôles inactifs et les éléments de navigation sauf au survol",
+        "name": "Activer l'interface utilisateur compacte ?"
+      },
+      "control-size": {
+        "hint": "(par défaut : 36px) Modifie la taille des contrôles et des éléments de navigation",
+        "name": "Taille des contrôles"
+      },
+      "controls-alignment": {
+        "choice": {
+          "center": "Au milieu",
+          "end": "En bas",
+          "start": "En haut"
+        },
+        "hint": "Modifie la position des contrôles",
+        "name": "Alignement des contrôles"
+      },
+      "enable-player-tags": {
+        "hint": "Ajoute une balise contenant le nom du joueur à côté de l'orateur",
+        "name": "Activer les balises des joueurs ?"
+      },
+      "enable-rolltype-indication": {
+        "hint": "Ajoute une balise contenant le type de jet des messages de la conversation",
+        "name": "Activer la balise type de jet ?"
+      },
+      "no-cards": {
+        "hint": "Supprime entièrement l'onglet Cartes de la barre latérale",
+        "name": "Cacher l'onglet Cartes ?"
+      },
+      "no-chat-control-icon": {
+        "hint": "C'est l'icône dé à côté des options de lancé qui a tendance à encombrer l'interface utilisateur",
+        "name": "Cacher l'icône de contrôle de la conversation ?"
+      },
+      "no-compendium-banner-images": {
+        "hint": "Enlève les images des bannières de compendium dans la barre latérale",
+        "name": "Cacher les bannières d'image des compendium ?"
+      },
+      "no-logo": {
+        "hint": "Retire le logo Foundry en haut à gauche",
+        "name": "Cacher le logo de Foundry ?"
+      },
+      "remove-attack-info-from-damage-roll-messages": {
+        "hint": "Les jets de dégâts prennent moins de place en retirant les informations du coup redondantes. Destiné à être utilisé avec fusion dans la conversation",
+        "name": "Retirer les infos de l'attaque des messages de jets de dégâts ?"
+      },
+      "restructure-card-info": {
+        "hint": "Rend le coût des actions des capacités plus évidente et déplace les informations sur les sorts hors du pied de la carte",
+        "name": "Restructurer les infos sur les cartes de la conversation ?"
+      },
+      "rolltype-indication": {
+        "choice": {
+          "bg-color": "Teinte de couleur de fond",
+          "both": "Balises et couleur de fond",
+          "none": "Désactivé",
+          "tags": "Balises"
+        },
+        "hint": "Configurer les avatars de l'utilisateur en cliquant avec le bouton droit sur les utilisateurs dans la zone inférieure gauche de Foundry",
+        "name": "Mode d'indication de type de jet de dé"
+      },
+      "start-navigation-collapsed": {
+        "hint": "Utilise l'état réduit au lancement",
+        "name": "Réduire la navigation par défaut ?"
+      },
+      "start-sidebar-collapsed": {
+        "hint": "Utilise l'état réduit au lancement",
+        "name": "Réduire la barre latérale par défaut ?"
       }
+    },
+    "text": {
+      "default": "Par défaut",
+      "disabled": "Désactivé",
+      "from": "De",
+      "gm-only": "MJ seulement",
+      "large-chatlog-warning": "En raison de la taille du journal de la conversation, certains paramètres s'appliqueront lors du prochain rechargement.",
+      "maybe-reload": "Certains changements pourraient nécessiter un rechargement.",
+      "secret": "Secret",
+      "self-roll": "Jet privé",
+      "send-to-chat": "Envoyé",
+      "to": "à",
+      "whisper": "Murmure"
     }
   }
 }
