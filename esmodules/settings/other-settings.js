@@ -16,7 +16,7 @@ export class OtherSettings extends SettingsMenuDorakoUX {
   static get settings() {
     return {
       "send-to-chat": {
-        name: "pf2e-dorako-ux.setting.send-to-chat.name",
+        name: "pf2e-dorako-ux.settings.send-to-chat.name",
         hint: "pf2e-dorako-ux.settings.send-to-chat.hint",
         scope: "world",
         config: true,

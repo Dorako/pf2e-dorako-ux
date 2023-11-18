@@ -8,7 +8,7 @@
   align-items: center;
 }
 .chat-message .message-header .message-metadata {
-  flex: 2.5;
+  flex: 4;
 }
 .chat-message .message-header .header-meta {
   border-radius: 3px;
@@ -502,13 +502,13 @@ body.compact-ui #players:hover {
 .message.chat-message.dfce-cm-middle {
   margin-top: 0px;
   margin-bottom: 0px;
-  padding-top: 0px;
+  padding-top: 5px;
   padding-bottom: 5px;
   border-bottom: none;
 }
 .message.chat-message.dfce-cm-bottom {
   margin-top: 0px;
-  padding-top: 0px;
+  padding-top: 5px;
   border-radius: 0px 0px 5px 5px;
 }
 
