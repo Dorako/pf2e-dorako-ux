@@ -106,6 +106,10 @@
         "hint": "(default: 36px) Changes the size of controls and navigation elements",
         "name": "Control size"
       },
+      "sidebar-tab-size": {
+        "hint": "(default: 22px) Changes the size of sidebar tab icons",
+        "name": "Sidebar tab size"
+      },
       "enable-player-tags": {
         "hint": "Adds a tag containing the name of the player next to the speaker",
         "name": "Enable player tags?"

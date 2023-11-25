@@ -1,3 +1,7 @@
+# 1.1.1
+
+- (Fix) Added missing localization string for new feature.
+
 # 1.1.0
 
 - (New) New setting to change the size of the sidebar tab icons. If you increase the size, you might have to hide some icons, or increase the width of the sidebar.
