@@ -577,6 +577,15 @@ nav#controls ol.control-tools > li {
   z-index: 1;
 }
 
+.dorako-ux.actor.npc.sheet form .sidebar .health-section .hit-points .max.lt10, .dorako-ux.actor.npc.sheet form .sidebar .shield-section .hit-points .max.lt10 {
+  width: 12px;
+}
+.dorako-ux.actor.npc.sheet form .sidebar .health-section .hit-points .max.lt100, .dorako-ux.actor.npc.sheet form .sidebar .shield-section .hit-points .max.lt100 {
+  width: 28px;
+}
+.dorako-ux.actor.npc.sheet form .sidebar .health-section .hit-points .max.lt1000, .dorako-ux.actor.npc.sheet form .sidebar .shield-section .hit-points .max.lt1000 {
+  width: 40px;
+}
 .dorako-ux.sheet.pf2e.actor.npc {
   --section-background: var(--sheet);
   --section-header: var(--primary);
@@ -820,6 +829,15 @@ nav#controls ol.control-tools > li {
   height: 4px;
   position: fixed;
   cursor: row-resize;
+}
+
+#sidebar-tabs {
+  font-size: calc(var(--sidebar-tab-width) - 8px);
+  --sidebar-tab-height: var(--sidebar-tab-size);
+  --sidebar-tab-width: var(--sidebar-tab-size);
+}
+#sidebar-tabs > item {
+  align-self: center;
 }
 
 /*# sourceMappingURL=dorako-ux.css.map */

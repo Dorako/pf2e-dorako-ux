@@ -89,7 +89,7 @@ function sizeToIconScale(size) {
 function drawBG(effectIcon, background, gridScale) {
   const r = effectIcon.width / 2;
   const isDorakoUiActive = game.modules.get("pf2e-dorako-ui")?.active;
-  const theme = isDorakoUiActive ? game.settings.get("pf2e-dorako-ui", "theme.application-theme") : false;
+  const theme = isDorakoUiActive ? game.settings.get("pf2e-dorako-ui", "theme.app-theme") : false;
   if (theme === "foundry2-theme") {
     background.lineStyle((1 * gridScale) / 2, 0x302831, 1, 0);
     background.drawCircle(effectIcon.position.x, effectIcon.position.y, r + 1 * gridScale);

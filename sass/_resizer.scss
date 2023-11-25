@@ -18,3 +18,12 @@
     cursor: row-resize;
   }
 }
+
+#sidebar-tabs {
+  font-size: calc(var(--sidebar-tab-width) - 8px);
+  --sidebar-tab-height: var(--sidebar-tab-size);
+  --sidebar-tab-width: var(--sidebar-tab-size);
+  > item {
+    align-self: center;
+  }
+}

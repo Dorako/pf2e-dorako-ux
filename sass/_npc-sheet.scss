@@ -1,4 +1,17 @@
 .dorako-ux {
+  &.actor.npc.sheet form .sidebar .health-section .hit-points .max.lt10,
+  &.actor.npc.sheet form .sidebar .shield-section .hit-points .max.lt10 {
+    width: 12px;
+  }
+  &.actor.npc.sheet form .sidebar .health-section .hit-points .max.lt100,
+  &.actor.npc.sheet form .sidebar .shield-section .hit-points .max.lt100 {
+    width: 28px;
+  }
+  &.actor.npc.sheet form .sidebar .health-section .hit-points .max.lt1000,
+  &.actor.npc.sheet form .sidebar .shield-section .hit-points .max.lt1000 {
+    width: 40px;
+  }
+
   &.sheet.pf2e.actor.npc {
     --section-background: var(--sheet);
     --section-header: var(--primary);

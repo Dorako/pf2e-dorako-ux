@@ -183,16 +183,16 @@ function injectSpellInfo(html, spell) {
   let components = spell?.system?.components;
   let elem = document.createElement("p");
   let castInfoLabel = document.createElement("strong");
-  castInfoLabel.textContent = i18n("PF2E.SpellTimeLabel") + " ";
+  castInfoLabel.textContent = i18n("PF2E.CastLabel") + " ";
   let castTime = document.createElement("span");
   const [actionCost, shouldBeGlyph] = getActionGlyph(time);
   castTime.textContent = actionCost;
   if (shouldBeGlyph) castTime.classList.add("pf2-icon");
   let castComponents = document.createElement("span");
-  castComponents.textContent = spellComponentsToText(components);
+  // castComponents.textContent = spellComponentsToText(components);
   elem.append(castInfoLabel);
   elem.append(castTime);
-  elem.append(castComponents);
+  // elem.append(castComponents);
   spellInfo.append(elem);
 
   // Cost info (note: not cast time, material cost)

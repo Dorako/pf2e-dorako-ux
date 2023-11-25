@@ -1,4 +1,4 @@
-import * as util from "../util.js";
+import { debug } from "../util.js";
 import { MODULE_NAME } from "../consts.js";
 import ChatMerge from "../dorako-ux/chat-merge.js";
 import ChatRollPrivacy from "../dorako-ux/chat-rolltype-buttons.js";
@@ -61,9 +61,9 @@ Hooks.once("renderSidebar", () => {
 });
 
 Hooks.once("init", async () => {
-  util.debug(`${MODULE_NAME} | INIT`);
-  util.debug(`${MODULE_NAME} | REGISTERING SETTINGS`);
-  util.debug(`${MODULE_NAME} | INITIALIZING APPLICATIONS`);
+  debug(`INIT`);
+  debug(`REGISTERING SETTINGS`);
+  debug(`INITIALIZING APPLICATIONS`);
 
   if (game.settings.get("pf2e-dorako-ux", "moving.chat-merge")) {
     ChatMerge.init();
@@ -74,19 +74,20 @@ Hooks.once("init", async () => {
     ChatRollPrivacy.init();
   }
 
-  util.debug(`${MODULE_NAME} | INJECTING CSS`);
-
+  debug(`INJECTING CSS VARIABLES`);
   injectCSS("fonts");
-
-  util.debug(`${MODULE_NAME} | INJECTING CSS VARIABLES`);
 
   const root = document.querySelector(":root").style;
 
   root.setProperty("--avatar-size", game.settings.get("pf2e-dorako-ux", "avatar.size").toString() + "px");
   root.setProperty("--control-size", game.settings.get("pf2e-dorako-ux", "other.control-size").toString() + "px");
+  root.setProperty(
+    "--sidebar-tab-size",
+    game.settings.get("pf2e-dorako-ux", "other.sidebar-tab-size").toString() + "px"
+  );
   root.setProperty("--controls-alignment", game.settings.get("pf2e-dorako-ux", "moving.controls-alignment").toString());
 
-  util.debug(`${MODULE_NAME} | INIT COMPLETE`);
+  debug(`INIT COMPLETE`);
 });
 
 Hooks.once("ready", (app, html, data) => {

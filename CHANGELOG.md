@@ -1,3 +1,8 @@
+# 1.1.0
+
+- (New) New setting to change the size of the sidebar tab icons. If you increase the size, you might have to hide some icons, or increase the width of the sidebar.
+- (Meta) Updated readme and licenses.
+
 # 1.0.1
 
 - (Fix) Fixed a localization issue.

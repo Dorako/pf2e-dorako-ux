@@ -11,8 +11,6 @@ export class MovingSettings extends SettingsMenuDorakoUX {
     "center-hotbar",
     "adjust-token-effects-hud",
     "animate-messages",
-    // "border-radius",
-    // "control-size",
     "controls-alignment",
   ];
 

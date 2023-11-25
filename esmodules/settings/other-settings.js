@@ -7,6 +7,7 @@ export class OtherSettings extends SettingsMenuDorakoUX {
     "enable-rolltype-indication",
     "enable-player-tags",
     "control-size",
+    "sidebar-tab-size",
     "send-to-chat",
     "skin-crb-journal",
   ];
@@ -49,6 +50,24 @@ export class OtherSettings extends SettingsMenuDorakoUX {
         onChange: (value) => {
           const root = document.querySelector(":root").style;
           root.setProperty("--control-size", `${value}px`);
+        },
+      },
+      "sidebar-tab-size": {
+        name: "pf2e-dorako-ux.settings.sidebar-tab-size.name",
+        hint: "pf2e-dorako-ux.settings.sidebar-tab-size.hint",
+        scope: "client",
+        type: Number,
+        default: 22,
+        range: {
+          min: 14,
+          max: 48,
+          step: 1,
+        },
+        config: true,
+        requiresReload: false,
+        onChange: (value) => {
+          const root = document.querySelector(":root").style;
+          root.setProperty("--sidebar-tab-size", `${value}px`);
         },
       },
       "enable-player-tags": {
