@@ -1,3 +1,7 @@
+# 1.1.2
+
+- (Fix) Migrated some styling from Dorako UI, to ensure integrity of the module when used as a stand-alone.
+
 # 1.1.1
 
 - (Fix) Added missing localization string for new feature.
