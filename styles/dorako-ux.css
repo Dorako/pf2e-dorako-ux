@@ -766,11 +766,11 @@ nav#controls ol.control-tools > li {
 }
 .dorako-ux.sheet.pf2e.actor.npc form input.adjustable:not(:focus).adjusted-higher,
 .dorako-ux.sheet.pf2e.actor.npc form span.adjustable.adjusted-higher {
-  color: green !important;
+  color: var(--degree-success-critical) !important;
 }
 .dorako-ux.sheet.pf2e.actor.npc form input.adjustable:not(:focus).adjusted-lower,
 .dorako-ux.sheet.pf2e.actor.npc form span.adjustable.adjusted-lower {
-  color: red !important;
+  color: var(--degree-failure-critical) !important;
 }
 .dorako-ux.sheet.pf2e.actor.npc form .top-sections {
   gap: 5px;

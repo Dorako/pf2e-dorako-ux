@@ -115,10 +115,7 @@ export default class ChatMerge {
     const messages = element.find("li.chat-message");
     // Return if there are no messages rendered
     if (messages.length === 0) return;
-    // Make sure to set the hover colour for the first message since we skip it in the processor below.
-    if (messages[0].hasAttribute("style")) {
-      messages[0].style.setProperty("--dfce-mc-border-color", messages[0].style.borderColor);
-    }
+
     // Process each message after the first
     for (let c = 1; c < messages.length; c++) {
       // Update styling of the chat messages
@@ -176,10 +173,6 @@ export default class ChatMerge {
   }
 
   static _styleChatMessages(curr, currElem, prev, prevElem) {
-    if (currElem.hasAttribute("style")) {
-      currElem.style.setProperty("--dfce-mc-border-color", currElem.style.borderColor);
-    }
-
     if (!ChatMerge._isValidMessage(curr, prev)) return;
     if (prevElem.classList.contains("dfce-cm-bottom")) {
       prevElem.classList.remove("dfce-cm-bottom");

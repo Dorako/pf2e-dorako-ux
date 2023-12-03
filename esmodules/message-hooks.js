@@ -370,7 +370,9 @@ function injectMessageTag(html, messageData) {
   const whisperTargets = messageData.message.whisper;
 
   const isBlind = messageData.message.blind;
+  if (isBlind) rolltype.addClass("blind");
   const isWhisper = whisperTargets?.length > 0;
+  if (isWhisper && !isBlind) rolltype.addClass("whisper");
   const isSelf = isWhisper && whisperTargets.length === 1 && whisperTargets[0] === messageData.message.user;
   const isRoll = messageData.message.rolls !== undefined;
 

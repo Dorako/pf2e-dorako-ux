@@ -70,6 +70,6 @@ Hooks.on("renderNPCSheetPF2e", (app, html, data) => {
   }
 });
 
-Hooks.on("renderCreatureSheetPF2e", (app, html, data) => {
+Hooks.on("renderNPCSheetPF2e", (app, html, data) => {
   html.addClass("dorako-ux");
 });

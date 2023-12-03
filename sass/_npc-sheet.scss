@@ -121,12 +121,12 @@
 
       input.adjustable:not(:focus).adjusted-higher,
       span.adjustable.adjusted-higher {
-        color: green !important;
+        color: var(--degree-success-critical) !important;
       }
 
       input.adjustable:not(:focus).adjusted-lower,
       span.adjustable.adjusted-lower {
-        color: red !important;
+        color: var(--degree-failure-critical) !important;
       }
 
       .top-sections {
