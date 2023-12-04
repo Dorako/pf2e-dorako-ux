@@ -47,3 +47,24 @@ body.compact-ui {
     }
   }
 }
+
+body.minimize-hotbar {
+  #hotbar {
+    position: relative;
+    transition: bottom 0.25s ease-in-out;
+    bottom: var(--hotbar-hidden-offset);
+  }
+  // #ui-middle {
+  //   background: rgba(255, 0, 0, 0.5);
+  // }
+  #ui-middle.active {
+    // background: rgba(0, 255, 0, 0.5);
+    #hotbar {
+      position: relative;
+      bottom: 0px;
+    }
+  }
+  #ui-middle.active #hotbar {
+    display: flex;
+  }
+}

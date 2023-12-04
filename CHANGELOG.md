@@ -1,3 +1,7 @@
+# 1.2.0
+
+- (New) New feature to minimize the hotbar unless hovered. (Compatible with Monk's Hotbar Extension)
+
 # 1.1.3
 
 - (Fix) Fixed an issue where the .dorako-ux (for restructuring NPC sheets) class would be added to PC sheets.

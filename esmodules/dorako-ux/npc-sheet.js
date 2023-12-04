@@ -71,5 +71,6 @@ Hooks.on("renderNPCSheetPF2e", (app, html, data) => {
 });
 
 Hooks.on("renderNPCSheetPF2e", (app, html, data) => {
-  html.addClass("dorako-ux");
+  if (html[0].tagName === "FORM") return;
+  html[0].classList.add("dorako-ux");
 });

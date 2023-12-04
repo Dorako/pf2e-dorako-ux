@@ -8,6 +8,7 @@ export class MovingSettings extends SettingsMenuDorakoUX {
     "chat-merge",
     "adjust-chat-controls",
     "compact-ui",
+    "minimize-hotbar",
     "center-hotbar",
     "adjust-token-effects-hud",
     "animate-messages",
@@ -118,14 +119,18 @@ export class MovingSettings extends SettingsMenuDorakoUX {
         config: true,
         default: false,
         type: Boolean,
-        requiresReload: false,
-        onChange: (value) => {
-          if (value) {
-            $("body").addClass("compact-ui");
-          } else {
-            $("body").removeClass("compact-ui");
-          }
-        },
+        requiresReload: true,
+        onChange: (value) => {},
+      },
+      "minimize-hotbar": {
+        name: "pf2e-dorako-ux.settings.minimize-hotbar.name",
+        hint: "pf2e-dorako-ux.settings.minimize-hotbar.hint",
+        scope: "client",
+        config: true,
+        default: false,
+        type: Boolean,
+        requiresReload: true,
+        onChange: (value) => {},
       },
     };
   }

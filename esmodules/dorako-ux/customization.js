@@ -19,24 +19,6 @@ Hooks.once("ready", () => {
 });
 
 Hooks.once("ready", () => {
-  const compactUi = game.settings.get("pf2e-dorako-ux", "moving.compact-ui");
-  if (!compactUi) return;
-  var body = document.body;
-  body.classList.add("compact-ui");
-  body.addEventListener("mousemove", toggleActive);
-
-  function toggleActive(e) {
-    const offsetLeft = $("body").find("#ui-left")[0] ? $("body").find("#ui-left")[0].offsetLeft : 0;
-    if (e.clientX < offsetLeft + 150) {
-      $("body").find("#ui-left").addClass("active");
-    }
-    if (e.clientX > offsetLeft + 200) {
-      $("body").find("#ui-left").removeClass("active");
-    }
-  }
-});
-
-Hooks.once("ready", () => {
   if (game.settings.get("pf2e-dorako-ux", "hiding.no-logo")) {
     $("#logo")[0].style.setProperty("display", "none", "important");
   }
@@ -98,11 +80,6 @@ Hooks.once("ready", (app, html, data) => {
 Hooks.once("ready", (app, html, data) => {
   if (!game.settings.get(`${MODULE_NAME}`, "hiding.start-navigation-collapsed")) return;
   ui.nav.collapse();
-});
-
-Hooks.on("closeCombatDock", (app, html, data) => {
-  if (!game.settings.get(`${MODULE_NAME}`, "moving.compact-ui")) return;
-  ui.nav.expand();
 });
 
 Hooks.on("getItemSheetPF2eHeaderButtons", (sheet, buttons) => {

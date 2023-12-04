@@ -181,6 +181,19 @@ body.compact-ui #players:hover {
   opacity: 1;
 }
 
+body.minimize-hotbar #hotbar {
+  position: relative;
+  transition: bottom 0.25s ease-in-out;
+  bottom: var(--hotbar-hidden-offset);
+}
+body.minimize-hotbar #ui-middle.active #hotbar {
+  position: relative;
+  bottom: 0px;
+}
+body.minimize-hotbar #ui-middle.active #hotbar {
+  display: flex;
+}
+
 .dalvyn-journal:not(.premium) {
   /* By Dalvyn */
   /* Custom CSS - PF2 STYLE v2.1 */

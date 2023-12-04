@@ -86,8 +86,12 @@
         "name": "Enable chat merge?"
       },
       "compact-ui": {
-        "hint": "Resizes controls, and hides inactive controls and navigation elements unless hovered",
+        "hint": "Hides controls inactive controls and navigation unless hovered",
         "name": "Enable Compact UI?"
+      },
+      "minimize-hotbar": {
+        "hint": "Moves the hotbar out of the way unless hovered",
+        "name": "Minimize hotbar?"
       },
       "controls-alignment": {
         "choice": {
