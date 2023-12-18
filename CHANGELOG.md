@@ -1,3 +1,7 @@
+# 1.2.1
+
+- (Fix) Fixed the 'hide compendium banner images' setting.
+
 # 1.2.0
 
 - (New) New feature to minimize the hotbar unless hovered. (Compatible with Monk's Hotbar Extension)

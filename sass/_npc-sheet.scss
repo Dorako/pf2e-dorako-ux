@@ -25,19 +25,17 @@
     --tag-text-color: black;
     --color-text-dark-input: black;
     --input-border-color: transparent;
-    --input-background-color: rgba(0, 0, 0, 0.1);
+    --input-background: rgba(0, 0, 0, 0.1);
     --input-focus-outline-color: var(--tertiary);
     --input-placeholder-color: rgba(40, 40, 40, 1);
     --text-dark: black;
 
-    --color-border-light-highlight: var(--primary);
-    --color-border-light-primary: var(--primary-light);
-    --color-border-light-tertiary: var(--primary);
-
     --bg: var(--section-background);
 
-    .side-bar-section-header {
-      --color-text-dark-input: var(--color-light-2);
+    .side-bar-section-header,
+    .side-bar-section-header .side-bar-label {
+      --color-text-dark-input: var(--section-header-text-color);
+      --color-text-dark-inactive: var(--section-header-text-color);
     }
 
     &.actor.npc.sheet form .side-bar-section.initiative select,

@@ -26,7 +26,7 @@ Hooks.once("ready", () => {
 
 Hooks.once("ready", () => {
   if (game.settings.get("pf2e-dorako-ux", "hiding.no-compendium-banner-images")) {
-    $("#sidebar").addClass("no-compendium-banner-images");
+    $("body").addClass("no-compendium-banner-images");
   }
 });
 
