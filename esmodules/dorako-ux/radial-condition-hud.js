@@ -90,14 +90,14 @@ function drawBG(effectIcon, background, gridScale) {
   const r = effectIcon.width / 2;
   const isDorakoUiActive = game.modules.get("pf2e-dorako-ui")?.active;
   const appTheme = isDorakoUiActive ? game.settings.get("pf2e-dorako-ui", "theme.app-theme") : false;
-  if (appTheme.includes("foundry2")) {
+  if (appTheme && appTheme.includes("foundry2")) {
     background.lineStyle((1 * gridScale) / 2, 0x302831, 1, 0);
     background.drawCircle(effectIcon.position.x, effectIcon.position.y, r + 1 * gridScale);
     background.beginFill(0x0b0a13);
     background.drawCircle(effectIcon.position.x, effectIcon.position.y, r + 1 * gridScale);
     background.endFill();
     return;
-  } else if (appTheme.includes("crb")) {
+  } else if (appTheme && appTheme.includes("crb")) {
     background.lineStyle((1 * gridScale) / 2, 0x956d58, 1, 1);
     background.drawCircle(effectIcon.position.x, effectIcon.position.y, r + 1 * gridScale);
     background.lineStyle((1 * gridScale) / 2, 0xe9d7a1, 1, 0);
@@ -106,7 +106,7 @@ function drawBG(effectIcon, background, gridScale) {
     background.drawCircle(effectIcon.position.x, effectIcon.position.y, r + 1 * gridScale);
     background.endFill();
     return;
-  } else if (appTheme.includes("bg3")) {
+  } else if (appTheme && appTheme.includes("bg3")) {
     background.lineStyle((1 * gridScale) / 2, 0x9a8860, 1, 1);
     background.drawCircle(effectIcon.position.x, effectIcon.position.y, r + 1 * gridScale);
     background.lineStyle((1 * gridScale) / 2, 0xd3b87c, 1, 0);

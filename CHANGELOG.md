@@ -1,3 +1,7 @@
+# 1.2.2
+
+- (Fix) Fixed an issue where the radial effect HUD would break when Dorako UI was not enabled.
+
 # 1.2.1
 
 - (Fix) Fixed the 'hide compendium banner images' setting.
