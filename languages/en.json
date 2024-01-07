@@ -106,6 +106,10 @@
         "hint": "Makes action-cost for features more apparent, and moves spell info out of the footer",
         "name": "Restructure chat card info?"
       },
+      "restructure-npc-sheets": {
+        "hint": "Adjusts the layout of NPC sheets. Required for Dorako UI themes.",
+        "name": "Restructure NPC sheets?"
+      },
       "control-size": {
         "hint": "(default: 36px) Changes the size of controls and navigation elements",
         "name": "Control size"

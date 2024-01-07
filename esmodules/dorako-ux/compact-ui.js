@@ -40,12 +40,12 @@ Hooks.once("ready", () => {
         : "-40px";
     const root = document.querySelector(":root").style;
     if (e.clientY > enableAt) {
-      console.log(e);
+      //   console.log(e);
       $("body").find("#ui-middle").addClass("active");
       root.setProperty("--hotbar-hidden-offset", hiddenOffset);
     }
     if (e.clientY < disableAt) {
-      console.log(e);
+      //   console.log(e);
       $("body").find("#ui-middle").removeClass("active");
       root.setProperty("--hotbar-hidden-offset", hiddenOffset);
     }

@@ -1,4 +1,6 @@
 Hooks.on("renderNPCSheetPF2e", (app, html, data) => {
+  const setting = game.settings.get("pf2e-dorako-ux", "moving.restructure-npc-sheets");
+  if (!setting) return;
   const acDetails = app.object.attributes.ac.details;
   const collapseAc = acDetails === "";
   const hpDetails = app.object.attributes.hp.details;
@@ -72,5 +74,7 @@ Hooks.on("renderNPCSheetPF2e", (app, html, data) => {
 
 Hooks.on("renderNPCSheetPF2e", (app, html, data) => {
   if (html[0].tagName === "FORM") return;
+  const setting = game.settings.get("pf2e-dorako-ux", "moving.restructure-npc-sheets");
+  if (!setting) return;
   html[0].classList.add("dorako-ux");
 });

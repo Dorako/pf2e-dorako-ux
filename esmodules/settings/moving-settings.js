@@ -5,6 +5,7 @@ export class MovingSettings extends SettingsMenuDorakoUX {
 
   static SETTINGS = [
     "restructure-card-info",
+    "restructure-npc-sheets",
     "chat-merge",
     "adjust-chat-controls",
     "compact-ui",
@@ -19,6 +20,16 @@ export class MovingSettings extends SettingsMenuDorakoUX {
 
   static get settings() {
     return {
+      "restructure-npc-sheets": {
+        name: "pf2e-dorako-ux.settings.restructure-npc-sheets.name",
+        hint: "pf2e-dorako-ux.settings.restructure-npc-sheets.hint",
+        scope: "client",
+        type: Boolean,
+        default: true,
+        config: true,
+        requiresReload: false,
+        onChange: (value) => {},
+      },
       "chat-merge": {
         name: "pf2e-dorako-ux.settings.chat-merge.name",
         hint: "pf2e-dorako-ux.settings.chat-merge.hint",

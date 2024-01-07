@@ -54,6 +54,7 @@ Hooks.on("renderChatMessage", (chatMessage, html, messageData) => {
       chatMessage.getFlag("pf2e-dorako-ux", "wasTokenHidden")) ||
     (game.settings.get("pf2e-dorako-ux", "avatar.hide-gm-avatar-when-secret") && !chatMessage.isContentVisible)
   ) {
+    // do nothing
   } else {
     injectAvatar(html, getAvatar(chatMessage));
   }
@@ -90,6 +91,7 @@ Hooks.once("ready", () => {
       "flags.pf2e-dorako-ux.wasTokenHidden": message?.token?.hidden,
     });
   });
+
   Hooks.on("updateChatMessage", (message) => {
     addAvatarsToFlags(message);
   });

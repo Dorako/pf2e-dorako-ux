@@ -1,3 +1,8 @@
+# 1.2.3
+
+- (Fix) Removed some logspam.
+- (Refinement) Moved the NPC sheet restructuring to a default=on setting, so it can be disabled.
+
 # 1.2.2
 
 - (Fix) Fixed an issue where the radial effect HUD would break when Dorako UI was not enabled.
