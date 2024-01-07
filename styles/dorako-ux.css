@@ -715,16 +715,27 @@ nav#controls ol.control-tools > li {
   --text-dark: black;
   --bg: var(--section-background);
 }
-.dorako-ux.sheet.pf2e.actor.npc .side-bar-section-header,
-.dorako-ux.sheet.pf2e.actor.npc .side-bar-section-header .side-bar-label {
+.dorako-ux.sheet.pf2e.actor.npc .sidebar a.roll {
+  --color-pf-primary-light: var(--section-header-text-color);
+  --color-pf-primary-darker: var(--section-header-text-color);
+}
+.dorako-ux.sheet.pf2e.actor.npc .sheet-body a.roll {
+  --color-pf-primary-light: var(--section-header-text-color);
+  --color-pf-primary-darker: var(--section-header-text-color);
+}
+.dorako-ux.sheet.pf2e.actor.npc .sidebar header,
+.dorako-ux.sheet.pf2e.actor.npc .sidebar header .side-bar-label {
   --color-text-dark-input: var(--section-header-text-color);
   --color-text-dark-inactive: var(--section-header-text-color);
 }
-.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form .side-bar-section.initiative select, .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=text], .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=number] {
+.dorako-ux.sheet.pf2e.actor.npc .sidebar header {
+  height: 22px;
+}
+.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet select, .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=text], .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=number] {
   color: var(--color-text-dark-input);
   border-color: transparent;
 }
-.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form .side-bar-section.initiative select:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form .side-bar-section.initiative select:hover:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=text]:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=text]:hover:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=number]:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=number]:hover:not(disabled) {
+.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet select:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet select:hover:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=text]:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=text]:hover:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=number]:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=number]:hover:not(disabled) {
   box-shadow: none;
   border-color: transparent;
 }
@@ -755,7 +766,10 @@ nav#controls ol.control-tools > li {
   background: var(--section-header);
   border-bottom: 1px solid var(--section-border-color);
 }
-.dorako-ux.sheet.pf2e.actor.npc .side-bar-section,
+.dorako-ux.sheet.pf2e.actor.npc .sidebar ul.comma-separated {
+  margin-left: 3px;
+}
+.dorako-ux.sheet.pf2e.actor.npc .sidebar .subsection,
 .dorako-ux.sheet.pf2e.actor.npc .section-container {
   box-shadow: 0px 2px 5px black;
 }
@@ -791,80 +805,82 @@ nav#controls ol.control-tools > li {
 .dorako-ux.sheet.pf2e.actor.npc form .top-sections {
   gap: 5px;
 }
-.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection {
   background: var(--section-background);
   background-size: cover;
   border: 1px solid var(--section-border-color);
   outline: 1px solid var(--section-outline-color);
   border-radius: 3px;
   margin: 3px;
-  margin-top: 0px;
-  margin-bottom: 10px;
 }
-.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section.initiative select {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection.initiative select {
   width: 98%;
   margin-bottom: 2px;
 }
-.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section .side-bar-section-header {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection header {
   align-items: center;
   margin-bottom: unset;
   margin-bottom: 2px;
   padding-left: 4px;
 }
-.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section .side-bar-section-header.disabled {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection header.disabled {
   margin-bottom: unset;
 }
-.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section.collapsed .side-bar-section-header {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed header {
   margin-bottom: unset;
   border-bottom: unset;
 }
-.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section.collapsed .side-bar-section-header.disabled {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed header.disabled {
   margin-bottom: unset;
 }
-.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section.collapsed {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed {
   max-height: 26px;
   transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
 }
-.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section.collapsed .side-bar-section-header {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed header {
   border-radius: 3px;
 }
-.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section.collapsed:not(.empty):hover {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed:not(.empty):hover {
   max-height: 1000px;
   transition: max-height 1s ease-in-out;
 }
-.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section.collapsed:not(.empty):hover .side-bar-section-header {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed:not(.empty):hover header {
   border-radius: 3px 3px 0px 0px;
   border-bottom: 1px solid var(--section-border-color);
 }
-.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section.collapsed:not(.empty):hover .side-bar-section-content {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed:not(.empty):hover .side-bar-section-content {
   display: block;
 }
-.dorako-ux.sheet.pf2e.actor.npc form .side-bar-section.collapsed .side-bar-section-content {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed .side-bar-section-content {
   display: none;
 }
-.dorako-ux.sheet.pf2e.actor.npc form .section-container {
+.dorako-ux.sheet.pf2e.actor.npc form .section-container,
+.dorako-ux.sheet.pf2e.actor.npc form .subsection {
   padding: 0px;
   border-radius: 3px;
   margin: 3px;
-  margin-top: 0px;
-  margin-bottom: 10px;
   background: var(--section-background);
   border: 1px solid var(--section-border-color);
   outline: 1px solid var(--section-outline-color);
   background-size: cover;
 }
-.dorako-ux.sheet.pf2e.actor.npc form .section-container .section-header {
+.dorako-ux.sheet.pf2e.actor.npc form .section-container .section-header,
+.dorako-ux.sheet.pf2e.actor.npc form .section-container header,
+.dorako-ux.sheet.pf2e.actor.npc form .subsection .section-header,
+.dorako-ux.sheet.pf2e.actor.npc form .subsection header {
   background: var(--section-header);
   border: unset;
   border-bottom: 1px solid var(--section-border-color);
   color: var(--section-header-text-color);
 }
-.dorako-ux.sheet.pf2e.actor.npc form .section-container .section-body {
+.dorako-ux.sheet.pf2e.actor.npc form .section-container .section-body,
+.dorako-ux.sheet.pf2e.actor.npc form .subsection .section-body {
   border: none;
   padding: 0;
   padding: 5px;
 }
-.dorako-ux.sheet.pf2e.actor.npc form .section-container.toggles {
+.dorako-ux.sheet.pf2e.actor.npc form .section-container.toggles,
+.dorako-ux.sheet.pf2e.actor.npc form .subsection.toggles {
   outline: none;
   border-image-repeat: repeat;
   border-image-slice: 11;
@@ -902,7 +918,7 @@ nav#controls ol.control-tools > li {
 .dorako-ux.sheet.pf2e.actor.npc form .sidebar .save-details {
   font-size: 14px;
 }
-.dorako-ux.sheet.pf2e.actor.npc .side-bar-section-header {
+.dorako-ux.sheet.pf2e.actor.npc .sidebar header {
   background: var(--section-header);
   border-radius: 3px 3px 0px 0px;
   color: var(--section-header-text-color);
@@ -911,15 +927,15 @@ nav#controls ol.control-tools > li {
   border: unset;
   border-bottom: 1px solid var(--section-border-color);
 }
-.dorako-ux.sheet.pf2e.actor.npc .side-bar-section-header.disabled {
+.dorako-ux.sheet.pf2e.actor.npc .sidebar header.disabled {
   border-radius: 3px;
 }
-.dorako-ux.sheet.pf2e.actor.npc .side-bar-section-header .inventory-section .inventory-list .item .item-image {
+.dorako-ux.sheet.pf2e.actor.npc .sidebar header .inventory-section .inventory-list .item .item-image {
   border: none;
   margin: 3px 4px 3px 6px;
 }
-.dorako-ux.sheet.pf2e.actor.npc .side-bar-section-header .side-bar .image-container,
-.dorako-ux.sheet.pf2e.actor.npc .side-bar-section-header .actions-options .actions-option {
+.dorako-ux.sheet.pf2e.actor.npc .sidebar header .side-bar .image-container,
+.dorako-ux.sheet.pf2e.actor.npc .sidebar header .actions-options .actions-option {
   cursor: pointer;
 }
 .dorako-ux.sheet.pf2e.actor.npc .side-bar-section-content {

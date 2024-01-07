@@ -21,12 +21,12 @@ Hooks.on("renderNPCSheetPF2e", (app, html, data) => {
   html.find("input").addClass("dorako-ui-skip");
 
   if (collapseAc) {
-    let section = html.find(".armor-section")[0];
+    let section = html.find(".armor")[0];
     section.classList.add("collapsed");
   }
 
   if (collapseHp) {
-    let section = html.find(".health-section")[0];
+    let section = html.find(".health")[0];
     section.classList.add("collapsed");
   }
 
@@ -40,30 +40,30 @@ Hooks.on("renderNPCSheetPF2e", (app, html, data) => {
     section.classList.add("dorako-display-none");
   }
 
-  if (collapseImmunities) {
-    let section = html.find(".immunities")[0];
-    section.classList.add("collapsed", "empty");
-  }
+  // if (collapseImmunities) {
+  //   let section = html.find(".immunities")[0];
+  //   section.classList.add("collapsed", "empty");
+  // }
 
-  if (collapseWeaknesses) {
-    let section = html.find(".weaknesses")[0];
-    section.classList.add("collapsed", "empty");
-  }
+  // if (collapseWeaknesses) {
+  //   let section = html.find(".weaknesses")[0];
+  //   section.classList.add("collapsed", "empty");
+  // }
 
-  if (collapseResistances) {
-    let section = html.find(".resistances")[0];
-    section.classList.add("collapsed", "empty");
-  }
+  // if (collapseResistances) {
+  //   let section = html.find(".resistances")[0];
+  //   section.classList.add("collapsed", "empty");
+  // }
 
   let saves = html.find(".saves")[0];
-  let saveDetails = html.find(".save-details")[0];
-  saveDetails.classList.remove("side-bar-section");
+  // let saveDetails = html.find(".save-details")[0];
+  // saveDetails.classList.remove("side-bar-section");
 
   let initiative = html.find(".initiative")[0];
   let newSaves = document.createElement("div");
   newSaves.classList.add("saves-section", "side-bar-section");
   newSaves.appendChild(saves);
-  newSaves.appendChild(saveDetails);
+  // newSaves.appendChild(saveDetails);
   initiative.parentNode.insertBefore(newSaves, initiative.nextSibling);
 
   if (collapseSaves) {
