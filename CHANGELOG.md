@@ -1,3 +1,7 @@
+# 1.2.5
+
+- (Maintenance) More adjustments to NPC sheet restructuring to work on newest system version.
+
 # 1.2.4
 
 - (Maintenance) Adjustments to NPC sheet restructuring to work on newest system version.

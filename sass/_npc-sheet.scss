@@ -31,14 +31,14 @@
     --text-dark: black;
     --bg: var(--section-background);
 
-    .sidebar a.roll {
+    .sidebar header a.roll {
       --color-pf-primary-light: var(--section-header-text-color);
       --color-pf-primary-darker: var(--section-header-text-color);
     }
 
-    .sheet-body a.roll {
-      --color-pf-primary-light: var(--section-header-text-color);
-      --color-pf-primary-darker: var(--section-header-text-color);
+    .sheet-body a.roll[data-statistic="perception"] {
+      --color-pf-primary-light: var(--color-pf-primary-light);
+      --color-pf-primary-darker: var(--color-text-dark-primary);
     }
 
     .sidebar header,
@@ -51,7 +51,8 @@
       height: 22px;
     }
 
-    &.actor.npc.sheet select,
+    &.actor.npc.sheet .sidebar select,
+    &.actor.npc.sheet .sheet-body select,
     &.pf2e.actor form input[type="text"],
     &.pf2e.actor form input[type="number"] {
       color: var(--color-text-dark-input);

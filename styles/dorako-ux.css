@@ -715,13 +715,13 @@ nav#controls ol.control-tools > li {
   --text-dark: black;
   --bg: var(--section-background);
 }
-.dorako-ux.sheet.pf2e.actor.npc .sidebar a.roll {
+.dorako-ux.sheet.pf2e.actor.npc .sidebar header a.roll {
   --color-pf-primary-light: var(--section-header-text-color);
   --color-pf-primary-darker: var(--section-header-text-color);
 }
-.dorako-ux.sheet.pf2e.actor.npc .sheet-body a.roll {
-  --color-pf-primary-light: var(--section-header-text-color);
-  --color-pf-primary-darker: var(--section-header-text-color);
+.dorako-ux.sheet.pf2e.actor.npc .sheet-body a.roll[data-statistic=perception] {
+  --color-pf-primary-light: var(--color-pf-primary-light);
+  --color-pf-primary-darker: var(--color-text-dark-primary);
 }
 .dorako-ux.sheet.pf2e.actor.npc .sidebar header,
 .dorako-ux.sheet.pf2e.actor.npc .sidebar header .side-bar-label {
@@ -731,11 +731,11 @@ nav#controls ol.control-tools > li {
 .dorako-ux.sheet.pf2e.actor.npc .sidebar header {
   height: 22px;
 }
-.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet select, .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=text], .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=number] {
+.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sidebar select, .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sheet-body select, .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=text], .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=number] {
   color: var(--color-text-dark-input);
   border-color: transparent;
 }
-.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet select:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet select:hover:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=text]:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=text]:hover:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=number]:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=number]:hover:not(disabled) {
+.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sidebar select:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sidebar select:hover:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sheet-body select:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sheet-body select:hover:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=text]:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=text]:hover:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=number]:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=number]:hover:not(disabled) {
   box-shadow: none;
   border-color: transparent;
 }
