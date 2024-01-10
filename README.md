@@ -1,5 +1,9 @@
 # PF2e Dorako UX
 
+![All Downloads](https://img.shields.io/github/downloads/dorako/pf2e-dorako-ux/total?color=5e0000&label=All%20Downloads)
+![Latest Version Downloads](https://img.shields.io/github/downloads/dorako/pf2e-dorako-ux/latest/total?color=171f69&label=Latest%20Version%20Downloads&sort=semver)
+[![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fpf2e-dorako-ux&colorB=e9d7a1)](https://forge-vtt.com/bazaar#package=pf2e-dorako-ux)
+
 This module is split from [Dorako UI](https://github.com/Dorako/pf2e-dorako-ui) for the following reasons:
 
 - Makes a cleaner separation of concerns
