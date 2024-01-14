@@ -94,7 +94,7 @@ Hooks.once("ready", () => {
   });
 
   Hooks.on("updateChatMessage", (message) => {
-    addAvatarsToFlags(message);
+    addAvatarsToFlags(message, false);
   });
 
   Hooks.on("renderChatMessage", (app, html, data) => {
@@ -450,7 +450,7 @@ function injectWhisperParticipants(html, messageData) {
   messageHeader.append(whisperParticipants);
 }
 
-function addAvatarsToFlags(message) {
+function addAvatarsToFlags(message, local = true) {
   let combatantImg =
     game.modules.get("combat-tracker-images")?.active && message.actor
       ? message.actor.getFlag("combat-tracker-images", "trackerImage")
@@ -473,12 +473,21 @@ function addAvatarsToFlags(message) {
     tokenAvatar = new TokenAvatar(message.speaker.alias, tokenImg, token.texture.scaleX, actor.size == "sm");
   }
 
-  message.updateSource({
-    "flags.pf2e-dorako-ux.userAvatar": userAvatar,
-    "flags.pf2e-dorako-ux.combatantAvatar": combatantAvatar,
-    "flags.pf2e-dorako-ux.tokenAvatar": tokenAvatar,
-    "flags.pf2e-dorako-ux.actorAvatar": actorAvatar,
-  });
+  if (local) {
+    message.updateSource({
+      "flags.pf2e-dorako-ux.userAvatar": userAvatar,
+      "flags.pf2e-dorako-ux.combatantAvatar": combatantAvatar,
+      "flags.pf2e-dorako-ux.tokenAvatar": tokenAvatar,
+      "flags.pf2e-dorako-ux.actorAvatar": actorAvatar,
+    });
+  } else {
+    message.update({
+      "flags.pf2e-dorako-ux.userAvatar": userAvatar,
+      "flags.pf2e-dorako-ux.combatantAvatar": combatantAvatar,
+      "flags.pf2e-dorako-ux.tokenAvatar": tokenAvatar,
+      "flags.pf2e-dorako-ux.actorAvatar": actorAvatar,
+    });
+  }
 }
 
 function getAvatar(message) {
