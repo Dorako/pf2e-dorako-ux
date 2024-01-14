@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 .chat-message .message-header {
   background: none;
   padding: 5px 5px 0px 5px;
@@ -7,9 +8,11 @@
   gap: 5px;
   align-items: center;
 }
+
 .chat-message .message-header .message-metadata {
   flex: 4;
 }
+
 .chat-message .message-header .header-meta {
   border-radius: 3px;
   padding: 2px;
@@ -20,6 +23,7 @@
   white-space: nowrap;
   border: 1px solid;
 }
+
 .chat-message .message-header .player-name,
 .chat-message .message-header .message-sender {
   max-width: 160px;
@@ -27,12 +31,14 @@
   overflow: hidden;
   white-space: nowrap;
 }
+
 .chat-message .message-header .portrait-and-name {
   flex-grow: 1;
   display: flex;
   flex-basis: 100px;
   gap: 5px;
 }
+
 .chat-message .message-header .portrait-and-name .portrait-wrapper {
   width: var(--avatar-size);
   display: flex;
@@ -40,15 +46,18 @@
   justify-content: center;
   align-items: center;
 }
+
 .chat-message .message-header .portrait-and-name .portrait-wrapper .portrait {
   height: var(--avatar-size);
   object-fit: contain;
   z-index: 0;
   border: unset;
 }
+
 .chat-message .message-header .portrait-and-name .portrait-wrapper .portrait.actor {
   border-radius: 3px;
 }
+
 .chat-message .message-header .portrait-and-name .sender-wrapper {
   display: flex;
   gap: 3px;
@@ -57,6 +66,7 @@
   align-self: center;
   z-index: 1;
 }
+
 .chat-message .message-header .portrait-and-name .sender-wrapper .message-sender,
 .chat-message .message-header .portrait-and-name .sender-wrapper .player-name {
   align-self: flex-start;
@@ -99,23 +109,28 @@
   line-height: 1.5em;
   margin: 0;
 }
+
 .chat-message .flavor-text .target-dc-result {
   line-height: 0.75rem;
   margin-bottom: 4px;
 }
+
 .chat-message .flavor-text .target-dc-result .target-dc,
 .chat-message .flavor-text .target-dc-result .result {
   display: block;
   margin: 1px 0;
   width: fit-content;
 }
+
 .chat-message .flavor-text .target-dc-result .unadjusted {
   text-decoration: line-through;
 }
+
 .chat-message .flavor-text .target-dc-result .adjusted {
   text-decoration: underline dotted;
 }
-.chat-message > .message-content .message-buttons {
+
+.chat-message>.message-content .message-buttons {
   display: flex;
   margin: 0.35em 0 2px;
   gap: 3px;
@@ -124,18 +139,23 @@
 .chat-message .target-dc-result .adjusted.increased {
   color: var(--adjusted-higher);
 }
+
 .chat-message .target-dc-result .adjusted.decreased {
   color: var(--adjusted-lower);
 }
+
 .chat-message .target-dc-result .degree-of-success .criticalSuccess {
   color: var(--degree-success-critical);
 }
+
 .chat-message .target-dc-result .degree-of-success .success {
   color: var(--degree-success);
 }
+
 .chat-message .target-dc-result .degree-of-success .failure {
   color: var(--degree-failure);
 }
+
 .chat-message .target-dc-result .degree-of-success .criticalFailure {
   color: var(--degree-failure-critical);
 }
@@ -144,37 +164,46 @@ body.compact-ui #controls .main-controls .scene-control:not(.active, .toggle),
 body.compact-ui #controls .sub-controls .control-tool:not(.active, .toggle) {
   display: none;
 }
+
 body.compact-ui #controls {
   flex-wrap: nowrap;
   flex-direction: row;
 }
+
 body.compact-ui .main-controls {
   display: flex;
   flex-direction: column;
 }
+
 body.compact-ui #ui-left.active #controls .main-controls .scene-control,
 body.compact-ui #ui-left.active #controls .sub-controls .control-tool {
   align-items: center;
   display: flex;
 }
+
 body.compact-ui #controls ol.main-controls.app.control-tools {
   width: unset;
 }
+
 body.compact-ui #navigation #scene-list .scene:not(.active, .view),
 body.compact-ui #navigation #nav-toggle {
   display: none;
 }
+
 body.compact-ui #navigation {
   pointer-events: all;
 }
+
 body.compact-ui #navigation:hover #scene-list .scene {
   display: flex;
 }
+
 body.compact-ui #smalltime-app.pinned,
 body.compact-ui #players {
   opacity: 0;
   transition: opacity 0.25s ease-in-out;
 }
+
 body.compact-ui #smalltime-app.pinned:hover,
 body.compact-ui #players:hover {
   transition: opacity 0.25s ease-in-out;
@@ -186,10 +215,12 @@ body.minimize-hotbar #hotbar {
   transition: bottom 0.25s ease-in-out;
   bottom: var(--hotbar-hidden-offset);
 }
+
 body.minimize-hotbar #ui-middle.active #hotbar {
   position: relative;
   bottom: 0px;
 }
+
 body.minimize-hotbar #ui-middle.active #hotbar {
   display: flex;
 }
@@ -217,11 +248,13 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   /* Rarity (sub = uncommon, sup = rare, strikethrough = unique) */
   /* Dorako */
 }
+
 .dalvyn-journal:not(.premium).journal-header .title,
 .dalvyn-journal:not(.premium) .journal-header .title {
   color: var(--red) !important;
   font-family: "Taroca Regular";
 }
+
 .dalvyn-journal:not(.premium).journal-entry-page h1,
 .dalvyn-journal:not(.premium) .journal-entry-page h1 {
   color: var(--blue) !important;
@@ -229,10 +262,12 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   line-height: 100%;
   border-bottom: 0;
 }
+
 .dalvyn-journal:not(.premium).journal-entry-page h1:hover,
 .dalvyn-journal:not(.premium) .journal-entry-page h1:hover {
   background-image: linear-gradient(rgba(2, 37, 110, 0), rgba(2, 37, 110, 0), rgba(2, 37, 110, 0.2666666667));
 }
+
 .dalvyn-journal:not(.premium).journal-entry-page h2,
 .dalvyn-journal:not(.premium) .journal-entry-page h2 {
   color: var(--red) !important;
@@ -241,10 +276,12 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   line-height: 100%;
   border-bottom: 0;
 }
+
 .dalvyn-journal:not(.premium).journal-entry-page h2:hover,
 .dalvyn-journal:not(.premium) .journal-entry-page h2:hover {
   background-image: linear-gradient(rgba(78, 7, 7, 0), rgba(78, 7, 7, 0), rgba(78, 7, 7, 0.2666666667));
 }
+
 .dalvyn-journal:not(.premium).journal-entry-page h3,
 .dalvyn-journal:not(.premium) .journal-entry-page h3 {
   color: var(--brown) !important;
@@ -253,10 +290,12 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   line-height: 100%;
   border-bottom: 0;
 }
+
 .dalvyn-journal:not(.premium).journal-entry-page h3:hover,
 .dalvyn-journal:not(.premium) .journal-entry-page h3:hover {
   background-image: linear-gradient(rgba(173, 111, 89, 0), rgba(173, 111, 89, 0), rgba(173, 111, 89, 0), rgba(173, 111, 89, 0.2666666667));
 }
+
 .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h4,
 .dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h4 {
   color: var(--blue) !important;
@@ -266,10 +305,12 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   line-height: 100%;
   border-bottom: 0;
 }
+
 .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h4:hover,
 .dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h4:hover {
   background-image: linear-gradient(rgba(2, 37, 110, 0), rgba(2, 37, 110, 0), rgba(2, 37, 110, 0), rgba(2, 37, 110, 0.2666666667));
 }
+
 .dalvyn-journal:not(.premium).journal-entry-page h5,
 .dalvyn-journal:not(.premium) .journal-entry-page h5 {
   line-height: 100%;
@@ -278,14 +319,17 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   border-bottom: 0;
   margin-bottom: 0;
 }
+
 .dalvyn-journal:not(.premium).journal-entry-page h5:hover,
 .dalvyn-journal:not(.premium) .journal-entry-page h5:hover {
   background-image: linear-gradient(rgba(2, 37, 110, 0), rgba(2, 37, 110, 0), rgba(2, 37, 110, 0), rgba(2, 37, 110, 0.2666666667));
 }
+
 .dalvyn-journal:not(.premium).journal-entry-content, .dalvyn-journal:not(.premium).journal-entry-page .window-content,
 .dalvyn-journal:not(.premium) .journal-entry-page .window-content {
   font-family: "Gelasio";
 }
+
 .dalvyn-journal:not(.premium).journal-entry-page code,
 .dalvyn-journal:not(.premium) .journal-entry-page code {
   font-family: "pathfinder2eactions";
@@ -293,6 +337,7 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   font-size: 150%;
   line-height: 66%;
 }
+
 .dalvyn-journal:not(.premium).journal-entry-page table,
 .dalvyn-journal:not(.premium) .journal-entry-page table {
   font-family: "roboto condensed";
@@ -300,31 +345,37 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   margin-left: auto;
   margin-right: auto;
 }
+
 .dalvyn-journal:not(.premium).journal-entry-page table th,
 .dalvyn-journal:not(.premium) .journal-entry-page table th {
   color: white;
   background-color: var(--red);
 }
+
 .dalvyn-journal:not(.premium).journal-entry-page tr:nth-child(2n),
 .dalvyn-journal:not(.premium) .journal-entry-page tr:nth-child(2n) {
   background-color: #f5efe0;
   color: black;
 }
+
 .dalvyn-journal:not(.premium).journal-entry-page tr:nth-child(2n+1),
 .dalvyn-journal:not(.premium) .journal-entry-page tr:nth-child(2n+1) {
   background-color: #efe3c8;
   color: black;
 }
+
 .dalvyn-journal:not(.premium).journal-entry-page tr:hover,
 .dalvyn-journal:not(.premium) .journal-entry-page tr:hover {
   background-color: #e9d7b0;
   color: black;
 }
+
 .dalvyn-journal:not(.premium).journal-entry-page table td, .dalvyn-journal:not(.premium).journal-entry-page table th,
 .dalvyn-journal:not(.premium) .journal-entry-page table td,
 .dalvyn-journal:not(.premium) .journal-entry-page table th {
   padding: 4px 6px;
 }
+
 .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content blockquote:not(h6 + p + ul + blockquote, h6 + p + blockquote, h6 + ul + blockquote, h6 + blockquote),
 .dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content blockquote:not(h6 + p + ul + blockquote, h6 + p + blockquote, h6 + ul + blockquote, h6 + blockquote) {
   border-left-width: 0;
@@ -337,10 +388,12 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   margin-left: 0;
   margin-right: 0;
 }
+
 .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content blockquote:not(h6 + p + ul + blockquote, h6 + p + blockquote, h6 + ul + blockquote, h6 + blockquote):hover,
 .dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content blockquote:not(h6 + p + ul + blockquote, h6 + p + blockquote, h6 + ul + blockquote, h6 + blockquote):hover {
   color: #efdfa2;
 }
+
 .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote),
 .dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote) {
   margin-left: 12px;
@@ -349,6 +402,7 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   margin-bottom: 0;
   background-color: rgba(245, 239, 224, 0.6666666667);
 }
+
 .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content :is(h6, h6 + p),
 .dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content :is(h6, h6 + p) {
   font-family: "Tauri-Regular";
@@ -356,13 +410,15 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   font-weight: bold;
   font-size: 1.15em;
 }
+
 .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6,
 .dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 {
   border-bottom: 1px solid black;
   padding: 4px 12px;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p {
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p {
   text-align: right;
   position: relative;
   bottom: 24px;
@@ -371,8 +427,9 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   margin: 0;
   overflow: visible;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul {
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+ul,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+ul {
   clear: both;
   display: flex;
   font-family: "roboto condensed";
@@ -380,34 +437,41 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   list-style-type: none;
   padding: 4px 12px;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li strong,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li strong {
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+ul li strong,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+ul li strong {
   font-weight: normal;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li em,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li em {
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+ul li em,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+ul li em {
   font-style: normal;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li sub,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li sub {
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+ul li sub,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+ul li sub {
   vertical-align: baseline;
   font-size: 100%;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li sup,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li sup {
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+ul li sup,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+ul li sup {
   vertical-align: baseline;
   font-size: 100%;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li s,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li s {
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+ul li s,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+ul li s {
   text-decoration: none;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li p,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li p {
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+ul li p,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+ul li p {
   margin: 0;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li p,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li p {
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+ul li p,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+ul li p {
   color: white;
   border: 3px solid #dac68a;
   border-left-width: 4px;
@@ -415,81 +479,95 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   text-transform: uppercase;
   margin: 0;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li p,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li p {
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+ul li p,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+ul li p {
   background-color: #58180d;
   padding: 2px 3px;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li p > strong,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li p > strong {
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+ul li p>strong,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+ul li p>strong {
   background-color: #576293;
   padding: 2px 3px;
   margin: -2px -3px;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li p > em,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li p > em {
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+ul li p>em,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+ul li p>em {
   background-color: #3b7b59;
   padding: 2px 3px;
   margin: -2px -3px;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li p > sub,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li p > sub {
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+ul li p>sub,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+ul li p>sub {
   background-color: #98513d;
   padding: 2px 3px;
   margin: -2px -3px;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li p > sup,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li p > sup {
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+ul li p>sup,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+ul li p>sup {
   background-color: #002664;
   padding: 2px 3px;
   margin: -2px -3px;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul li p > s,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul li p > s {
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+ul li p>s,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+ul li p>s {
   background-color: #54166e;
   padding: 2px 3px;
   margin: -2px -3px;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul + blockquote {
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+ul+blockquote,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+ul+blockquote {
   border: 0;
   padding: 0 12px 4px 12px;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + blockquote {
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+blockquote,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+blockquote {
   border: 0;
   padding: 4px 12px 4px 12px;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote p, .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote p,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul + blockquote p,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + blockquote p {
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+ul+blockquote p, .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+blockquote p,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+ul+blockquote p,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+blockquote p {
   font-family: "roboto condensed";
   font-style: normal;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote em, .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote em,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul + blockquote em,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + blockquote em {
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+ul+blockquote em, .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+blockquote em,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+ul+blockquote em,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+blockquote em {
   font-style: italic;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote p:has(strong:first-child), .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote p:has(strong:first-child),
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul + blockquote p:has(strong:first-child),
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + blockquote p:has(strong:first-child) {
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+ul+blockquote p:has(strong:first-child), .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+blockquote p:has(strong:first-child),
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+ul+blockquote p:has(strong:first-child),
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+blockquote p:has(strong:first-child) {
   text-indent: -1em;
   margin-left: 1em;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote p *, .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote p *,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul + blockquote p *,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + blockquote p * {
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+ul+blockquote p *, .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+blockquote p *,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+ul+blockquote p *,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+blockquote p * {
   text-indent: 0;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote p:first-child, .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote p:first-child,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul + blockquote p:first-child,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + blockquote p:first-child {
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+ul+blockquote p:first-child, .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+blockquote p:first-child,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+ul+blockquote p:first-child,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+blockquote p:first-child {
   margin-top: 0;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote hr, .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote hr,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + blockquote hr,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul + blockquote hr {
+
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+blockquote hr, .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6+p+ul+blockquote hr,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+blockquote hr,
+.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6+p+ul+blockquote hr {
   border-top: 0;
   border-bottom: 1px solid black;
   margin: 0;
@@ -503,11 +581,13 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   --brown: #ad6f59;
   color: var(--color-text-light-heading);
 }
+
 .foundry2 .dalvyn-journal:not(.premium) tbody,
 .dalvyn-journal.dark-theme:not(.premium) tbody,
 .dalvyn-journal:not(.premium) .dark-theme tbody {
   color: black;
 }
+
 .foundry2 .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote),
 .foundry2 .dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote),
 .dalvyn-journal.dark-theme:not(.premium).journal-entry-page .journal-page-content :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote),
@@ -529,6 +609,7 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   padding: 0px;
   gap: var(--sidebar-gap);
 }
+
 #chat-controls .buttons {
   gap: var(--sidebar-gap);
   flex-wrap: nowrap;
@@ -537,6 +618,7 @@ body.minimize-hotbar #ui-middle.active #hotbar {
 #dorako-rt-buttons {
   flex: 1 0 170px;
 }
+
 #dorako-rt-buttons button.active {
   color: var(--color-text-light-highlight);
   background-color: var(--color-border-highlight);
@@ -546,10 +628,12 @@ body.minimize-hotbar #ui-middle.active #hotbar {
 #dorako-nonrt-buttons {
   flex: 1 1 30px !important;
 }
+
 #dorako-nonrt-buttons:empty {
   display: none;
 }
-#dorako-nonrt-buttons > button {
+
+#dorako-nonrt-buttons>button {
   flex: 1 1 32px;
 }
 
@@ -559,6 +643,7 @@ body.minimize-hotbar #ui-middle.active #hotbar {
 .message.chat-message .message-delete {
   z-index: 1;
 }
+
 .message.chat-message.dfce-cm-top {
   border-bottom-style: none;
   border-bottom-left-radius: 0px;
@@ -566,19 +651,23 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   margin-bottom: 0px;
   padding-bottom: 5px;
 }
+
 .message.chat-message.dfce-cm-middle, .message.chat-message.dfce-cm-bottom {
   position: relative;
   border-radius: 0px;
   margin-top: 0px !important;
 }
+
 .message.chat-message.dfce-cm-middle .message-content, .message.chat-message.dfce-cm-bottom .message-content {
   padding-right: 0px;
 }
+
 .message.chat-message.dfce-cm-middle .sender-wrapper,
 .message.chat-message.dfce-cm-middle .portrait-and-name, .message.chat-message.dfce-cm-bottom .sender-wrapper,
 .message.chat-message.dfce-cm-bottom .portrait-and-name {
   display: none;
 }
+
 .message.chat-message.dfce-cm-middle .message-header, .message.chat-message.dfce-cm-bottom .message-header {
   background: transparent !important;
   box-shadow: none;
@@ -586,9 +675,11 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   padding: 0px;
   padding-right: 5px;
 }
+
 .message.chat-message.dfce-cm-middle .header-meta, .message.chat-message.dfce-cm-bottom .header-meta {
   display: none;
 }
+
 .message.chat-message.dfce-cm-middle {
   margin-top: 0px;
   margin-bottom: 0px;
@@ -596,6 +687,7 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   padding-bottom: 5px;
   border-bottom: none;
 }
+
 .message.chat-message.dfce-cm-bottom {
   margin-top: 0px;
   padding-top: 5px;
@@ -606,6 +698,7 @@ body.minimize-hotbar #ui-middle.active #hotbar {
 .dfce-cm-bottom .message-header {
   display: none;
 }
+
 .dfce-cm-middle:hover .message-header,
 .dfce-cm-bottom:hover .message-header {
   display: block;
@@ -617,6 +710,7 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   box-shadow: none !important;
   z-index: 1;
 }
+
 .dfce-cm-middle:hover .message-header .portrait-and-name,
 .dfce-cm-bottom:hover .message-header .portrait-and-name {
   display: none !important;
@@ -630,11 +724,11 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   display: none !important;
 }
 
-.dorako-damage-roll .flavor-text > *:nth-child(-n+3) {
+.dorako-damage-roll .flavor-text>*:nth-child(-n+3) {
   display: none;
 }
 
-.dorako-damage-roll .flavor-text > hr {
+.dorako-damage-roll .flavor-text>hr {
   border-color: transparent;
 }
 
@@ -652,15 +746,18 @@ nav#controls {
   display: flex;
   align-items: var(--controls-alignment);
 }
-nav#controls ol.control-tools.sub-controls > li,
+
+nav#controls ol.control-tools.sub-controls>li,
 nav#controls ol.control-tools.main-controls {
   margin-right: var(--controls-margin);
 }
+
 nav#controls ol.control-tools.main-control {
   margin-right: var(--controls-margin);
 }
+
 nav#controls ol.control-tools li.control-tool,
-nav#controls ol.control-tools > li {
+nav#controls ol.control-tools>li {
   margin-bottom: var(--controls-margin);
   height: var(--control-size);
   width: var(--control-size);
@@ -677,6 +774,7 @@ nav#controls ol.control-tools > li {
   bottom: 0;
   width: 60px;
 }
+
 #fps label {
   display: none;
 }
@@ -689,15 +787,19 @@ nav#controls ol.control-tools > li {
 .dorako-ux {
   --ornamentation: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='33' height='33' overflow='scroll'%3E%3Cstyle%3E.st1{stroke:gray;stroke-miterlimit:10}.st1,.st2{fill:none}%3C/style%3E%3Cg opacity='1'%3E%3Cpath class='st1' d='M.5 20v-7'/%3E%3Cpath class='st2' d='M13 20v-7'/%3E%3Cpath class='st1' d='M13 .5h7'/%3E%3Cpath class='st2' d='M13 13h7'/%3E%3Cpath class='st1' d='M32.5 13v7'/%3E%3Cpath class='st2' d='M20 13v7'/%3E%3Cpath class='st1' d='M20 32.5h-7'/%3E%3Cpath class='st2' d='M20 20h-7'/%3E%3Cpath class='st1' d='M.5.5h3.1v3.1H.5zm3.1 3.1h3.1v3.1H3.6zm3.2 0h3.1v3.1H6.8zM3.6 6.8h3.1v3.1H3.6zm0 0H.5V13M13 .5H6.8v3.1M29.4.5h3.1v3.1h-3.1zm-3.1 3.1h3.1v3.1h-3.1zm0 3.2h3.1v3.1h-3.1zm-3.2-3.2h3.1v3.1h-3.1zm3.2 0V.5H20M32.5 13V6.8h-3.1M29.4 29.4h3.1v3.1h-3.1z'/%3E%3Cpath class='st1' d='M26.3 26.3h3.1v3.1h-3.1zm-3.2 0h3.1v3.1h-3.1zm3.2-3.2h3.1v3.1h-3.1z'/%3E%3Cpath class='st1' d='M29.4 26.3h3.1V20M20 32.5h6.3v-3.1'/%3E%3Cg%3E%3Cpath class='st1' d='M.5 29.4h3.1v3.1H.5zm3.1-3.1h3.1v3.1H3.6zm0-3.2h3.1v3.1H3.6zm3.2 3.2h3.1v3.1H6.8zM6.8 29.4v3.1H13M.5 20v6.3h3.1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
+
 .dorako-ux.actor.npc.sheet form .sidebar .health-section .hit-points .max.lt10, .dorako-ux.actor.npc.sheet form .sidebar .shield-section .hit-points .max.lt10 {
   width: 12px;
 }
+
 .dorako-ux.actor.npc.sheet form .sidebar .health-section .hit-points .max.lt100, .dorako-ux.actor.npc.sheet form .sidebar .shield-section .hit-points .max.lt100 {
   width: 28px;
 }
+
 .dorako-ux.actor.npc.sheet form .sidebar .health-section .hit-points .max.lt1000, .dorako-ux.actor.npc.sheet form .sidebar .shield-section .hit-points .max.lt1000 {
   width: 40px;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc {
   --section-background: var(--sheet);
   --section-header: var(--primary);
@@ -715,35 +817,43 @@ nav#controls ol.control-tools > li {
   --text-dark: black;
   --bg: var(--section-background);
 }
+
 .dorako-ux.sheet.pf2e.actor.npc .sidebar header a.roll {
   --color-pf-primary-light: var(--section-header-text-color);
   --color-pf-primary-darker: var(--section-header-text-color);
 }
+
 .dorako-ux.sheet.pf2e.actor.npc .sheet-body a.roll[data-statistic=perception] {
   --color-pf-primary-light: var(--color-pf-primary-light);
   --color-pf-primary-darker: var(--color-text-dark-primary);
 }
+
 .dorako-ux.sheet.pf2e.actor.npc .sidebar header,
 .dorako-ux.sheet.pf2e.actor.npc .sidebar header .side-bar-label {
   --color-text-dark-input: var(--section-header-text-color);
   --color-text-dark-inactive: var(--section-header-text-color);
 }
+
 .dorako-ux.sheet.pf2e.actor.npc .sidebar header {
   height: 22px;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sidebar select, .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sheet-body select, .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=text], .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=number] {
   color: var(--color-text-dark-input);
   border-color: transparent;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sidebar select:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sidebar select:hover:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sheet-body select:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sheet-body select:hover:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=text]:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=text]:hover:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=number]:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=number]:hover:not(disabled) {
   box-shadow: none;
   border-color: transparent;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form .tag-legacy {
   background: var(--tag-background-color);
   border-color: var(--tag-border-color);
   color: var(--tag-text-color);
 }
+
 .dorako-ux.sheet.pf2e.actor.npc .tags .tag.tag_transparent,
 .dorako-ux.sheet.pf2e.actor.npc .tags .tag option.tag_transparent {
   background: var(--tag-background-color);
@@ -751,60 +861,77 @@ nav#controls ol.control-tools > li {
   color: var(--tag-text-color);
   box-shadow: unset;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form .adjustments {
   gap: 1px;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form .adjustments .trait {
   border: 1px solid var(--tertiary);
   outline: 1px solid var(--gold-brown);
 }
+
 .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form .sheet-body .entries-list .spellcasting-entry {
   border: 1px solid var(--section-border-color);
   outline: 1px solid var(--section-outline-color);
 }
+
 .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form .sheet-body .entries-list .spellcasting-entry .header {
   background: var(--section-header);
   border-bottom: 1px solid var(--section-border-color);
 }
+
 .dorako-ux.sheet.pf2e.actor.npc .sidebar ul.comma-separated {
   margin-left: 3px;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc .sidebar .subsection,
 .dorako-ux.sheet.pf2e.actor.npc .section-container {
   box-shadow: 0px 2px 5px black;
 }
-.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form ol.spell-list, .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form ol.spell-list > li.spell-level-header {
+
+.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form ol.spell-list, .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form ol.spell-list>li.spell-level-header {
   border-color: transparent;
 }
-.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form .notes .notes-section > h4 {
+
+.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form .notes .notes-section>h4 {
   color: var(--color-text-dark-input);
 }
+
 .dorako-ux.sheet.pf2e.actor.npc .tox.tox-tinymce .tox-edit-area__iframe {
   background: white;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form .side-bar-section.initiative a.roll-init {
   margin-bottom: unset;
 }
-.dorako-ux.sheet.pf2e.actor.npc ol.spell-list > li .item-name .item-image .item-icon {
+
+.dorako-ux.sheet.pf2e.actor.npc ol.spell-list>li .item-name .item-image .item-icon {
   border-radius: 3px;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .sheet-body .tab {
   padding-top: 2px;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .activity-icon {
   font-weight: 100;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form input.adjustable:not(:focus).adjusted-higher,
 .dorako-ux.sheet.pf2e.actor.npc form span.adjustable.adjusted-higher {
   color: var(--degree-success-critical) !important;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form input.adjustable:not(:focus).adjusted-lower,
 .dorako-ux.sheet.pf2e.actor.npc form span.adjustable.adjusted-lower {
   color: var(--degree-failure-critical) !important;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .top-sections {
   gap: 5px;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .subsection {
   background: var(--section-background);
   background-size: cover;
@@ -813,47 +940,59 @@ nav#controls ol.control-tools > li {
   border-radius: 3px;
   margin: 3px;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .subsection.initiative select {
   width: 98%;
   margin-bottom: 2px;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .subsection header {
   align-items: center;
   margin-bottom: unset;
   margin-bottom: 2px;
   padding-left: 4px;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .subsection header.disabled {
   margin-bottom: unset;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed header {
   margin-bottom: unset;
   border-bottom: unset;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed header.disabled {
   margin-bottom: unset;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed {
   max-height: 26px;
   transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed header {
   border-radius: 3px;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed:not(.empty):hover {
   max-height: 1000px;
   transition: max-height 1s ease-in-out;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed:not(.empty):hover header {
   border-radius: 3px 3px 0px 0px;
   border-bottom: 1px solid var(--section-border-color);
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed:not(.empty):hover .side-bar-section-content {
   display: block;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed .side-bar-section-content {
   display: none;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .section-container,
 .dorako-ux.sheet.pf2e.actor.npc form .subsection {
   padding: 0px;
@@ -864,6 +1003,12 @@ nav#controls ol.control-tools > li {
   outline: 1px solid var(--section-outline-color);
   background-size: cover;
 }
+
+.dorako-ux.sheet.pf2e.actor.npc form .section-container.iwr,
+.dorako-ux.sheet.pf2e.actor.npc form .subsection.iwr {
+  min-height: unset;
+}
+
 .dorako-ux.sheet.pf2e.actor.npc form .section-container .section-header,
 .dorako-ux.sheet.pf2e.actor.npc form .section-container header,
 .dorako-ux.sheet.pf2e.actor.npc form .subsection .section-header,
@@ -873,12 +1018,14 @@ nav#controls ol.control-tools > li {
   border-bottom: 1px solid var(--section-border-color);
   color: var(--section-header-text-color);
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .section-container .section-body,
 .dorako-ux.sheet.pf2e.actor.npc form .subsection .section-body {
   border: none;
   padding: 0;
   padding: 5px;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .section-container.toggles,
 .dorako-ux.sheet.pf2e.actor.npc form .subsection.toggles {
   outline: none;
@@ -898,26 +1045,33 @@ nav#controls ol.control-tools > li {
   background: none;
   margin: 5px;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .sidebar .image-container {
   border: none;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .sidebar .saves-section.side-bar-section {
   display: flex;
   flex-direction: column;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .sidebar .saves-section.side-bar-section.collapsed {
   max-height: 10rem;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .sidebar .saves-section.side-bar-section.collapsed:hover {
   max-height: 1000px;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .sidebar .saves {
   margin-top: 4px;
   width: unset;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc form .sidebar .save-details {
   font-size: 14px;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc .sidebar header {
   background: var(--section-header);
   border-radius: 3px 3px 0px 0px;
@@ -927,17 +1081,21 @@ nav#controls ol.control-tools > li {
   border: unset;
   border-bottom: 1px solid var(--section-border-color);
 }
+
 .dorako-ux.sheet.pf2e.actor.npc .sidebar header.disabled {
   border-radius: 3px;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc .sidebar header .inventory-section .inventory-list .item .item-image {
   border: none;
   margin: 3px 4px 3px 6px;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc .sidebar header .side-bar .image-container,
 .dorako-ux.sheet.pf2e.actor.npc .sidebar header .actions-options .actions-option {
   cursor: pointer;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc .side-bar-section-content {
   width: 98%;
   margin-left: 3px;
@@ -947,20 +1105,24 @@ nav#controls ol.control-tools > li {
 .dorako-ux.sheet.pf2e.actor.npc .side-bar-section-header .pf2e-see-simple-scale-statistics-Extreme-color-primary {
   color: #6cd8ff;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc .side-bar-section-header .pf2e-see-simple-scale-statistics-High-color-primary {
   color: #3cff00;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc .side-bar-section-header .pf2e-see-simple-scale-statistics-Moderate-color-primary {
   color: #ffff54;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc .side-bar-section-header .pf2e-see-simple-scale-statistics-Low-color-primary {
   color: #ff8000;
 }
+
 .dorako-ux.sheet.pf2e.actor.npc .side-bar-section-header .pf2e-see-simple-scale-statistics-Terrible-color-primary {
   color: #ff0000;
 }
 
-#sidebar > .dorako-resize {
+#sidebar>.dorako-resize {
   width: 6px;
   height: 100%;
   position: absolute;
@@ -972,7 +1134,8 @@ nav#controls ol.control-tools > li {
   --chatform-height: 100px;
   flex: 0 0 var(--chatform-height);
 }
-#chat-form > .dorako-resize {
+
+#chat-form>.dorako-resize {
   width: 100%;
   height: 4px;
   position: fixed;
@@ -984,7 +1147,8 @@ nav#controls ol.control-tools > li {
   --sidebar-tab-height: var(--sidebar-tab-size);
   --sidebar-tab-width: var(--sidebar-tab-size);
 }
-#sidebar-tabs > item {
+
+#sidebar-tabs>item {
   align-self: center;
 }
 

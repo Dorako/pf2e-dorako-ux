@@ -8,18 +8,19 @@ const rgb2hex = (rgb) =>
     .map((n) => parseInt(n, 10).toString(16).padStart(2, "0"))
     .join("")}`;
 
-// second return value is whether the first value can be styled as pf2e-icon
-function getActionGlyph(actionCost) {
-  if (actionCost === "1 to 3") return ["1 / 2 / 3", true];
-  if (actionCost === "1 or 2") return ["1 / 2", true];
-  if (actionCost === "2 or 3") return ["2 / 3", true];
-  if (actionCost.type === "action") {
-    return [actionCost.value, true];
-  } else if (actionCost.type === "reaction") return ["R", true];
-  else if (actionCost.type === "free") return ["F", true];
-  else if (actionCost.length === 1) return [actionCost, true];
-  else return [actionCost, false];
-}
+// // second return value is whether the first value can be styled as pf2e-icon
+// function getActionGlyph(actionCost) {
+//   if (actionCost === "1 to 3") return ["1 / 2 / 3", true];
+//   if (actionCost === "1 or 2") return ["1 / 2", true];
+//   if (actionCost === "2 or 3") return ["2 / 3", true];
+//   if (actionCost.type === "action") {
+//     return [actionCost.value, true];
+//   } else if (actionCost.type === "reaction") return ["R", true];
+//   else if (actionCost.type === "free") return ["F", true];
+//   else if (actionCost.length === 1) return [actionCost, true];
+//   else return [actionCost, false];
+// }
+
 // Chat cards
 Hooks.on("renderChatMessage", (chatMessage, html, messageData) => {
   const isNarratorToolsMessage = chatMessage.flags["narrator-tools"];
@@ -30,19 +31,19 @@ Hooks.on("renderChatMessage", (chatMessage, html, messageData) => {
     return;
   }
 
-  if (game.settings.get("pf2e-dorako-ux", "moving.restructure-card-info")) {
-    let uuid = chatMessage?.flags?.pf2e?.origin?.uuid;
-    if (uuid) {
-      try {
-        let origin = fromUuidSync(uuid);
-        let actionCost = origin?.actionCost;
-        if (actionCost) injectActionCost(html, actionCost);
-        if (origin?.type === "spell") injectSpellInfo(html, origin);
-      } catch (error) {
-        // An error is thrown if the UUID is a reference to something that is not loaded, like an actor in a compendium.
-      }
-    }
-  }
+  // if (game.settings.get("pf2e-dorako-ux", "moving.restructure-card-info")) {
+  //   let uuid = chatMessage?.flags?.pf2e?.origin?.uuid;
+  //   if (uuid) {
+  //     try {
+  //       let origin = fromUuidSync(uuid);
+  //       let actionCost = origin?.actionCost;
+  //       if (actionCost) injectActionCost(html, actionCost);
+  //       if (origin?.type === "spell") injectSpellInfo(html, origin);
+  //     } catch (error) {
+  //       // An error is thrown if the UUID is a reference to something that is not loaded, like an actor in a compendium.
+  //     }
+  //   }
+  // }
 
   injectSenderWrapper(html, messageData);
   injectMessageTag(html, messageData);
@@ -140,207 +141,207 @@ function injectAvatar(html, avatar) {
   portraitAndName.prepend(wrapper);
 }
 
-function injectActionCost(html, actionCost) {
-  if (!actionCost) return;
-  const [actionGlyph, shouldBeStyled] = getActionGlyph(actionCost);
-  if (!actionGlyph) return;
+// function injectActionCost(html, actionCost) {
+//   if (!actionCost) return;
+//   const [actionGlyph, shouldBeStyled] = getActionGlyph(actionCost);
+//   if (!actionGlyph) return;
 
-  // console.log("Injecting actionGlyph %s", actionGlyph);
-  let messageHeader = html.find(".card-header")[0];
-  let actionGlyphText = document.createElement("h3");
-  html.find(".action-glyph")?.get(0).remove(); // Remove action-glyph added by system
-  if (shouldBeStyled) actionGlyphText.classList.add("pf2-icon");
-  actionGlyphText.textContent = actionGlyph;
-  messageHeader.append(actionGlyphText);
-}
+//   // console.log("Injecting actionGlyph %s", actionGlyph);
+//   let messageHeader = html.find(".card-header")[0];
+//   let actionGlyphText = document.createElement("h3");
+//   html.find(".action-glyph")?.get(0).remove(); // Remove action-glyph added by system
+//   if (shouldBeStyled) actionGlyphText.classList.add("pf2-icon");
+//   actionGlyphText.textContent = actionGlyph;
+//   messageHeader.append(actionGlyphText);
+// }
 
-function localizeComponent(componentKey) {
-  if (componentKey === "focus") return i18n("PF2E.SpellComponentF");
-  if (componentKey === "material") return i18n("PF2E.SpellComponentM");
-  if (componentKey === "somatic") return i18n("PF2E.SpellComponentS");
-  if (componentKey === "verbal") return i18n("PF2E.SpellComponentV");
-}
+// function localizeComponent(componentKey) {
+//   if (componentKey === "focus") return i18n("PF2E.SpellComponentF");
+//   if (componentKey === "material") return i18n("PF2E.SpellComponentM");
+//   if (componentKey === "somatic") return i18n("PF2E.SpellComponentS");
+//   if (componentKey === "verbal") return i18n("PF2E.SpellComponentV");
+// }
 
-function spellComponentsToText(components) {
-  // console.log(components);
-  const asArray = Object.entries(components);
-  // console.log(asArray);
-  const filtered = asArray.filter(([key, value]) => value);
-  // console.log(filtered);
-  const localized = filtered.map(([key, value]) => localizeComponent(key));
-  // console.log(localized);
-  const combined = localized.join(", ");
-  return " " + combined.toLowerCase();
-}
+// function spellComponentsToText(components) {
+//   // console.log(components);
+//   const asArray = Object.entries(components);
+//   // console.log(asArray);
+//   const filtered = asArray.filter(([key, value]) => value);
+//   // console.log(filtered);
+//   const localized = filtered.map(([key, value]) => localizeComponent(key));
+//   // console.log(localized);
+//   const combined = localized.join(", ");
+//   return " " + combined.toLowerCase();
+// }
 
-function injectSpellInfo(html, spell) {
-  if (!spell) return;
-  let messageHeader = html.find(".card-content")[0];
-  let spellInfo = document.createElement("div");
-  spellInfo.classList.add("spell-info");
-  // console.log(spell);
+// function injectSpellInfo(html, spell) {
+//   if (!spell) return;
+//   let messageHeader = html.find(".card-content")[0];
+//   let spellInfo = document.createElement("div");
+//   spellInfo.classList.add("spell-info");
+//   // console.log(spell);
 
-  // Cast time + components
-  let time = spell?.system?.time?.value;
-  let components = spell?.system?.components;
-  let elem = document.createElement("p");
-  let castInfoLabel = document.createElement("strong");
-  castInfoLabel.textContent = i18n("PF2E.CastLabel") + " ";
-  let castTime = document.createElement("span");
-  const [actionCost, shouldBeGlyph] = getActionGlyph(time);
-  castTime.textContent = actionCost;
-  if (shouldBeGlyph) castTime.classList.add("pf2-icon");
-  let castComponents = document.createElement("span");
-  // castComponents.textContent = spellComponentsToText(components);
-  elem.append(castInfoLabel);
-  elem.append(castTime);
-  // elem.append(castComponents);
-  spellInfo.append(elem);
+//   // Cast time + components
+//   let time = spell?.system?.time?.value;
+//   let components = spell?.system?.components;
+//   let elem = document.createElement("p");
+//   let castInfoLabel = document.createElement("strong");
+//   castInfoLabel.textContent = i18n("PF2E.CastLabel") + " ";
+//   let castTime = document.createElement("span");
+//   const [actionCost, shouldBeGlyph] = getActionGlyph(time);
+//   castTime.textContent = actionCost;
+//   if (shouldBeGlyph) castTime.classList.add("pf2-icon");
+//   let castComponents = document.createElement("span");
+//   // castComponents.textContent = spellComponentsToText(components);
+//   elem.append(castInfoLabel);
+//   elem.append(castTime);
+//   // elem.append(castComponents);
+//   spellInfo.append(elem);
 
-  // Cost info (note: not cast time, material cost)
-  let cost = spell?.system?.cost?.value;
-  if (cost) {
-    let elem = document.createElement("p");
-    let label = document.createElement("strong");
-    label.textContent = i18n("PF2E.SpellCostLabel") + " ";
-    let value = document.createElement("span");
-    value.textContent = cost;
-    elem.append(label);
-    elem.append(value);
-    spellInfo.append(elem);
-  }
+//   // Cost info (note: not cast time, material cost)
+//   let cost = spell?.system?.cost?.value;
+//   if (cost) {
+//     let elem = document.createElement("p");
+//     let label = document.createElement("strong");
+//     label.textContent = i18n("PF2E.SpellCostLabel") + " ";
+//     let value = document.createElement("span");
+//     value.textContent = cost;
+//     elem.append(label);
+//     elem.append(value);
+//     spellInfo.append(elem);
+//   }
 
-  let secondarycasters = spell?.system?.secondarycasters?.value;
-  if (secondarycasters) {
-    let info = document.createElement("p");
-    let label = document.createElement("strong");
-    label.textContent = i18n("PF2E.SpellSecondaryCasters") + " ";
-    let value = document.createElement("span");
-    value.textContent = secondarycasters;
-    info.append(label);
-    info.append(value);
-    spellInfo.append(info);
-  }
+//   let secondarycasters = spell?.system?.secondarycasters?.value;
+//   if (secondarycasters) {
+//     let info = document.createElement("p");
+//     let label = document.createElement("strong");
+//     label.textContent = i18n("PF2E.SpellSecondaryCasters") + " ";
+//     let value = document.createElement("span");
+//     value.textContent = secondarycasters;
+//     info.append(label);
+//     info.append(value);
+//     spellInfo.append(info);
+//   }
 
-  let primarycheck = spell?.system?.primarycheck?.value;
-  if (primarycheck) {
-    let info = document.createElement("p");
-    let label = document.createElement("strong");
-    label.textContent = i18n("PF2E.SpellPrimaryCheckLabel") + " ";
-    let value = document.createElement("span");
-    value.textContent = primarycheck;
-    info.append(label);
-    info.append(value);
-    spellInfo.append(info);
-  }
+//   let primarycheck = spell?.system?.primarycheck?.value;
+//   if (primarycheck) {
+//     let info = document.createElement("p");
+//     let label = document.createElement("strong");
+//     label.textContent = i18n("PF2E.SpellPrimaryCheckLabel") + " ";
+//     let value = document.createElement("span");
+//     value.textContent = primarycheck;
+//     info.append(label);
+//     info.append(value);
+//     spellInfo.append(info);
+//   }
 
-  let secondarycheck = spell?.system?.secondarycheck?.value;
-  if (secondarycheck) {
-    let info = document.createElement("p");
-    let label = document.createElement("strong");
-    label.textContent = i18n("PF2E.SpellSecondaryChecksLabel") + " ";
-    let value = document.createElement("span");
-    value.textContent = secondarycheck;
-    info.append(label);
-    info.append(value);
-    spellInfo.append(info);
-  }
+//   let secondarycheck = spell?.system?.secondarycheck?.value;
+//   if (secondarycheck) {
+//     let info = document.createElement("p");
+//     let label = document.createElement("strong");
+//     label.textContent = i18n("PF2E.SpellSecondaryChecksLabel") + " ";
+//     let value = document.createElement("span");
+//     value.textContent = secondarycheck;
+//     info.append(label);
+//     info.append(value);
+//     spellInfo.append(info);
+//   }
 
-  // Target info
-  let target = spell?.system?.target?.value;
-  if (target) {
-    // console.log(target);
-    let targetInfo = document.createElement("p");
-    let targetInfoLabel = document.createElement("strong");
-    targetInfoLabel.textContent = i18n("PF2E.SpellTargetLabel") + " ";
-    let targetValue = document.createElement("span");
-    targetValue.textContent = target;
-    targetInfo.append(targetInfoLabel);
-    targetInfo.append(targetValue);
-    spellInfo.append(targetInfo);
-  }
+//   // Target info
+//   let target = spell?.system?.target?.value;
+//   if (target) {
+//     // console.log(target);
+//     let targetInfo = document.createElement("p");
+//     let targetInfoLabel = document.createElement("strong");
+//     targetInfoLabel.textContent = i18n("PF2E.SpellTargetLabel") + " ";
+//     let targetValue = document.createElement("span");
+//     targetValue.textContent = target;
+//     targetInfo.append(targetInfoLabel);
+//     targetInfo.append(targetValue);
+//     spellInfo.append(targetInfo);
+//   }
 
-  // Range info
-  let range = spell?.system?.range?.value;
-  if (range) {
-    // console.log(range);
-    let rangeInfo = document.createElement("p");
-    let rangeInfoLabel = document.createElement("strong");
-    rangeInfoLabel.textContent = i18n("PF2E.SpellRangeLabel") + " ";
-    let rangeValue = document.createElement("span");
-    rangeValue.textContent = range;
-    rangeInfo.append(rangeInfoLabel);
-    rangeInfo.append(rangeValue);
-    spellInfo.append(rangeInfo);
-  }
+//   // Range info
+//   let range = spell?.system?.range?.value;
+//   if (range) {
+//     // console.log(range);
+//     let rangeInfo = document.createElement("p");
+//     let rangeInfoLabel = document.createElement("strong");
+//     rangeInfoLabel.textContent = i18n("PF2E.SpellRangeLabel") + " ";
+//     let rangeValue = document.createElement("span");
+//     rangeValue.textContent = range;
+//     rangeInfo.append(rangeInfoLabel);
+//     rangeInfo.append(rangeValue);
+//     spellInfo.append(rangeInfo);
+//   }
 
-  // Area info
-  let area = spell?.system?.area?.value;
-  if (area) {
-    // console.log(area);
-    let areaInfo = document.createElement("p");
-    let areaInfoLabel = document.createElement("strong");
-    areaInfoLabel.textContent = i18n("PF2E.AreaLabel") + " ";
-    let areaType = spell?.system?.area?.type;
-    let areaTypeLabel = areaType
-      ? i18n("PF2E.AreaType" + areaType.charAt(0).toUpperCase() + areaType.slice(1)).toLowerCase()
-      : "";
-    let areaValue = document.createElement("span");
-    areaValue.textContent = area + " " + i18n("PF2E.Foot").toLowerCase() + " " + areaTypeLabel;
-    areaInfo.append(areaInfoLabel);
-    areaInfo.append(areaValue);
-    spellInfo.append(areaInfo);
-  }
+//   // Area info
+//   let area = spell?.system?.area?.value;
+//   if (area) {
+//     // console.log(area);
+//     let areaInfo = document.createElement("p");
+//     let areaInfoLabel = document.createElement("strong");
+//     areaInfoLabel.textContent = i18n("PF2E.AreaLabel") + " ";
+//     let areaType = spell?.system?.area?.type;
+//     let areaTypeLabel = areaType
+//       ? i18n("PF2E.AreaType" + areaType.charAt(0).toUpperCase() + areaType.slice(1)).toLowerCase()
+//       : "";
+//     let areaValue = document.createElement("span");
+//     areaValue.textContent = area + " " + i18n("PF2E.Foot").toLowerCase() + " " + areaTypeLabel;
+//     areaInfo.append(areaInfoLabel);
+//     areaInfo.append(areaValue);
+//     spellInfo.append(areaInfo);
+//   }
 
-  // Duration info
-  let duration = spell?.system?.duration?.value;
-  if (duration) {
-    // console.log(duration);
-    let durationInfo = document.createElement("p");
-    let durationInfoLabel = document.createElement("strong");
-    durationInfoLabel.textContent = i18n("PF2E.SpellDurationLabel") + " ";
-    let durationValue = document.createElement("span");
-    durationValue.textContent = duration;
-    durationInfo.append(durationInfoLabel);
-    durationInfo.append(durationValue);
-    spellInfo.append(durationInfo);
-  }
+//   // Duration info
+//   let duration = spell?.system?.duration?.value;
+//   if (duration) {
+//     // console.log(duration);
+//     let durationInfo = document.createElement("p");
+//     let durationInfoLabel = document.createElement("strong");
+//     durationInfoLabel.textContent = i18n("PF2E.SpellDurationLabel") + " ";
+//     let durationValue = document.createElement("span");
+//     durationValue.textContent = duration;
+//     durationInfo.append(durationInfoLabel);
+//     durationInfo.append(durationValue);
+//     spellInfo.append(durationInfo);
+//   }
 
-  let hr = document.createElement("hr");
+//   let hr = document.createElement("hr");
 
-  // Heightening info
-  let spellRightInfo = html.find(".card-header").find("h4")[0];
-  let originalText = spellRightInfo.textContent;
-  const [_, spellType, parsedLevel] = originalText.split(/(.*) (\d+)/);
+//   // Heightening info
+//   let spellRightInfo = html.find(".card-header").find("h4")[0];
+//   let originalText = spellRightInfo.textContent;
+//   const [_, spellType, parsedLevel] = originalText.split(/(.*) (\d+)/);
 
-  const baseLevel = spell?.baseLevel;
-  const actualLevel = spell?.level;
-  if (baseLevel != parsedLevel) {
-    let heighteningInfo = document.createElement("h4");
-    let spellTypeSpan = document.createElement("span");
-    spellTypeSpan.textContent = spellType + " ";
+//   const baseLevel = spell?.baseLevel;
+//   const actualLevel = spell?.level;
+//   if (baseLevel != parsedLevel) {
+//     let heighteningInfo = document.createElement("h4");
+//     let spellTypeSpan = document.createElement("span");
+//     spellTypeSpan.textContent = spellType + " ";
 
-    let originalLevel = document.createElement("s");
-    originalLevel.textContent = baseLevel;
+//     let originalLevel = document.createElement("s");
+//     originalLevel.textContent = baseLevel;
 
-    let heightenedLevel = document.createElement("span");
-    heightenedLevel.classList.add("heightened");
-    heightenedLevel.textContent = " " + parsedLevel;
+//     let heightenedLevel = document.createElement("span");
+//     heightenedLevel.classList.add("heightened");
+//     heightenedLevel.textContent = " " + parsedLevel;
 
-    heighteningInfo.append(spellTypeSpan);
-    heighteningInfo.append(originalLevel);
-    heighteningInfo.append(heightenedLevel);
+//     heighteningInfo.append(spellTypeSpan);
+//     heighteningInfo.append(originalLevel);
+//     heighteningInfo.append(heightenedLevel);
 
-    spellRightInfo.parentNode.replaceChild(heighteningInfo, spellRightInfo);
-  }
+//     spellRightInfo.parentNode.replaceChild(heighteningInfo, spellRightInfo);
+//   }
 
-  // Footer
-  let footer = html.find(".card-footer")[0];
-  if (footer) footer.classList.add("dorako-display-none");
+//   // Footer
+//   let footer = html.find(".card-footer")[0];
+//   if (footer) footer.classList.add("dorako-display-none");
 
-  messageHeader.prepend(hr);
-  messageHeader.prepend(spellInfo);
-}
+//   messageHeader.prepend(hr);
+//   messageHeader.prepend(spellInfo);
+// }
 
 function injectAuthorName(html, messageData) {
   if (messageData.author === undefined) return;

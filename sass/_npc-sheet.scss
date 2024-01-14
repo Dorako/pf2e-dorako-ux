@@ -226,6 +226,10 @@
         outline: 1px solid var(--section-outline-color);
         background-size: cover;
 
+        &.iwr {
+          min-height: unset;
+        }
+
         .section-header,
         header {
           background: var(--section-header);

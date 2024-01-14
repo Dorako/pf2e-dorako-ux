@@ -93,21 +93,21 @@ export class MovingSettings extends SettingsMenuDorakoUX {
         config: true,
         requiresReload: true,
       },
-      "restructure-card-info": {
-        name: "pf2e-dorako-ux.settings.restructure-card-info.name",
-        hint: "pf2e-dorako-ux.settings.restructure-card-info.hint",
-        scope: "world",
-        type: Boolean,
-        default: true,
-        config: true,
-        requiresReload: false,
-        onChange: () => {
-          const messages = game.messages.filter((m) => m instanceof ChatMessage);
-          for (const message of messages) {
-            ui.chat.updateMessage(message);
-          }
-        },
-      },
+      // "restructure-card-info": {
+      //   name: "pf2e-dorako-ux.settings.restructure-card-info.name",
+      //   hint: "pf2e-dorako-ux.settings.restructure-card-info.hint",
+      //   scope: "world",
+      //   type: Boolean,
+      //   default: true,
+      //   config: true,
+      //   requiresReload: false,
+      //   onChange: () => {
+      //     const messages = game.messages.filter((m) => m instanceof ChatMessage);
+      //     for (const message of messages) {
+      //       ui.chat.updateMessage(message);
+      //     }
+      //   },
+      // },
       "animate-messages": {
         name: "pf2e-dorako-ux.settings.animate-messages.name",
         hint: "pf2e-dorako-ux.settings.animate-messages.hint",

@@ -1,3 +1,7 @@
+# 1.3.0
+
+- (Maintenance) Removed the "restructure card info" setting as System includes a similar feature now.
+
 # 1.2.5
 
 - (Maintenance) More adjustments to NPC sheet restructuring to work on newest system version.
