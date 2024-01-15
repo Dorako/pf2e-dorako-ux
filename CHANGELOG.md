@@ -1,6 +1,7 @@
 # 1.3.0
 
 - (Maintenance) Removed the "restructure card info" setting as System includes a similar feature now.
+- (Fix) Fixed an issue where some avatar related data would be inconsistent on a refresh, courtesy of K4rakara.
 
 # 1.2.5
 
