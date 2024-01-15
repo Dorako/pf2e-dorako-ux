@@ -4,7 +4,6 @@ export class MovingSettings extends SettingsMenuDorakoUX {
   static namespace = "moving";
 
   static SETTINGS = [
-    "restructure-card-info",
     "restructure-npc-sheets",
     "chat-merge",
     "adjust-chat-controls",
@@ -93,21 +92,6 @@ export class MovingSettings extends SettingsMenuDorakoUX {
         config: true,
         requiresReload: true,
       },
-      // "restructure-card-info": {
-      //   name: "pf2e-dorako-ux.settings.restructure-card-info.name",
-      //   hint: "pf2e-dorako-ux.settings.restructure-card-info.hint",
-      //   scope: "world",
-      //   type: Boolean,
-      //   default: true,
-      //   config: true,
-      //   requiresReload: false,
-      //   onChange: () => {
-      //     const messages = game.messages.filter((m) => m instanceof ChatMessage);
-      //     for (const message of messages) {
-      //       ui.chat.updateMessage(message);
-      //     }
-      //   },
-      // },
       "animate-messages": {
         name: "pf2e-dorako-ux.settings.animate-messages.name",
         hint: "pf2e-dorako-ux.settings.animate-messages.hint",

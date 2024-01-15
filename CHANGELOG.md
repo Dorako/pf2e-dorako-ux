@@ -1,3 +1,7 @@
+# 1.3.1
+
+- (Fix) Bugfixes and improvements :^)
+
 # 1.3.0
 
 - (Maintenance) Removed the "restructure card info" setting as System includes a similar feature now.
