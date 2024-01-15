@@ -479,7 +479,7 @@ function addAvatarsToFlags(message, local = true) {
       "flags.pf2e-dorako-ux.tokenAvatar": tokenAvatar,
       "flags.pf2e-dorako-ux.actorAvatar": actorAvatar,
     });
-  } else {
+  } else if (game.user.id == message.user.id) {
     message.update({
       "flags.pf2e-dorako-ux.userAvatar": userAvatar,
       "flags.pf2e-dorako-ux.combatantAvatar": combatantAvatar,
