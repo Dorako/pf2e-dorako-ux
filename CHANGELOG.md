@@ -1,3 +1,7 @@
+# 1.3.2
+
+- (Maintenance) Trimmed the NPC sheet restructuring feature down, due to some of its original behaviour being outdated. This also fixes some logspam.
+
 # 1.3.1
 
 - (Fix) Bugfixes and improvements :^)
