@@ -86,7 +86,7 @@ export class MovingSettings extends SettingsMenuDorakoUX {
       "adjust-token-effects-hud": {
         name: "pf2e-dorako-ux.settings.adjust-token-effects-hud.name",
         hint: "pf2e-dorako-ux.settings.adjust-token-effects-hud.hint",
-        scope: "world",
+        scope: "client",
         type: Boolean,
         default: true,
         config: true,

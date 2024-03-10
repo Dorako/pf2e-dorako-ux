@@ -1,3 +1,7 @@
+# 1.3.3
+
+- (Refinement) Made the adjust-token-effects-hud setting a client setting so it can disabled according to preference/performance level.
+
 # 1.3.2
 
 - (Maintenance) Trimmed the NPC sheet restructuring feature down, due to some of its original behaviour being outdated. This also fixes some logspam.
