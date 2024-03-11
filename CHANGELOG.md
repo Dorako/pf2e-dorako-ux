@@ -1,3 +1,7 @@
+# 1.3.5
+
+- (Fix) Fixed a system reference in the radial HUD code that was causing UX to misbehave when using SWADE.
+
 # 1.3.4
 
 - (Refinement) Optimized the masking of radial HUD effect icons, courtesy of Codas.

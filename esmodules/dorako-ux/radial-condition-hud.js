@@ -191,7 +191,7 @@ Hooks.once("ready", () => {
       let tex = await loadTexture(src, { fallback: fallbackEffectIcon });
       icon = new PIXI.Sprite(tex);
 
-      if (src == game.settings.get("pf2e", "deathIcon")) {
+      if (game.system.id === "pf2e" && src == game.settings.get("pf2e", "deathIcon")) {
         return this.effects.addChild(icon);
       }
       const minDimension = Math.min(icon.width, icon.height);
