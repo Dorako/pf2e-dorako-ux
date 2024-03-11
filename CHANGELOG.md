@@ -1,3 +1,7 @@
+# 1.3.4
+
+- (Refinement) Optimized the masking of radial HUD effect icons, courtesy of Codas.
+
 # 1.3.3
 
 - (Refinement) Made the adjust-token-effects-hud setting a client setting so it can disabled according to preference/performance level.
