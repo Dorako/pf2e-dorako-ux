@@ -1,3 +1,7 @@
+# 1.3.6
+
+- (Fix) Fixed an issue where right-click interaction for the button added by Vauxs' Archives did not work, courtesy of MrVauxs.
+
 # 1.3.5
 
 - (Fix) Fixed a system reference in the radial HUD code that was causing UX to misbehave when using SWADE.
