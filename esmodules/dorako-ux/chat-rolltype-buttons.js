@@ -101,8 +101,11 @@ export default class ChatRollPrivacy {
       const button = $(`<button class="${classes}" title="${title}" style="${style}">${html}</button>`);
       const events = $._data(this, "events"); // Chat Reactions "a" doesn't have event handler configured yet at the time this runs
       if (events) {
-        const click = events["click"][0].handler;
-        button.on("click", click);
+        Object.keys(events).forEach((eventType) => {
+          events[eventType].forEach((event) =>
+            button.on(event.type, event.handler)
+          );
+        });
       }
       nonrolltype.append(button);
     });
