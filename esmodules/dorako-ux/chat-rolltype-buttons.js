@@ -66,7 +66,7 @@ export default class ChatRollPrivacy {
 
   static async _handleChatLogRendering(chat, html, data) {
     // setTimeout(() => {}, 2);
-    const modes = Object.keys(data.rollModes);
+    const modes = data.rollModes.map((rm) => rm.value);
     const buttons = [];
     for (let c = 0; c < modes.length; c++) {
       const rt = modes[c];
@@ -102,9 +102,7 @@ export default class ChatRollPrivacy {
       const events = $._data(this, "events"); // Chat Reactions "a" doesn't have event handler configured yet at the time this runs
       if (events) {
         Object.keys(events).forEach((eventType) => {
-          events[eventType].forEach((event) =>
-            button.on(event.type, event.handler)
-          );
+          events[eventType].forEach((event) => button.on(event.type, event.handler));
         });
       }
       nonrolltype.append(button);

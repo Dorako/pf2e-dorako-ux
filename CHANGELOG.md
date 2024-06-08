@@ -1,3 +1,7 @@
+# 1.4.0
+
+- (New) FVTT V12 compatibility.
+
 # 1.3.6
 
 - (Fix) Fixed an issue where right-click interaction for the button added by Vauxs' Archives did not work, courtesy of MrVauxs.

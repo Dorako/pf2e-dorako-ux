@@ -13,8 +13,8 @@
   ],
   "version": "1.0.0",
   "compatibility": {
-    "minimum": "11",
-    "verified": "11"
+    "minimum": "12",
+    "verified": "12"
   },
   "relationships": {
     "systems": [
@@ -22,8 +22,8 @@
         "id": "pf2e",
         "type": "system",
         "compatibility": {
-          "minimum": "5.6.0",
-          "verified": "5.12.7"
+          "minimum": "6.0.0",
+          "verified": "6.0.0"
         }
       },
       {

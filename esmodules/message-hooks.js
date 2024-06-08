@@ -147,7 +147,7 @@ function injectMessageTag(html, messageData) {
   if (isBlind) rolltype.addClass("blind");
   const isWhisper = whisperTargets?.length > 0;
   if (isWhisper && !isBlind) rolltype.addClass("whisper");
-  const isSelf = isWhisper && whisperTargets.length === 1 && whisperTargets[0] === messageData.message.user;
+  const isSelf = isWhisper && whisperTargets.length === 1 && whisperTargets[0] === messageData.message.author;
   const isRoll = messageData.message.rolls !== undefined;
 
   if (isBlind) {
@@ -166,7 +166,7 @@ function injectMessageTag(html, messageData) {
 
   if (game.settings.get("pf2e-dorako-ux", "moving.animate-messages")) {
     // Draw attention to direct whispers from players to GM
-    const isGmSpeaker = game.users.get(messageData.message.user)?.isGM;
+    const isGmSpeaker = game.users.get(messageData.message.author)?.isGM;
     const isGmTarget = game.users.get(whisperTargets?.[0])?.isGM;
     if (!(isBlind || isSelf) && isWhisper && !isGmSpeaker && isGmTarget) {
       html[0].classList.add("attention");
@@ -183,13 +183,13 @@ function injectWhisperParticipants(html, messageData) {
   const isWhisper = whisperTargetIds?.length > 0 || false;
   const isRoll = messageData.message.rolls !== undefined;
   const isSelf =
-    (isWhisper && whisperTargets.length === 1 && whisperTargets[0] === messageData.message.user) ||
+    (isWhisper && whisperTargets.length === 1 && whisperTargets[0] === messageData.message.author) ||
     (isWhisper &&
       whisperTargets.length === 2 &&
       whisperTargets[0] === "null" &&
-      whisperTargets[1] === messageData.message.user);
+      whisperTargets[1] === messageData.message.author);
 
-  const authorId = messageData.message.user;
+  const authorId = messageData.message.author;
   const userId = game.user.id;
 
   if (!isWhisper) return;
@@ -231,7 +231,7 @@ function addAvatarsToFlags(message, local = true) {
   let tokenImg = token?.texture.src;
   const actor = game.actors.get(speaker.actor);
   let actorImg = actor?.img;
-  let userImg = message.user?.avatar;
+  let userImg = message.author?.avatar;
 
   let userAvatar = new Avatar(message.speaker.alias, userImg);
 
