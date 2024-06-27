@@ -11,6 +11,7 @@ export class HidingSettings extends SettingsMenuDorakoUX {
     "start-sidebar-collapsed",
     "start-navigation-collapsed",
     "no-compendium-banner-images",
+    "no-effects-panel",
   ];
 
   rerenderChatMessages() {}
@@ -122,6 +123,22 @@ export class HidingSettings extends SettingsMenuDorakoUX {
             $(".item[data-tab=cards]").addClass("dorako-display-none");
           } else {
             $(".item[data-tab=cards]").removeClass("dorako-display-none");
+          }
+        },
+      },
+      "no-effects-panel": {
+        name: "pf2e-dorako-ux.settings.no-effects-panel.name",
+        hint: "pf2e-dorako-ux.settings.no-effects-panel.hint",
+        scope: "client",
+        config: true,
+        default: false,
+        type: Boolean,
+        requiresReload: false,
+        onChange: (value) => {
+          if (value) {
+            $("#effects-panel").addClass("dorako-display-none");
+          } else {
+            $("#effects-panel").removeClass("dorako-display-none");
           }
         },
       },

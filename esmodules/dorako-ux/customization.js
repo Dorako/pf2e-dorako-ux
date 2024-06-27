@@ -36,6 +36,12 @@ Hooks.on("renderChatLogPF2e", (app, html, data) => {
   }
 });
 
+Hooks.on("renderEffectsPanel", (app, html, data) => {
+  const noEffectsPanel = game.settings.get("pf2e-dorako-ux", "hiding.no-effects-panel");
+  if (!noEffectsPanel) return;
+  app.element[0].classList.add("dorako-display-none");
+});
+
 Hooks.once("renderSidebar", () => {
   const noCards = game.settings.get("pf2e-dorako-ux", "hiding.no-cards");
   if (!noCards) return;

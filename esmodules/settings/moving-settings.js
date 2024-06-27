@@ -8,7 +8,7 @@ export class MovingSettings extends SettingsMenuDorakoUX {
     "chat-merge",
     "adjust-chat-controls",
     "compact-ui",
-    "minimize-hotbar",
+    // "minimize-hotbar", // Broken
     "center-hotbar",
     "adjust-token-effects-hud",
     "animate-messages",

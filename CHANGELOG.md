@@ -1,3 +1,7 @@
+# 1.4.1
+
+- (New) Added new feature to hide the Effects Panel, intended to be used with modules that introduce their own effects display.
+
 # 1.4.0
 
 - (New) FVTT V12 compatibility.
