@@ -70,7 +70,7 @@ function updateEffectScales(token) {
 
       const iconScale = sizeToIconScale(tokenSize);
       const gridScale = gridSize / 100;
-      const scaledSize = 13 * iconScale * gridScale;
+      const scaledSize = 14 * iconScale * gridScale;
       updateIconSize(effectIcon, scaledSize);
       updateIconPosition(effectIcon, i, effectIcons, token);
     });
