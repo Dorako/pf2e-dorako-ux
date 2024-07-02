@@ -8,6 +8,10 @@
         "hint": "Stelle Effekte kreisförmig da und arrangiere sie außerhalb oder auf dem Token-Ring bei größeren Tokens",
         "name": "\"Token Effects HUD\" anpassen?"
       },
+      "adjust-token-effects-hud-clipping": {
+        "hint": "Verhindert, dass effekt-icons von anderen Tokens überdeckt werden. Bringt starke Performance-Gewinne mit sich.",
+        "name": "Token Effecte über alle Tokens anzeigen?"
+      },
       "animate-messages": {
         "hint": "Flüstern von Spielern zum SL erregt mehr Aufmerksamkeit",
         "name": "Animierte Nachrichten, um die Aufmerksamkeit auf bestimmte Ereignisse zu lenken?"
