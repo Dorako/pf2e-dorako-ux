@@ -32,20 +32,24 @@ function polar_to_cartesian(r, theta) {
   };
 }
 
-function updateIconPosition(effectIcon, i, effectIcons, token) {
+function getRowAndPosInRow(i, rowMax) {
+  return [Math.floor(i / rowMax), i % rowMax];
+}
+
+function updateIconPosition(effectIcon, i, token) {
   const actorSize = token?.actor?.size;
-  let max = 20;
-  if (actorSize == "tiny") max = 10;
-  if (actorSize == "sm") max = 14;
-  if (actorSize == "med") max = 16;
-  const ratio = i / max;
+  const rowMax = sizeToRowMax(actorSize);
+  const [ row, posInRow ] = getRowAndPosInRow(i, rowMax);
+  const ratio = posInRow / rowMax;
   // const angularOffset = i < max ? 0 : ratio / 2;
   const gridSize = token?.scene?.grid?.size ?? 100;
   const tokenTileFactor = token?.document?.width ?? 1;
   const sizeOffset = sizeToOffset(actorSize);
-  const offset = sizeOffset * tokenTileFactor * gridSize;
-  const initialRotation = (0.5 + (1 / max) * Math.PI) * Math.PI;
-  const { x, y } = polar_to_cartesian(offset, (ratio + 0) * 2 * Math.PI + initialRotation);
+  const rowOffset = row * sizeToRowOffset(actorSize);
+  const gapOffset = (1 / rowMax) * (1 + row % 2) * Math.PI;
+  const offset = (sizeOffset + rowOffset) * tokenTileFactor * gridSize;
+  const initialRotation = (0.5 + (1 / rowMax) * Math.PI) * Math.PI;
+  const { x, y } = polar_to_cartesian(offset, (ratio + 0) * 2 * Math.PI + initialRotation + gapOffset);
   // debugger;
   effectIcon.position.x = x / 2 + (gridSize * tokenTileFactor) / 2;
   effectIcon.position.y = (-1 * y) / 2 + (gridSize * tokenTileFactor) / 2;
@@ -65,6 +69,40 @@ function sizeToOffset(size) {
     return 0.925;
   } else if (size == "grg") {
     return 0.925;
+  }
+  return 1.0;
+}
+
+function sizeToRowMax(size) {
+  if (size == "tiny") {
+    return 10;
+  } else if (size == "sm") {
+    return 14;
+  } else if (size == "med") {
+    return 16;
+  } else if (size == "lg") {
+    return 20;
+  } else if (size == "huge") {
+    return 24;
+  } else if (size == "grg") {
+    return 28;
+  }
+  return 20;
+}
+
+function sizeToRowOffset(size) {
+  if (size == "tiny") {
+    return 0.6;
+  } else if (size == "sm") {
+    return 0.3;
+  } else if (size == "med") {
+    return 0.3;
+  } else if (size == "lg") {
+    return 0.1;
+  } else if (size == "huge") {
+    return 0.1;
+  } else if (size == "grg") {
+    return 0.1;
   }
   return 1.0;
 }
@@ -140,7 +178,7 @@ function updateEffectScales(token) {
 
     const gridSize = token?.scene?.grid?.size ?? 100;
     // Reposition and scale them
-    effectIcons.forEach((effectIcon, i, effectIcons) => {
+    effectIcons.forEach((effectIcon, i) => {
       if (!(effectIcon instanceof PIXI.Sprite)) return;
 
       effectIcon.anchor.set(0.5);
@@ -149,7 +187,7 @@ function updateEffectScales(token) {
       const gridScale = gridSize / 100;
       const scaledSize = 12 * iconScale * gridScale;
       updateIconSize(effectIcon, scaledSize);
-      updateIconPosition(effectIcon, i, effectIcons, token);
+      updateIconPosition(effectIcon, i, token);
       drawBG(effectIcon, background, gridScale);
     });
   }
