@@ -1,23 +1,3 @@
-function countEffects(token) {
-  if (!token) {
-    return 0;
-  }
-  let numEffects = token.document.effects?.length || 0;
-  token.actor?.temporaryEffects?.forEach((actorEffect) => {
-    if (!actorEffect.getFlag("core", "overlay")) {
-      numEffects++;
-    }
-  });
-  return numEffects;
-}
-
-function sortIcons(e1, e2) {
-  if (e1.position.x === e2.position.x) {
-    return e1.position.y - e2.position.y;
-  }
-  return e1.position.x - e2.position.x;
-}
-
 function updateIconSize(effectIcon, size) {
   effectIcon.width = size;
   effectIcon.height = size;
@@ -30,7 +10,7 @@ function polar_to_cartesian(r, theta) {
   };
 }
 
-function updateIconPosition(effectIcon, i, effectIcons, token) {
+function updateIconPosition(effectIcon, i, token) {
   const actorSize = token?.actor?.size;
   let max = 20;
   if (actorSize == "tiny") max = 10;
@@ -50,30 +30,24 @@ function updateIconPosition(effectIcon, i, effectIcons, token) {
 }
 
 function updateEffectScales(token) {
-  const numEffects = countEffects(token);
-  if (numEffects > 0 && token.effects.children.length > 0) {
-    const background = token.effects.children[0];
-    if (!(background instanceof PIXI.Graphics)) return;
-    // background.clear()
-    background.visible = false; // don't need background layer as we can cache it in the texture itself
+  // don't need background layer as we can cache border/bg it in the texture itself
+  token.effects.bg.visible = false;
 
-    // Exclude the background and overlay
-    const effectIcons = token.effects.children.slice(1, 1 + numEffects);
-    const tokenSize = token?.actor?.size;
+  const tokenSize = token?.actor?.size;
+  const gridSize = token?.scene?.grid?.size ?? 100;
+  let i = 0;
+  for (const effectIcon of token.effects.children) {
+    if (effectIcon === token.effects.bg) continue;
+    if (effectIcon === token.effects.overlay) continue;
 
-    const gridSize = token?.scene?.grid?.size ?? 100;
-    // Reposition and scale them
-    effectIcons.forEach((effectIcon, i, effectIcons) => {
-      if (!(effectIcon instanceof PIXI.Sprite)) return;
+    effectIcon.anchor.set(0.5);
 
-      effectIcon.anchor.set(0.5);
-
-      const iconScale = sizeToIconScale(tokenSize);
-      const gridScale = gridSize / 100;
-      const scaledSize = 14 * iconScale * gridScale;
-      updateIconSize(effectIcon, scaledSize);
-      updateIconPosition(effectIcon, i, effectIcons, token);
-    });
+    const iconScale = sizeToIconScale(tokenSize);
+    const gridScale = gridSize / 100;
+    const scaledSize = 14 * iconScale * gridScale;
+    updateIconSize(effectIcon, scaledSize);
+    updateIconPosition(effectIcon, i, token);
+    i++;
   }
 }
 
@@ -146,7 +120,7 @@ function createBG(iconSize, borderWidth) {
 }
 
 class EffectTextureSpritesheet {
-  static #spriteSize = 128;
+  static #spriteSize = 96;
   static #baseTextureSize = 2048;
   static #maxMemberCount = Math.pow(this.#baseTextureSize / this.#spriteSize, 2);
 
@@ -184,7 +158,7 @@ class EffectTextureSpritesheet {
     return currentTexture;
   }
 
-  addToEffectTexture(path, renderable) {
+  addToCache(path, renderable) {
     const existingTexture = this.#textureCache.get(path);
     if (existingTexture) {
       return existingTexture;
@@ -203,7 +177,7 @@ class EffectTextureSpritesheet {
     return renderTexture;
   }
 
-  getEffectTexture(path) {
+  loadTexture(path) {
     return this.#textureCache.get(path);
   }
 }
@@ -211,7 +185,7 @@ const effectCache = new EffectTextureSpritesheet();
 
 const createRoundedEffectIcon = (effectIcon) => {
   const texture = effectIcon.texture;
-  const borderWidth = 4;
+  const borderWidth = 3;
   const textureSize = EffectTextureSpritesheet.spriteSize;
 
   const container = new PIXI.Container();
@@ -257,7 +231,7 @@ function overrideTokenHud() {
 
     const fallbackEffectIcon = "icons/svg/hazard.svg";
     const effectTextureCacheKey = src || fallbackEffectIcon;
-    let effectTexture = effectCache.getEffectTexture(effectTextureCacheKey);
+    let effectTexture = effectCache.loadTexture(effectTextureCacheKey);
     let icon;
     if (effectTexture) {
       icon = new PIXI.Sprite(effectTexture);
@@ -268,7 +242,7 @@ function overrideTokenHud() {
       if (game.system.id === "pf2e" && src == game.settings.get("pf2e", "deathIcon")) {
         return this.effects.addChild(rawEffectIcon);
       }
-      effectTexture = effectCache.addToEffectTexture(effectTextureCacheKey, createRoundedEffectIcon(rawEffectIcon));
+      effectTexture = effectCache.addToCache(effectTextureCacheKey, createRoundedEffectIcon(rawEffectIcon));
       icon = new PIXI.Sprite(effectTexture);
     }
 
