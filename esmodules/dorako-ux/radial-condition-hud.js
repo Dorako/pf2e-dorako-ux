@@ -39,7 +39,7 @@ function polar_to_cartesian(theta) {
 };
 
 function calculateOffsets(i, actorSize) {
-  let key = JSON.stringify({size: actorSize, index: i});
+  let key = actorSize + i;
   if (!sizeAndIndexToOffsets.has(key)) {
     const rowMax = sizeToRowMax(actorSize);
     const row = Math.floor(i / rowMax);
