@@ -1,5 +1,3 @@
-let circularMaskTexture = null;
-
 function countEffects(token) {
   if (!token) {
     return 0;
@@ -51,6 +49,34 @@ function updateIconPosition(effectIcon, i, effectIcons, token) {
   effectIcon.position.y = (-1 * y) / 2 + (gridSize * tokenTileFactor) / 2;
 }
 
+function updateEffectScales(token) {
+  const numEffects = countEffects(token);
+  if (numEffects > 0 && token.effects.children.length > 0) {
+    const background = token.effects.children[0];
+    if (!(background instanceof PIXI.Graphics)) return;
+    // background.clear()
+    background.visible = false; // don't need background layer as we can cache it in the texture itself
+
+    // Exclude the background and overlay
+    const effectIcons = token.effects.children.slice(1, 1 + numEffects);
+    const tokenSize = token?.actor?.size;
+
+    const gridSize = token?.scene?.grid?.size ?? 100;
+    // Reposition and scale them
+    effectIcons.forEach((effectIcon, i, effectIcons) => {
+      if (!(effectIcon instanceof PIXI.Sprite)) return;
+
+      effectIcon.anchor.set(0.5);
+
+      const iconScale = sizeToIconScale(tokenSize);
+      const gridScale = gridSize / 100;
+      const scaledSize = 14 * iconScale * gridScale;
+      updateIconSize(effectIcon, scaledSize);
+      updateIconPosition(effectIcon, i, effectIcons, token);
+    });
+  }
+}
+
 // Nudge icons to be on the token ring or slightly outside
 function sizeToOffset(size) {
   if (size == "tiny") {
@@ -86,94 +112,144 @@ function sizeToIconScale(size) {
   return 1.0;
 }
 
-function drawBG(effectIcon, background, gridScale) {
-  const r = effectIcon.width / 2;
+function createBG(iconSize, borderWidth) {
+  const background = new PIXI.Graphics();
+  const r = iconSize / 2;
   const isDorakoUiActive = game.modules.get("pf2e-dorako-ui")?.active;
   const appTheme = isDorakoUiActive ? game.settings.get("pf2e-dorako-ui", "theme.app-theme") : false;
   if (appTheme && appTheme.includes("foundry2")) {
-    background.lineStyle((1 * gridScale) / 2, 0x302831, 1, 0);
-    background.drawCircle(effectIcon.position.x, effectIcon.position.y, r + 1 * gridScale);
+    background.lineStyle(borderWidth, 0x302831, 1, 0);
     background.beginFill(0x0b0a13);
-    background.drawCircle(effectIcon.position.x, effectIcon.position.y, r + 1 * gridScale);
+    background.drawCircle(r, r, r);
     background.endFill();
-    return;
   } else if (appTheme && appTheme.includes("crb")) {
-    background.lineStyle((1 * gridScale) / 2, 0x956d58, 1, 1);
-    background.drawCircle(effectIcon.position.x, effectIcon.position.y, r + 1 * gridScale);
-    background.lineStyle((1 * gridScale) / 2, 0xe9d7a1, 1, 0);
-    background.drawCircle(effectIcon.position.x, effectIcon.position.y, r + 1 * gridScale);
+    background.lineStyle(borderWidth, 0x956d58, 1, 0);
+    background.drawCircle(r, r, r);
+    background.lineStyle(borderWidth, 0xe9d7a1, 1, 0);
     background.beginFill(0x956d58);
-    background.drawCircle(effectIcon.position.x, effectIcon.position.y, r + 1 * gridScale);
+    background.drawCircle(r, r, r - borderWidth);
     background.endFill();
-    return;
   } else if (appTheme && appTheme.includes("bg3")) {
-    background.lineStyle((1 * gridScale) / 2, 0x9a8860, 1, 1);
-    background.drawCircle(effectIcon.position.x, effectIcon.position.y, r + 1 * gridScale);
-    background.lineStyle((1 * gridScale) / 2, 0xd3b87c, 1, 0);
-    background.drawCircle(effectIcon.position.x, effectIcon.position.y, r + 1 * gridScale);
+    background.lineStyle(borderWidth, 0x9a8860, 1, 0);
+    background.drawCircle(r, r, r);
+    background.lineStyle(borderWidth, 0xd3b87c, 1, 0);
     background.beginFill(0x000000);
-    background.drawCircle(effectIcon.position.x, effectIcon.position.y, r + 1 * gridScale);
+    background.drawCircle(r, r, r - borderWidth);
     background.endFill();
-    return;
+  } else {
+    background.lineStyle(borderWidth, 0x444444, 1, 0);
+    background.beginFill(0x222222);
+    background.drawCircle(r, r, r);
+    background.endFill();
   }
-  // background.lineStyle((1 * gridScale) / 2, 0x222222, 1, 1);
-  // background.drawCircle(effectIcon.position.x, effectIcon.position.y, r + 1 * gridScale);
-  background.lineStyle((1 * gridScale) / 2, 0x444444, 1, 0);
-  background.drawCircle(effectIcon.position.x, effectIcon.position.y, r + 1 * gridScale);
-  background.beginFill(0x222222);
-  background.drawCircle(effectIcon.position.x, effectIcon.position.y, r + 1 * gridScale);
-  background.endFill();
+  return background;
 }
 
-function updateEffectScales(token) {
-  // if (token?.actor?.size == "sm") return;
-  const numEffects = countEffects(token);
-  if (numEffects > 0 && token.effects.children.length > 0) {
-    const background = token.effects.children[0];
-    if (!(background instanceof PIXI.Graphics)) return;
+class EffectTextureSpritesheet {
+  static #spriteSize = 128;
+  static #baseTextureSize = 2048;
+  static #maxMemberCount = Math.pow(this.#baseTextureSize / this.#spriteSize, 2);
 
-    background.clear();
+  static get spriteSize() {
+    return this.#spriteSize;
+  }
+  static get baseTextureSize() {
+    return this.#baseTextureSize;
+  }
 
-    // Exclude the background and overlay
-    const effectIcons = token.effects.children.slice(1, 1 + numEffects);
-    const tokenSize = token?.actor?.size;
+  static get maxMemberCount() {
+    return this.#maxMemberCount;
+  }
 
-    const gridSize = token?.scene?.grid?.size ?? 100;
-    // Reposition and scale them
-    effectIcons.forEach((effectIcon, i, effectIcons) => {
-      if (!(effectIcon instanceof PIXI.Sprite)) return;
+  #baseTextures = [];
+  #textureCache = new Map();
 
-      effectIcon.anchor.set(0.5);
-
-      const iconScale = sizeToIconScale(tokenSize);
-      const gridScale = gridSize / 100;
-      const scaledSize = 12 * iconScale * gridScale;
-      updateIconSize(effectIcon, scaledSize);
-      updateIconPosition(effectIcon, i, effectIcons, token);
-      drawBG(effectIcon, background, gridScale);
+  #createBaseRenderTexture() {
+    const baseTextureSize = this.constructor.baseTextureSize;
+    return new PIXI.BaseRenderTexture({
+      width: baseTextureSize,
+      height: baseTextureSize,
     });
   }
-}
 
-Hooks.once("ready", () => {
+  #getNextBaseRenderTexture() {
+    const lastIdx = this.#baseTextures.length - 1;
+    const currentTexture = this.#baseTextures[lastIdx];
+    if (!currentTexture || currentTexture[1] >= this.constructor.maxMemberCount) {
+      const baseRenderTexture = this.#createBaseRenderTexture();
+      this.#baseTextures.push([baseRenderTexture, 1]);
+      return [baseRenderTexture, 0];
+    }
+    this.#baseTextures[lastIdx][1] = currentTexture[1] + 1;
+    return currentTexture;
+  }
+
+  addToEffectTexture(path, renderable) {
+    const existingTexture = this.#textureCache.get(path);
+    console.log("adding!", path);
+    if (existingTexture) {
+      return existingTexture;
+    }
+    // load base render texture or create new if it does not exist
+    const [baseRenderTexture, textureCount] = this.#getNextBaseRenderTexture();
+
+    const spriteSize = this.constructor.spriteSize;
+    const maxCols = this.constructor.baseTextureSize / spriteSize;
+    const col = textureCount % maxCols;
+    const row = Math.floor(textureCount / maxCols);
+    const frame = new PIXI.Rectangle(col * spriteSize, row * spriteSize, spriteSize, spriteSize);
+    console.log(frame);
+    const renderTexture = new PIXI.RenderTexture(baseRenderTexture, frame);
+    canvas.app.renderer.render(renderable, { renderTexture: renderTexture });
+    this.#textureCache.set(path, renderTexture);
+    return renderTexture;
+  }
+
+  getEffectTexture(path) {
+    return this.#textureCache.get(path);
+  }
+}
+const effectCache = new EffectTextureSpritesheet();
+
+const createRoundedEffectIcon = (effectIcon) => {
+  const texture = effectIcon.texture;
+  const borderWidth = 4;
+  const textureSize = EffectTextureSpritesheet.spriteSize;
+
+  const container = new PIXI.Container();
+  container.width = textureSize;
+  container.height = textureSize;
+
+  container.addChild(createBG(textureSize, borderWidth));
+  container.addChild(effectIcon);
+
+  const effectSize = textureSize - 6 * borderWidth;
+  let scale = effectSize / Math.max(texture.height, texture.width);
+  effectIcon.scale.set(scale, scale);
+  effectIcon.x = (textureSize - effectIcon.width) / 2;
+  effectIcon.y = (textureSize - effectIcon.height) / 2;
+  const clipRadius = textureSize / 2 - 3 * borderWidth;
+  effectIcon.mask = new PIXI.Graphics()
+    .beginFill(0xffffff)
+    .drawCircle(textureSize / 2, textureSize / 2, clipRadius)
+    .endFill();
+  return container;
+};
+
+function overrideTokenHud() {
   const enabled = game.settings.get("pf2e-dorako-ux", "moving.adjust-token-effects-hud");
-  if (!enabled) return;
+  if (!enabled) {
+    return;
+  }
 
   const origRefreshEffects = Token.prototype._refreshEffects;
   Token.prototype._refreshEffects = function (...args) {
-    // const enabled = game.settings.get("pf2e-dorako-ux", "ux.adjust-token-effects-hud");
-    // if (!enabled) {
-    //   origRefreshEffects.apply(this, args);
-    //   return;
-    // }
     if (this) {
       origRefreshEffects.apply(this, args);
       updateEffectScales(this);
     }
   };
 
-  const origDrawEffect = Token.prototype._drawEffect;
-  const effectTextureCache = new Map();
   Token.prototype._drawEffect = async function (...args) {
     if (!this) {
       return;
@@ -181,39 +257,42 @@ Hooks.once("ready", () => {
     const src = args[0];
     if (!src) return;
 
-    let fallbackEffectIcon = "icons/svg/hazard.svg";
+    const fallbackEffectIcon = "icons/svg/hazard.svg";
     const effectTextureCacheKey = src || fallbackEffectIcon;
-    let effectTexture = effectTextureCache.get(effectTextureCacheKey);
+    let effectTexture = effectCache.getEffectTexture(effectTextureCacheKey);
     let icon;
     if (effectTexture) {
       icon = new PIXI.Sprite(effectTexture);
     } else {
-      let tex = await loadTexture(src, { fallback: fallbackEffectIcon });
-      icon = new PIXI.Sprite(tex);
+      const texture = await loadTexture(src, { fallback: fallbackEffectIcon });
+      const rawEffectIcon = new PIXI.Sprite(texture);
 
       if (game.system.id === "pf2e" && src == game.settings.get("pf2e", "deathIcon")) {
-        return this.effects.addChild(icon);
+        return this.effects.addChild(rawEffectIcon);
       }
-      const minDimension = Math.min(icon.width, icon.height);
-
-      // Use the blurred pre-made texture and create a new mask sprite for the specific icon
-      const myMask = new PIXI.Graphics().beginFill(0xffffff).drawCircle(55, 55, 55).endFill();
-      myMask.width = minDimension;
-      myMask.height = minDimension;
-      // myMask.x = -icon.width / 2
-      // myMask.y = -icon.height / 2
-
-      icon.mask = myMask;
-      icon.addChild(myMask);
-      effectTexture = PIXI.RenderTexture.create({
-        width: minDimension,
-        height: minDimension,
-      });
-      canvas.app.renderer.render(icon, { renderTexture: effectTexture });
-      effectTextureCache.set(effectTextureCacheKey, effectTexture);
+      effectTexture = effectCache.addToEffectTexture(effectTextureCacheKey, createRoundedEffectIcon(rawEffectIcon));
       icon = new PIXI.Sprite(effectTexture);
     }
 
+    console.log(icon.width, icon.height);
     return this.effects.addChild(icon);
   };
+}
+function overrideInterfaceClipping() {
+  const enabled = game.settings.get("pf2e-dorako-ux", "moving.adjust-token-effects-hud-clipping");
+  if (!enabled) {
+    return;
+  }
+
+  const origRefreshState = Token.prototype._refreshState;
+  Token.prototype._refreshState = function (...args) {
+    origRefreshState.apply(this, args);
+    this.removeChild(this.voidMesh);
+    // this.addChildAt(this.voidMesh, this.getChildIndex(this.effects) + 1);
+  };
+}
+
+Hooks.once("ready", () => {
+  overrideTokenHud();
+  overrideInterfaceClipping();
 });
