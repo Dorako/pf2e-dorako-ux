@@ -186,7 +186,6 @@ class EffectTextureSpritesheet {
 
   addToEffectTexture(path, renderable) {
     const existingTexture = this.#textureCache.get(path);
-    console.log("adding!", path);
     if (existingTexture) {
       return existingTexture;
     }
@@ -198,7 +197,6 @@ class EffectTextureSpritesheet {
     const col = textureCount % maxCols;
     const row = Math.floor(textureCount / maxCols);
     const frame = new PIXI.Rectangle(col * spriteSize, row * spriteSize, spriteSize, spriteSize);
-    console.log(frame);
     const renderTexture = new PIXI.RenderTexture(baseRenderTexture, frame);
     canvas.app.renderer.render(renderable, { renderTexture: renderTexture });
     this.#textureCache.set(path, renderTexture);
@@ -274,7 +272,6 @@ function overrideTokenHud() {
       icon = new PIXI.Sprite(effectTexture);
     }
 
-    console.log(icon.width, icon.height);
     return this.effects.addChild(icon);
   };
 }
