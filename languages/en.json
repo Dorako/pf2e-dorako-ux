@@ -41,10 +41,6 @@
         "hint": "Removes the Cards tab in the sidebar entirely",
         "name": "Hide cards tab?"
       },
-      "no-effects-panel": {
-        "hint": "Removes the effects panel next to the sidebar entirely",
-        "name": "Hide effects panel?"
-      },
       "no-chat-control-icon": {
         "hint": "This is the dice icon next to roll options, it tends to crowd the UI",
         "name": "Hide chat control icon?"
