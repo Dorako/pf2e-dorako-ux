@@ -1,3 +1,9 @@
+# 1.4.2
+
+- (Refinement) Removed the setting to hide the Effects Panel - you can already do that using a player setting.
+- (Refinement + Fix) Massive performance improvements to radial effects HUD thanks to @Codas.
+- (Refinement) Updated the radial effects HUD to support multiple rings of effects, thanks to @Kyamsil for the PR.
+
 # 1.4.1
 
 - (New) Added new feature to hide the Effects Panel, intended to be used with modules that introduce their own effects display.

@@ -41,10 +41,6 @@
         "hint": "Removes the Cards tab in the sidebar entirely",
         "name": "Hide cards tab?"
       },
-      "no-effects-panel": {
-        "hint": "Removes the effects panel next to the sidebar entirely",
-        "name": "Hide effects panel?"
-      },
       "no-chat-control-icon": {
         "hint": "This is the dice icon next to roll options, it tends to crowd the UI",
         "name": "Hide chat control icon?"
@@ -76,6 +72,10 @@
       "adjust-token-effects-hud": {
         "hint": "Makes effects circular and arranges them outside the token, or on the token ring for larger tokens",
         "name": "Adjust token effects HUD?"
+      },
+      "adjust-token-effects-hud-clipping": {
+        "hint": "Makes effects always display above other tokens. Also drastically increases performance.",
+        "name": "Adjust token effect render order?"
       },
       "animate-messages": {
         "hint": "Makes whispers from players to GM draw more attention",
