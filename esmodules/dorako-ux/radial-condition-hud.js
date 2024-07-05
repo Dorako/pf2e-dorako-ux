@@ -3,35 +3,45 @@ function updateIconSize(effectIcon, size) {
   effectIcon.height = size;
 }
 
-function polar_to_cartesian(r, theta) {
-  return {
-    x: r * Math.cos(theta),
-    y: r * Math.sin(theta),
-  };
-}
+const thetaToXY = new Map();
+const sizeAndIndexToOffsets = new Map();
 
-function getRowAndPosInRow(i, rowMax) {
-  return [Math.floor(i / rowMax), i % rowMax];
+function polar_to_cartesian(theta) {
+  if (!thetaToXY.has(theta)) {
+    thetaToXY.set(theta, {
+      x: Math.cos(theta),
+      y: Math.sin(theta),
+    });
+  }
+  return thetaToXY.get(theta);
+};
+
+function calculateOffsets(i, actorSize) {
+  let key = actorSize + i;
+  if (!sizeAndIndexToOffsets.has(key)) {
+    const rowMax = sizeToRowMax(actorSize);
+    const row = Math.floor(i / rowMax);
+    const ratio = i / rowMax;
+    const gapOffset = (1 / rowMax) * (1 + row % 2) * Math.PI;
+    const initialRotation = (0.5 + (1 / rowMax) * Math.PI) * Math.PI;
+    const theta = ratio * 2 * Math.PI + initialRotation + gapOffset
+    const offset = sizeToOffset(actorSize) + row * sizeToRowOffset(actorSize);
+    sizeAndIndexToOffsets.set(key, {
+      offset, theta
+    })
+  }
+  return sizeAndIndexToOffsets.get(key);
 }
 
 function updateIconPosition(effectIcon, i, token) {
   const actorSize = token?.actor?.size;
-  const rowMax = sizeToRowMax(actorSize);
-  const [row, posInRow] = getRowAndPosInRow(i, rowMax);
-  const ratio = posInRow / rowMax;
-  // const angularOffset = i < max ? 0 : ratio / 2;
+  const { offset, theta } = calculateOffsets(i, actorSize);
   const gridSize = token?.scene?.grid?.size ?? 100;
   const tokenTileFactor = token?.document?.width ?? 1;
-  const sizeOffset = sizeToOffset(actorSize);
-  const rowOffset = row * sizeToRowOffset(actorSize);
-  const gapOffset = (1 / rowMax) * (1 + (row % 2)) * Math.PI;
-  const offset = (sizeOffset + rowOffset) * tokenTileFactor * gridSize;
-  const initialRotation = (0.5 + (1 / rowMax) * Math.PI) * Math.PI;
-  const { x, y } = polar_to_cartesian(offset, (ratio + 0) * 2 * Math.PI + initialRotation + gapOffset);
-
-  // debugger;
-  effectIcon.position.x = x / 2 + (gridSize * tokenTileFactor) / 2;
-  effectIcon.position.y = (-1 * y) / 2 + (gridSize * tokenTileFactor) / 2;
+  const { x, y } = polar_to_cartesian(theta);
+    // debugger;
+  effectIcon.position.x = ((x * offset + 1) / 2) * tokenTileFactor * gridSize;
+  effectIcon.position.y = ((-1 * y * offset + 1) / 2) * tokenTileFactor * gridSize;
 }
 
 function updateEffectScales(token) {
@@ -74,23 +84,6 @@ function sizeToOffset(size) {
   return 1.0;
 }
 
-function sizeToIconScale(size) {
-  if (size == "tiny") {
-    return 1.4;
-  } else if (size == "sm") {
-    return 1.4;
-  } else if (size == "med") {
-    return 1.4;
-  } else if (size == "lg") {
-    return 1.25;
-  } else if (size == "huge") {
-    return 1.55;
-  } else if (size == "grg") {
-    return 2.2;
-  }
-  return 1.0;
-}
-
 function sizeToRowMax(size) {
   if (size == "tiny") {
     return 10;
@@ -121,6 +114,23 @@ function sizeToRowOffset(size) {
     return 0.1;
   } else if (size == "grg") {
     return 0.1;
+  }
+  return 1.0;
+}
+
+function sizeToIconScale(size) {
+  if (size == "tiny") {
+    return 1.4;
+  } else if (size == "sm") {
+    return 1.4;
+  } else if (size == "med") {
+    return 1.4;
+  } else if (size == "lg") {
+    return 1.25;
+  } else if (size == "huge") {
+    return 1.55;
+  } else if (size == "grg") {
+    return 2.2;
   }
   return 1.0;
 }
