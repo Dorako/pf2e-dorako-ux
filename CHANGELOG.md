@@ -1,3 +1,8 @@
+# 1.4.3
+
+- (Refinement) Further performance improvements to the radial effects HUD thanks to @Kyamsil.
+- (Fix) Fixed some logspam related to the short-lived remove effects panel feature.
+
 # 1.4.2
 
 - (Refinement) Removed the setting to hide the Effects Panel - you can already do that using a player setting.
