@@ -1,24 +1,17 @@
 {
   "pf2e-dorako-ux": {
     "settings": {
-      "menu": {
-        "avatar": {
-          "hint": "Konfiguracja ustawień związanych z awatarami w wiadomościach czatu",
-          "label": "Konfiguracja ustawień awatara",
-          "name": "Ustawienia awatara"
-        }
-      },
       "hide-gm-avatar-when-secret": {
-        "hint": "Ukrywa awatary za każdym razem, gdy GM rzuca tajne/prywatne rzuty",
-        "name": "Ukryć awatar, gdy jest tajny?"
+        "hint": "Ukrywa awatary za każdym razem, gdy MG rzuca ukryte/prywatne rzuty",
+        "name": "Ukrywanie awatara, gdy jest ukryty?"
       },
       "hide-avatar-when-token-hidden": {
         "hint": "Ukrywa awatary, gdy token mówcy jest ukryty",
-        "name": "Ukryć awatar, gdy token jest ukryty?"
+        "name": "Ukrywanie awatara, gdy token jest ukryty?"
       },
       "popout-support": {
         "hint": "Skaluje rozmiar awatarów tokenów zgodnie ze skalą tokena",
-        "name": "Włączyć wyskakujący token awatara?"
+        "name": "Włączyć wyskakujące okienko tokena awatara?"
       },
       "avatar-reacts-to-degree-of-success": {
         "hint": "Krytyczny sukces będzie świecił na zielono, a krytyczna porażka stanie się wyciszona i ciemna",
@@ -42,64 +35,7 @@
       },
       "use-user-avatar": {
         "hint": "Skonfiguruj awatary użytkowników, klikając prawym przyciskiem myszy użytkowników w lewym dolnym obszarze Foundry",
-        "name": "Używać awatara użytkownika jako rezerwowego?"
-      },
-      "send-to-chat": {
-        "hint": "Wysyła zawartość do czatu tak, jakby była wysyłana przez kartę",
-        "name": "Dodać przycisk \"Wyślij\" do nagłówka okna?"
-      },
-      "skin-crb-journal": {
-        "hint": "Instrukcje na stronie www.shorturl.at/mrzN1",
-        "name": "Włączyć stylizację CRB dla dzienników?"
-      },
-      "adjust-chat-controls": {
-        "hint": "(Eksperymentalne) Przekształca tryb rolltype w przyciski i konwertuje inne kontrolki czatu na przyciski",
-        "name": "Dostosować sterowanie czatem?"
-      },
-      "adjust-token-effects-hud": {
-        "hint": "Sprawia, że efekty są okrągłe i układa je poza żetonem lub na pierścieniu żetonu w przypadku większych żetonów",
-        "name": "Dostosować HUD efektów tokenów?"
-      },
-      "animate-messages": {
-        "hint": "Sprawia, że szepty graczy do GM przyciągają więcej uwagi",
-        "name": "Animować wiadomości, aby zwrócić uwagę na określone wydarzenia?"
-      },
-      "border-radius": {
-        "hint": "(domyślnie: 3px) Zmienia stopień zaokrąglenia wielu elementów interfejsu użytkownika",
-        "name": "Zaokrąglenie"
-      },
-      "center-hotbar": {
-        "hint": "Znany również jako pasek z makrami",
-        "name": "Włączyć wyśrodkowany pasek skrótów?"
-      },
-      "chat-merge": {
-        "hint": "(Eksperymentalne) Łączy wiadomości wysłane w szybkiej sekwencji w celu zaoszczędzenia miejsca",
-        "name": "Włączyć scalanie czatu?"
-      },
-      "compact-ui": {
-        "hint": "Zmienia rozmiar elementów sterujących i ukrywa nieaktywne elementy sterujące i nawigacyjne, chyba że zostaną najechane",
-        "name": "Włączyć Compact UI?"
-      },
-      "control-size": {
-        "hint": "(domyślnie: 36px) Zmienia rozmiar elementów sterujących i nawigacyjnych",
-        "name": "Kontrola rozmiaru"
-      },
-      "controls-alignment": {
-        "choice": {
-          "center": "Środek",
-          "end": "Dół",
-          "start": "Góra"
-        },
-        "hint": "Zmienia położenie elementów sterujących",
-        "name": "Kontrola rozmieszczenia"
-      },
-      "enable-player-tags": {
-        "hint": "Dodaje znacznik zawierający nazwę gracza obok głośnika",
-        "name": "Włączyć tagi graczy?"
-      },
-      "enable-rolltype-indication": {
-        "hint": "Dodaje znacznik zawierający typ rzutu do wiadomości czatu",
-        "name": "Włączyć tag typ rzutu?"
+        "name": "Używać awatara użytkownika jako alternatywy?"
       },
       "no-cards": {
         "hint": "Całkowicie usuwa zakładkę Karty na pasku bocznym",
@@ -121,10 +57,6 @@
         "hint": "Sprawia, że rzuty obrażeń zajmują mniej miejsca, usuwając zbędne informacje o trafieniach. Przeznaczony do użytku z funkcją chat-merge",
         "name": "Usunąć informacje o ataku z komunikatów o obrażeniach?"
       },
-      "restructure-card-info": {
-        "hint": "Zwiększono widoczność kosztu akcji dla cech i przeniesiono informacje o zaklęciach ze stopki",
-        "name": "Restrukturyzacja informacji o karcie czatu?"
-      },
       "start-navigation-collapsed": {
         "hint": "Używa stanu zwiniętego jako stanu początkowego",
         "name": "Domyślnie zwinąć nawigację?"
@@ -132,16 +64,106 @@
       "start-sidebar-collapsed": {
         "hint": "Używa stanu zwiniętego jako stanu początkowego",
         "name": "Zwiń domyślnie pasek boczny?"
+      },
+      "adjust-chat-controls": {
+        "hint": "Zmienia tryb wyboru na przyciski i konwertuje inne elementy sterujące czatu na przyciski.",
+        "name": "Dostosować elementy sterujące czatem?"
+      },
+      "adjust-token-effects-hud": {
+        "hint": "Tworzy okrągłe efekty i układa je poza tokenem lub na pierścieniu tokena w przypadku większych tokenów.",
+        "name": "Dostosować HUD efektów tokenów?"
+      },
+      "adjust-token-effects-hud-clipping": {
+        "hint": "Sprawia, że efekty są zawsze wyświetlane nad innymi tokenami. Drastycznie zwiększa też wydajność.",
+        "name": "Dostosować kolejność renderowania efektów tokenów?"
+      },
+      "animate-messages": {
+        "hint": "Sprawia, że szepty graczy do MG przyciągają więcej uwagi",
+        "name": "Animować wiadomości, aby zwrócić uwagę na określone wydarzenia?"
+      },
+      "center-hotbar": {
+        "hint": "Znany również jako pasek z makrami",
+        "name": "Włączyć wyśrodkowany pasek skrótów?"
+      },
+      "chat-merge": {
+        "hint": "Łączy wiadomości wysłane w szybkiej sekwencji w celu zaoszczędzenia miejsca.",
+        "name": "Włączyć scalanie czatu?"
+      },
+      "compact-ui": {
+        "hint": "Zmienia rozmiar elementów sterujących i ukrywa nieaktywne elementy sterujące i nawigacyjne, chyba że zostaną najechane",
+        "name": "Włączyć Compact UI?"
+      },
+      "minimize-hotbar": {
+        "hint": "Usuwa pasek skrótów z pola widzenia, chyba że zostanie najechany.",
+        "name": "Zminimalizować pasek skrótów?"
+      },
+      "controls-alignment": {
+        "choice": {
+          "center": "Środek",
+          "end": "Dół",
+          "start": "Góra"
+        },
+        "hint": "Zmienia położenie elementów sterujących",
+        "name": "Wyrównanie elementów sterujących"
+      },
+      "restructure-card-info": {
+        "hint": "Zwiększono widoczność kosztu akcji dla cech i przeniesiono informacje o zaklęciach ze stopki",
+        "name": "Restrukturyzacja informacji z karty czatu?"
+      },
+      "restructure-npc-sheets": {
+        "hint": "Dostosowuje układ kart postaci niezależnych. Wymagane dla motywów interfejsu Dorako UI",
+        "name": "Restrukturyzacja kart postaci niezależnych?"
+      },
+      "control-size": {
+        "hint": "(domyślnie: 36px) Zmienia rozmiar elementów sterujących i nawigacyjnych",
+        "name": "Rozmiar elementu sterującego"
+      },
+      "sidebar-tab-size": {
+        "hint": "(domyślnie: 22px) Zmienia rozmiar ikon zakładek paska bocznego.",
+        "name": "Rozmiar zakładek paska bocznego"
+      },
+      "enable-player-tags": {
+        "hint": "Dodaje znacznik zawierający nazwę gracza obok głośnika",
+        "name": "Włączyć tagi graczy?"
+      },
+      "enable-rolltype-indication": {
+        "hint": "Dodaje znacznik zawierający typ rzutu do wiadomości czatu",
+        "name": "Włączyć tag typu rzutu?"
+      },
+      "send-to-chat": {
+        "hint": "Wysyła zawartość do czatu tak, jakby była wysyłana przez kartę",
+        "name": "Dodać przycisk \"Wyślij\" do nagłówka okna?"
+      },
+      "skin-crb-journal": {
+        "hint": "Instrukcje na stronie www.shorturl.at/mrzN1",
+        "name": "Włączyć stylizację CRB dla dzienników?"
+      },
+      "menu": {
+        "avatar": {
+          "hint": "Konfiguracja ustawień związanych z awatarami w wiadomościach czatu",
+          "label": "Konfiguracja ustawień awatara",
+          "name": "Awatar"
+        },
+        "hiding": {
+          "hint": "Ustawienia związane z usuwaniem lub minimalizowaniem rzeczy",
+          "name": "Ukrywanie"
+        },
+        "moving": {
+          "hint": "Ustawienia związane z przenoszeniem rzeczy w inne miejsca lub zmianą ich formy",
+          "name": "Przenoszenie"
+        },
+        "other": {
+          "hint": "Ustawienia, które nie pasują do innych kategorii",
+          "name": "Inne"
+        }
       }
     },
     "text": {
-      "dark": "Ciemny",
       "default": "Domyślne",
       "disabled": "Wyłączony",
       "from": "Od",
-      "gm-only": "Tylko GM",
+      "gm-only": "Tylko MG",
       "large-chatlog-warning": "Ze względu na duży log czatu, niektóre ustawienia zostaną zastosowane przy następnym przeładowaniu.",
-      "light": "Jasny",
       "maybe-reload": "Niektóre zmiany mogą wymagać przeładowania.",
       "secret": "Sekret",
       "self-roll": "Rzuć dla siebie",
