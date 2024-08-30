@@ -1,3 +1,7 @@
+# 1.5.1
+
+- (Fix) Ensure that the 'Disabled' avatar option also disables the system avatars.
+
 # 1.5.0
 
 - (Maintenance) Introduced a hack to disable the system chat avatars when Dorako UX's avatars are enabled.

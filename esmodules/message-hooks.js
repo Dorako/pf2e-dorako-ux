@@ -11,7 +11,7 @@ const rgb2hex = (rgb) =>
 // Remove system avatar changes
 Hooks.on("renderChatMessage", (app, html, data) => {
   const source = game.settings.get("pf2e-dorako-ux", "avatar.source");
-  if (source === "none" || source === "system") return;
+  if (source === "system") return;
   // Be after system hack
   setTimeout(() => {
     const messageHeader = html[0].getElementsByClassName("message-header")[0];
