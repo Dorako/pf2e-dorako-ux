@@ -28,7 +28,8 @@
       "avatar-source": {
         "choice": {
           "actor": "Prefer actor image",
-          "token": "Prefer token image"
+          "token": "Prefer token image",
+          "system": "System implementation (fallback)"
         },
         "hint": "Adds an avatar to chat messages",
         "name": "Chat avatars"
@@ -72,10 +73,6 @@
       "adjust-token-effects-hud": {
         "hint": "Makes effects circular and arranges them outside the token, or on the token ring for larger tokens",
         "name": "Adjust token effects HUD?"
-      },
-      "adjust-token-effects-hud-clipping": {
-        "hint": "Makes effects always display above other tokens. Also drastically increases performance.",
-        "name": "Adjust token effect render order?"
       },
       "animate-messages": {
         "hint": "Makes whispers from players to GM draw more attention",

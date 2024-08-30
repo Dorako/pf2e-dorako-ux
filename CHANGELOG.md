@@ -1,3 +1,11 @@
+# 1.5.0
+
+- (Maintenance) Introduced a hack to disable the system chat avatars when Dorako UX's avatars are enabled.
+- (Refinement) Removed the performance setting for the radial effects HUD, as it (and more) is now included in [Prime Performance](https://foundryvtt.com/packages/fvtt-perf-optim) by @Codas.
+- (Fix) Fixed an issue where the scene navigation collapse by default setting was not working.
+- (Refinement) Updated radial hud code to account for non-square grids.
+- (Fix) Fixed some logspam.
+
 # 1.4.3
 
 - (Refinement) Further performance improvements to the radial effects HUD thanks to @Kyamsil.

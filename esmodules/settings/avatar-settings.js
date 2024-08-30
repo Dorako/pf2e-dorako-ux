@@ -27,6 +27,7 @@ export class AvatarSettings extends SettingsMenuDorakoUX {
         choices: {
           token: "pf2e-dorako-ux.settings.avatar-source.choice.token",
           actor: "pf2e-dorako-ux.settings.avatar-source.choice.actor",
+          system: "pf2e-dorako-ux.settings.avatar-source.choice.system",
           none: "pf2e-dorako-ux.text.disabled",
         },
         requiresReload: false,

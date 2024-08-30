@@ -77,8 +77,9 @@ Hooks.once("ready", (app, html, data) => {
   ui.sidebar.collapse();
 });
 
-Hooks.once("ready", (app, html, data) => {
+Hooks.once("ready", async (app, html, data) => {
   if (!game.settings.get(`${MODULE_NAME}`, "hiding.start-navigation-collapsed")) return;
+  await new Promise((r) => setTimeout(r, 100));
   ui.nav.collapse();
 });
 

@@ -11,7 +11,7 @@ export class MovingSettings extends SettingsMenuDorakoUX {
     // "minimize-hotbar", // Broken
     "center-hotbar",
     "adjust-token-effects-hud",
-    "adjust-token-effects-hud-clipping",
+    // "adjust-token-effects-hud-clipping",
     "animate-messages",
     "controls-alignment",
   ];
@@ -93,15 +93,15 @@ export class MovingSettings extends SettingsMenuDorakoUX {
         config: true,
         requiresReload: true,
       },
-      "adjust-token-effects-hud-clipping": {
-        name: "pf2e-dorako-ux.settings.adjust-token-effects-hud-clipping.name",
-        hint: "pf2e-dorako-ux.settings.adjust-token-effects-hud-clipping.hint",
-        scope: "client",
-        type: Boolean,
-        default: false,
-        config: true,
-        requiresReload: true,
-      },
+      // "adjust-token-effects-hud-clipping": {
+      //   name: "pf2e-dorako-ux.settings.adjust-token-effects-hud-clipping.name",
+      //   hint: "pf2e-dorako-ux.settings.adjust-token-effects-hud-clipping.hint",
+      //   scope: "client",
+      //   type: Boolean,
+      //   default: false,
+      //   config: true,
+      //   requiresReload: true,
+      // },
       "animate-messages": {
         name: "pf2e-dorako-ux.settings.animate-messages.name",
         hint: "pf2e-dorako-ux.settings.animate-messages.hint",

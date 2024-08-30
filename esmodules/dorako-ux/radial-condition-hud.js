@@ -14,7 +14,7 @@ function polar_to_cartesian(theta) {
     });
   }
   return thetaToXY.get(theta);
-};
+}
 
 function calculateOffsets(i, actorSize) {
   let key = actorSize + i;
@@ -22,13 +22,14 @@ function calculateOffsets(i, actorSize) {
     const rowMax = sizeToRowMax(actorSize);
     const row = Math.floor(i / rowMax);
     const ratio = i / rowMax;
-    const gapOffset = (1 / rowMax) * (1 + row % 2) * Math.PI;
+    const gapOffset = (1 / rowMax) * (1 + (row % 2)) * Math.PI;
     const initialRotation = (0.5 + (1 / rowMax) * Math.PI) * Math.PI;
-    const theta = ratio * 2 * Math.PI + initialRotation + gapOffset
+    const theta = ratio * 2 * Math.PI + initialRotation + gapOffset;
     const offset = sizeToOffset(actorSize) + row * sizeToRowOffset(actorSize);
     sizeAndIndexToOffsets.set(key, {
-      offset, theta
-    })
+      offset,
+      theta,
+    });
   }
   return sizeAndIndexToOffsets.get(key);
 }
@@ -37,11 +38,15 @@ function updateIconPosition(effectIcon, i, token) {
   const actorSize = token?.actor?.size;
   const { offset, theta } = calculateOffsets(i, actorSize);
   const gridSize = token?.scene?.grid?.size ?? 100;
+  const gridSizeX = token?.scene?.grid?.sizeX ?? 100;
+  const gridSizeY = token?.scene?.grid?.sizeY ?? 100;
   const tokenTileFactor = token?.document?.width ?? 1;
   const { x, y } = polar_to_cartesian(theta);
-    // debugger;
-  effectIcon.position.x = ((x * offset + 1) / 2) * tokenTileFactor * gridSize;
-  effectIcon.position.y = ((-1 * y * offset + 1) / 2) * tokenTileFactor * gridSize;
+  // debugger;
+  const hexNudgeX = gridSizeX > gridSizeY ? Math.abs(gridSizeX - gridSizeY) / 2 : 0;
+  const hexNudgeY = gridSizeY > gridSizeX ? Math.abs(gridSizeY - gridSizeX) / 2 : 0;
+  effectIcon.position.x = hexNudgeX + ((x * offset + 1) / 2) * tokenTileFactor * gridSize;
+  effectIcon.position.y = hexNudgeY + ((-1 * y * offset + 1) / 2) * tokenTileFactor * gridSize;
 }
 
 function updateEffectScales(token) {
@@ -298,21 +303,21 @@ function overrideTokenHud() {
     return this.effects.addChild(icon);
   };
 }
-function overrideInterfaceClipping() {
-  const enabled = game.settings.get("pf2e-dorako-ux", "moving.adjust-token-effects-hud-clipping");
-  if (!enabled) {
-    return;
-  }
+// function overrideInterfaceClipping() {
+//   const enabled = game.settings.get("pf2e-dorako-ux", "moving.adjust-token-effects-hud-clipping");
+//   if (!enabled) {
+//     return;
+//   }
 
-  const origRefreshState = Token.prototype._refreshState;
-  Token.prototype._refreshState = function (...args) {
-    origRefreshState.apply(this, args);
-    this.removeChild(this.voidMesh);
-    // this.addChildAt(this.voidMesh, this.getChildIndex(this.effects) + 1);
-  };
-}
+//   const origRefreshState = Token.prototype._refreshState;
+//   Token.prototype._refreshState = function (...args) {
+//     origRefreshState.apply(this, args);
+//     this.removeChild(this.voidMesh);
+//     // this.addChildAt(this.voidMesh, this.getChildIndex(this.effects) + 1);
+//   };
+// }
 
 Hooks.once("ready", () => {
   overrideTokenHud();
-  overrideInterfaceClipping();
+  // overrideInterfaceClipping();
 });

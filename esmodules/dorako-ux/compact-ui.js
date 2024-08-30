@@ -1,3 +1,5 @@
+import { MODULE_NAME } from "../consts.js";
+
 Hooks.once("ready", () => {
   const compactUi = game.settings.get("pf2e-dorako-ux", "moving.compact-ui");
   if (!compactUi) return;
