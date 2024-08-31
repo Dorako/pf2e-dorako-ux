@@ -28,7 +28,8 @@
       "avatar-source": {
         "choice": {
           "actor": "Preferowany wizerunek aktora",
-          "token": "Preferowany obraz tokena"
+          "token": "Preferowany obraz tokena",
+          "system": "Wdrożenie systemu (awaryjne)"
         },
         "hint": "Dodaje awatar do wiadomości czatu",
         "name": "Awatary czatu"
@@ -72,10 +73,6 @@
       "adjust-token-effects-hud": {
         "hint": "Tworzy okrągłe efekty i układa je poza tokenem lub na pierścieniu tokena w przypadku większych tokenów.",
         "name": "Dostosować HUD efektów tokenów?"
-      },
-      "adjust-token-effects-hud-clipping": {
-        "hint": "Sprawia, że efekty są zawsze wyświetlane nad innymi tokenami. Drastycznie zwiększa też wydajność.",
-        "name": "Dostosować kolejność renderowania efektów tokenów?"
       },
       "animate-messages": {
         "hint": "Sprawia, że szepty graczy do MG przyciągają więcej uwagi",

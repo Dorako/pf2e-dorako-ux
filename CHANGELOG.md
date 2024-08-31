@@ -1,3 +1,7 @@
+# 1.5.2
+
+- (Refinement) Increased specificity of hack to remove system avatars, so it doesn't remove avatars provided by UX under certain circumstances.
+
 # 1.5.1
 
 - (Fix) Ensure that the 'Disabled' avatar option also disables the system avatars.

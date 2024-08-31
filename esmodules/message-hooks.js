@@ -14,15 +14,15 @@ Hooks.on("renderChatMessage", (app, html, data) => {
   if (source === "system") return;
   // Be after system hack
   setTimeout(() => {
-    const messageHeader = html[0].getElementsByClassName("message-header")[0];
+    const messageHeader = html[0].querySelector(".message-header");
     if (messageHeader) {
       messageHeader.classList.remove("with-image");
     }
-    const systemAvatar = html[0].getElementsByClassName("portrait")[0];
+    const systemAvatar = html[0].querySelector("div.portrait");
     if (systemAvatar) {
       systemAvatar.style.display = "none";
     }
-    const systemUserTag = html[0].getElementsByClassName("user")[0];
+    const systemUserTag = html[0].querySelector("span.user");
     if (systemUserTag) {
       systemUserTag.style.display = "none";
     }
