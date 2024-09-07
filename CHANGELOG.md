@@ -1,3 +1,7 @@
+# 1.5.3
+
+- (Refinement) Added tooltips to the rolltype buttons.
+
 # 1.5.2
 
 - (Refinement) Increased specificity of hack to remove system avatars, so it doesn't remove avatars provided by UX under certain circumstances.

@@ -7,6 +7,13 @@ const ICONS_FOR_KNOWN_ROLL_TYPES = {
   selfroll: "fas fa-user",
 };
 
+const TOOLTIPS_FOR_KNOWN_ROLL_TYPES = {
+  publicroll: "CHAT.RollPublic",
+  gmroll: "CHAT.RollPrivate",
+  blindroll: "CHAT.RollBlind",
+  selfroll: "CHAT.RollSelf",
+};
+
 export default class ChatRollPrivacy {
   static setup() {
     game.keybindings.register(MODULE_NAME, "roll-mode.publicroll", {
@@ -79,6 +86,7 @@ export default class ChatRollPrivacy {
         name: data.rollModes[rt],
         active: data.rollMode === rt,
         icon: ICONS_FOR_KNOWN_ROLL_TYPES[rt],
+        tooltip: TOOLTIPS_FOR_KNOWN_ROLL_TYPES[rt],
       });
     }
     const buttonHtml = $(await renderTemplate("modules/pf2e-dorako-ux/templates/rt-buttons.hbs", { buttons }));

@@ -1,6 +1,6 @@
 <div id="dorako-rt-buttons" class="buttons flexrow">
 	{{#each buttons}}
-	<button data-id="{{rt}}" class="toggle button{{#if active}} active{{/if}}" title="{{localize name}}">
+	<button data-id="{{rt}}" class="toggle button{{#if active}} active{{/if}}" title="{{localize name}}" data-tooltip="{{localize tooltip}}">
 		<i class="{{icon}}"></i>
 	</button>
 	{{/each}}
