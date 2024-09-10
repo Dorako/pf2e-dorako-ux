@@ -157,10 +157,10 @@ export default class ChatMerge {
       userCompare =
         // If actors are equal and NOT null
         (currData.speaker.actor === prevData.speaker.actor && !!currData.speaker.actor) || // If BOTH actors are null and users are equal
-        (!currData.speaker.actor && !prevData.speaker.actor && currData.user === prevData.user);
+        (!currData.speaker.actor && !prevData.speaker.actor && currData.author === prevData.author);
     } else {
       // If we are not splitting by speaker, just do the simple option of comparing the users
-      userCompare = currData.user === prevData.user;
+      userCompare = currData.author === prevData.author;
     }
     return (
       userCompare &&
