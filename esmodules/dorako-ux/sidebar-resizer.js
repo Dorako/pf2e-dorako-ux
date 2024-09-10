@@ -84,6 +84,16 @@ function _assignChatformResizer(chatform, poppedOut) {
 
 Hooks.once("ready", function () {
   // Setup vars
+  let boardHeight = $("#board").height();
+  const boardResizeObserver = new ResizeObserver((entries) => {
+    const boardEvent = entries[0];
+    if (!boardEvent) {
+      return;
+    }
+    boardHeight = boardEvent.contentRect.height;
+  });
+  boardResizeObserver.observe(document.querySelector("#board"));
+
   const sidebar = ui.sidebar.element[0];
   const chatform = $(ui.chat.element[0]).find("#chat-form")[0];
   _assignSidebarResizer(sidebar);
@@ -97,7 +107,7 @@ Hooks.once("ready", function () {
       function (wrapped, ...args) {
         let result = wrapped(...args);
         result.resizable = true;
-        result.height = parseInt($("#board").css("height")) / _poppedOutSizeDenominator;
+        result.height = boardHeight / _poppedOutSizeDenominator;
         const storedSidebarWidth = window.localStorage.getItem("pf2e-dorako-ux.sidebar-width");
         if (storedSidebarWidth && Number.isInteger(+storedSidebarWidth)) result.width = parseInt(storedSidebarWidth);
         return result;
@@ -110,7 +120,7 @@ Hooks.once("ready", function () {
       function (wrapped, ...args) {
         let result = wrapped(...args);
         result.resizable = true;
-        result.height = parseInt($("#board").css("height")) / _poppedOutSizeDenominator;
+        result.height = boardHeight / _poppedOutSizeDenominator;
         return result;
       },
       "WRAPPER"
@@ -121,7 +131,7 @@ Hooks.once("ready", function () {
       function (wrapped, ...args) {
         let result = wrapped(...args);
         result.resizable = true;
-        result.height = parseInt($("#board").css("height")) / _poppedOutSizeDenominator;
+        result.height = boardHeight / _poppedOutSizeDenominator;
         return result;
       },
       "WRAPPER"
@@ -132,7 +142,7 @@ Hooks.once("ready", function () {
       function (wrapped, ...args) {
         let result = wrapped(...args);
         result.resizable = true;
-        result.height = parseInt($("#board").css("height")) / _poppedOutSizeDenominator;
+        result.height = boardHeight / _poppedOutSizeDenominator;
         return result;
       },
       "WRAPPER"
@@ -143,7 +153,7 @@ Hooks.once("ready", function () {
       function (wrapped, ...args) {
         let result = wrapped(...args);
         result.resizable = true;
-        result.height = parseInt($("#board").css("height")) / _poppedOutSizeDenominator;
+        result.height = boardHeight / _poppedOutSizeDenominator;
         return result;
       },
       "WRAPPER"
@@ -154,7 +164,7 @@ Hooks.once("ready", function () {
       function (wrapped, ...args) {
         let result = wrapped(...args);
         result.resizable = true;
-        result.height = parseInt($("#board").css("height")) / _poppedOutSizeDenominator;
+        result.height = boardHeight / _poppedOutSizeDenominator;
         return result;
       },
       "WRAPPER"
@@ -165,7 +175,7 @@ Hooks.once("ready", function () {
       function (wrapped, ...args) {
         let result = wrapped(...args);
         result.resizable = true;
-        result.height = parseInt($("#board").css("height")) / _poppedOutSizeDenominator;
+        result.height = boardHeight / _poppedOutSizeDenominator;
         return result;
       },
       "WRAPPER"
@@ -176,7 +186,7 @@ Hooks.once("ready", function () {
       function (wrapped, ...args) {
         let result = wrapped(...args);
         result.resizable = true;
-        result.height = parseInt($("#board").css("height")) / _poppedOutSizeDenominator;
+        result.height = boardHeight / _poppedOutSizeDenominator;
         return result;
       },
       "WRAPPER"
@@ -187,7 +197,7 @@ Hooks.once("ready", function () {
       function (wrapped, ...args) {
         let result = wrapped(...args);
         result.resizable = true;
-        result.height = parseInt($("#board").css("height")) / _poppedOutSizeDenominator;
+        result.height = boardHeight / _poppedOutSizeDenominator;
         return result;
       },
       "WRAPPER"
@@ -198,7 +208,7 @@ Hooks.once("ready", function () {
       function (wrapped, ...args) {
         let result = wrapped(...args);
         result.resizable = true;
-        result.height = parseInt($("#board").css("height")) / _poppedOutSizeDenominator;
+        result.height = boardHeight / _poppedOutSizeDenominator;
         return result;
       },
       "WRAPPER"
@@ -209,7 +219,7 @@ Hooks.once("ready", function () {
       function (wrapped, ...args) {
         let result = wrapped(...args);
         result.resizable = true;
-        result.height = parseInt($("#board").css("height")) / _poppedOutSizeDenominator;
+        result.height = boardHeight / _poppedOutSizeDenominator;
         return result;
       },
       "WRAPPER"
