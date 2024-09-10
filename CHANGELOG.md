@@ -1,3 +1,8 @@
+# 1.5.4
+
+- (Refinement) Performance improvement in relation to turn-passing in encounter mode contributed by @Codas.
+- (Refinement) Old and busted `.user` replaced with new hotness `.author`, reducing some console noise contributed by @xdy.
+
 # 1.5.3
 
 - (Refinement) Added tooltips to the rolltype buttons.
