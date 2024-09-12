@@ -1,4 +1,4 @@
-import { i18n } from "./util.js";
+import { i18n, titleCase } from "./util.js";
 import { Avatar, ActorAvatar, TokenAvatar, CombatantAvatar } from "./consts.js";
 
 const rgb2hex = (rgb) =>
@@ -166,18 +166,18 @@ function injectMessageTag(html, messageData) {
 
   const isBlind = messageData.message.blind;
   if (isBlind) rolltype.addClass("blind");
-  const isWhisper = whisperTargets?.length > 0;
-  if (isWhisper && !isBlind) rolltype.addClass("whisper");
-  const isSelf = isWhisper && whisperTargets.length === 1 && whisperTargets[0] === messageData.message.author;
-  const isRoll = messageData.message.rolls !== undefined;
+  const isWhisper = messageData.isWhisper;
+  if (isWhisper) rolltype.addClass("whisper");
+  const isSelf = whisperTargets.length === 1 && whisperTargets[0] === messageData.message.author;
+  const isRoll = messageData.message.rolls !== undefined && messageData.message.rolls.length > 0;
 
   if (isBlind) {
     rolltype.text(i18n("pf2e-dorako-ux.text.secret"));
     messageMetadata.prepend(rolltype);
-  } else if (isSelf && whisperTargets[0]) {
+  } else if (isRoll && isSelf) {
     rolltype.text(i18n("pf2e-dorako-ux.text.self-roll"));
     messageMetadata.prepend(rolltype);
-  } else if (isRoll && isWhisper) {
+  } else if (isRoll && whisperTargets.length > 0) {
     rolltype.text(i18n("pf2e-dorako-ux.text.gm-only"));
     messageMetadata.prepend(rolltype);
   } else if (isWhisper) {
@@ -197,18 +197,10 @@ function injectMessageTag(html, messageData) {
 
 function injectWhisperParticipants(html, messageData) {
   const alias = messageData.alias;
-  const author = messageData.author;
-  const whisperTargets = messageData.message.whisper;
   const whisperTargetString = messageData.whisperTo;
   const whisperTargetIds = messageData.message.whisper;
-  const isWhisper = whisperTargetIds?.length > 0 || false;
-  const isRoll = messageData.message.rolls !== undefined;
-  const isSelf =
-    (isWhisper && whisperTargets.length === 1 && whisperTargets[0] === messageData.message.author) ||
-    (isWhisper &&
-      whisperTargets.length === 2 &&
-      whisperTargets[0] === "null" &&
-      whisperTargets[1] === messageData.message.author);
+  const isWhisper = messageData.isWhisper;
+  const isRoll = messageData.message.rolls !== undefined && messageData.message.rolls > 0;
 
   const authorId = messageData.message.author;
   const userId = game.user.id;
@@ -220,7 +212,7 @@ function injectWhisperParticipants(html, messageData) {
   html.find(".whisper-to").detach();
 
   // if this is a roll
-  if (isRoll || isSelf) return;
+  if (isRoll) return;
 
   const messageHeader = html.find(".message-header");
 
@@ -233,7 +225,7 @@ function injectWhisperParticipants(html, messageData) {
   whisperFrom.addClass("header-meta");
 
   const whisperTo = $("<span>");
-  const toText = titleCase(i18n("pf2e-dorako-ux.text.to")).toLowerCase();
+  const toText = titleCase(i18n("pf2e-dorako-ux.text.to"));
   whisperTo.text(`${toText}: ${whisperTargetString}`);
   whisperTo.addClass("header-meta");
 
