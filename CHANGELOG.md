@@ -1,3 +1,7 @@
+# 1.5.5
+
+- (Fix) Several fixes related to /whisper functionality including restoring to/from tags, contributed by @FolkvangrForgent.
+
 # 1.5.4
 
 - (Refinement) Performance improvement in relation to turn-passing in encounter mode contributed by @Codas.

@@ -20,6 +20,9 @@
   white-space: nowrap;
   border: 1px solid;
 }
+.chat-message .message-header .whisper-to .header-meta {
+  margin-right: 3px;
+}
 .chat-message .message-header .player-name,
 .chat-message .message-header .message-sender {
   max-width: 160px;
