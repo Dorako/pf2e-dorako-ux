@@ -808,7 +808,7 @@ nav#controls ol.control-tools > li {
 .dorako-ux.sheet.pf2e.actor.npc form .top-sections {
   gap: 5px;
 }
-.dorako-ux.sheet.pf2e.actor.npc form .subsection {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection:not(.damage, .attack) {
   background: var(--section-background);
   background-size: cover;
   border: 1px solid var(--section-border-color);
@@ -816,49 +816,49 @@ nav#controls ol.control-tools > li {
   border-radius: 3px;
   margin: 3px;
 }
-.dorako-ux.sheet.pf2e.actor.npc form .subsection.initiative select {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection:not(.damage, .attack).initiative select {
   width: 98%;
   margin-bottom: 2px;
 }
-.dorako-ux.sheet.pf2e.actor.npc form .subsection header {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection:not(.damage, .attack) header {
   align-items: center;
   margin-bottom: unset;
   margin-bottom: 2px;
   padding-left: 4px;
 }
-.dorako-ux.sheet.pf2e.actor.npc form .subsection header.disabled {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection:not(.damage, .attack) header.disabled {
   margin-bottom: unset;
 }
-.dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed header {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection:not(.damage, .attack).collapsed header {
   margin-bottom: unset;
   border-bottom: unset;
 }
-.dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed header.disabled {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection:not(.damage, .attack).collapsed header.disabled {
   margin-bottom: unset;
 }
-.dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection:not(.damage, .attack).collapsed {
   max-height: 26px;
   transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
 }
-.dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed header {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection:not(.damage, .attack).collapsed header {
   border-radius: 3px;
 }
-.dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed:not(.empty):hover {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection:not(.damage, .attack).collapsed:not(.empty):hover {
   max-height: 1000px;
   transition: max-height 1s ease-in-out;
 }
-.dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed:not(.empty):hover header {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection:not(.damage, .attack).collapsed:not(.empty):hover header {
   border-radius: 3px 3px 0px 0px;
   border-bottom: 1px solid var(--section-border-color);
 }
-.dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed:not(.empty):hover .side-bar-section-content {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection:not(.damage, .attack).collapsed:not(.empty):hover .side-bar-section-content {
   display: block;
 }
-.dorako-ux.sheet.pf2e.actor.npc form .subsection.collapsed .side-bar-section-content {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection:not(.damage, .attack).collapsed .side-bar-section-content {
   display: none;
 }
 .dorako-ux.sheet.pf2e.actor.npc form .section-container,
-.dorako-ux.sheet.pf2e.actor.npc form .subsection {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection:not(.damage, .attack) {
   padding: 0px;
   border-radius: 3px;
   margin: 3px;
@@ -868,26 +868,26 @@ nav#controls ol.control-tools > li {
   background-size: cover;
 }
 .dorako-ux.sheet.pf2e.actor.npc form .section-container.iwr,
-.dorako-ux.sheet.pf2e.actor.npc form .subsection.iwr {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection:not(.damage, .attack).iwr {
   min-height: unset;
 }
 .dorako-ux.sheet.pf2e.actor.npc form .section-container .section-header,
 .dorako-ux.sheet.pf2e.actor.npc form .section-container header,
-.dorako-ux.sheet.pf2e.actor.npc form .subsection .section-header,
-.dorako-ux.sheet.pf2e.actor.npc form .subsection header {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection:not(.damage, .attack) .section-header,
+.dorako-ux.sheet.pf2e.actor.npc form .subsection:not(.damage, .attack) header {
   background: var(--section-header);
   border: unset;
   border-bottom: 1px solid var(--section-border-color);
   color: var(--section-header-text-color);
 }
 .dorako-ux.sheet.pf2e.actor.npc form .section-container .section-body,
-.dorako-ux.sheet.pf2e.actor.npc form .subsection .section-body {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection:not(.damage, .attack) .section-body {
   border: none;
   padding: 0;
   padding: 5px;
 }
 .dorako-ux.sheet.pf2e.actor.npc form .section-container.toggles,
-.dorako-ux.sheet.pf2e.actor.npc form .subsection.toggles {
+.dorako-ux.sheet.pf2e.actor.npc form .subsection:not(.damage, .attack).toggles {
   outline: none;
   border-image-repeat: repeat;
   border-image-slice: 11;
@@ -904,6 +904,9 @@ nav#controls ol.control-tools > li {
   box-shadow: none;
   background: none;
   margin: 5px;
+}
+.dorako-ux.sheet.pf2e.actor.npc form .section-container {
+  margin-top: 8px;
 }
 .dorako-ux.sheet.pf2e.actor.npc form .sidebar .image-container {
   border: none;

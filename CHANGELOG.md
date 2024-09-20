@@ -1,3 +1,8 @@
+# 1.5.6
+
+- (Refinement) General housecleaning related to NPC sheets.
+- (Module) Added the `/sass` folder to the packaged files.
+
 # 1.5.5
 
 - (Fix) Several fixes related to /whisper functionality including restoring to/from tags, contributed by @FolkvangrForgent.

@@ -149,7 +149,7 @@
         gap: 5px;
       }
 
-      .subsection {
+      .subsection:not(.damage, .attack) {
         background: var(--section-background);
         background-size: cover;
         border: 1px solid var(--section-border-color);
@@ -215,7 +215,7 @@
       }
 
       .section-container,
-      .subsection {
+      .subsection:not(.damage, .attack) {
         padding: 0px;
         border-radius: 3px;
         margin: 3px;
@@ -262,6 +262,10 @@
           background: none;
           margin: 5px;
         }
+      }
+
+      .section-container {
+        margin-top: 8px;
       }
 
       .sidebar {
