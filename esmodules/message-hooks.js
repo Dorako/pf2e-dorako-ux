@@ -41,7 +41,7 @@ Hooks.on("renderChatMessage", (chatMessage, html, messageData) => {
 
   injectSenderWrapper(html, messageData);
   injectMessageTag(html, messageData);
-  injectWhisperParticipants(html, messageData);
+  adjustWhisperParticipants(html, messageData);
   injectAuthorName(html, messageData);
 
   if (
@@ -195,7 +195,7 @@ function injectMessageTag(html, messageData) {
   }
 }
 
-function injectWhisperParticipants(html, messageData) {
+function adjustWhisperParticipants(html, messageData) {
   const alias = messageData.alias;
   const whisperTargetString = messageData.whisperTo;
   const whisperTargetIds = messageData.message.whisper;
@@ -211,26 +211,47 @@ function injectWhisperParticipants(html, messageData) {
   // remove the old whisper to content, if it exists
   html.find(".whisper-to").detach();
 
+  if (messageData.message?.flags?.pf2e?.context?.type == "damage-taken") return;
+
   // if this is a roll
   if (isRoll) return;
+
+  console.log(messageData);
 
   const messageHeader = html.find(".message-header");
 
   const whisperParticipants = $("<span>");
+  whisperParticipants.addClass("dux");
   whisperParticipants.addClass("whisper-to");
 
   const whisperFrom = $("<span>");
   const fromText = titleCase(i18n("pf2e-dorako-ux.text.from"));
-  whisperFrom.text(`${fromText}: ${alias}`);
+  whisperFrom.text(`${fromText}: ${messageData.author.name}`);
   whisperFrom.addClass("header-meta");
 
   const whisperTo = $("<span>");
-  const toText = titleCase(i18n("pf2e-dorako-ux.text.to"));
-  whisperTo.text(`${toText}: ${whisperTargetString}`);
-  whisperTo.addClass("header-meta");
 
-  whisperParticipants.append(whisperFrom);
+  const whisperToLabel = $("<span>");
+  const toText = titleCase(i18n("pf2e-dorako-ux.text.to"));
+  whisperToLabel.text(`${toText}: `);
+  whisperToLabel.addClass("header-meta");
+  whisperTo.append(whisperToLabel);
   whisperParticipants.append(whisperTo);
+
+  const recipients = $("<span>");
+  whisperParticipants.append(recipients);
+
+  for (const whisperId of whisperTargetIds) {
+    const recipient = $("<span>");
+    console.log(whisperId);
+    recipient.text(game.users.get(whisperId)?.name);
+    recipient.addClass("header-meta");
+    recipient.addClass("whisper");
+
+    recipients.append(recipient);
+  }
+
+  // whisperParticipants.append(whisperFrom);
   messageHeader.append(whisperParticipants);
 }
 

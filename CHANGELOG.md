@@ -1,3 +1,9 @@
+# 1.5.7
+
+- (Refinement) Removed the superfluous 'from' tag in whispers.
+- (Refinement) Made the recipient names in whispers into individual tags rather than one comma-separated one.
+- (Refinement) Apply 'whisper' class to individual whisper tags.
+
 # 1.5.6
 
 - (Refinement) General housecleaning related to NPC sheets.
