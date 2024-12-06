@@ -216,8 +216,6 @@ function adjustWhisperParticipants(html, messageData) {
   // if this is a roll
   if (isRoll) return;
 
-  console.log(messageData);
-
   const messageHeader = html.find(".message-header");
 
   const whisperParticipants = $("<span>");
