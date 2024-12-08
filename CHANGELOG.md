@@ -1,3 +1,7 @@
+# 1.5.8
+
+- (Fix) Removed some logspam.
+
 # 1.5.7
 
 - (Refinement) Removed the superfluous 'from' tag in whispers.

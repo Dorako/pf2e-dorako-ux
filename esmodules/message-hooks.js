@@ -196,8 +196,6 @@ function injectMessageTag(html, messageData) {
 }
 
 function adjustWhisperParticipants(html, messageData) {
-  const alias = messageData.alias;
-  const whisperTargetString = messageData.whisperTo;
   const whisperTargetIds = messageData.message.whisper;
   const isWhisper = messageData.isWhisper;
   const isRoll = messageData.message.rolls !== undefined && messageData.message.rolls > 0;
@@ -215,8 +213,6 @@ function adjustWhisperParticipants(html, messageData) {
 
   // if this is a roll
   if (isRoll) return;
-
-  console.log(messageData);
 
   const messageHeader = html.find(".message-header");
 
@@ -243,7 +239,6 @@ function adjustWhisperParticipants(html, messageData) {
 
   for (const whisperId of whisperTargetIds) {
     const recipient = $("<span>");
-    console.log(whisperId);
     recipient.text(game.users.get(whisperId)?.name);
     recipient.addClass("header-meta");
     recipient.addClass("whisper");
@@ -251,7 +246,6 @@ function adjustWhisperParticipants(html, messageData) {
     recipients.append(recipient);
   }
 
-  // whisperParticipants.append(whisperFrom);
   messageHeader.append(whisperParticipants);
 }
 
