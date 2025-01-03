@@ -35,8 +35,13 @@ export class AvatarSettings extends SettingsMenuDorakoUX {
         onChange: () => {
           // Also update in settings.js#39
           const root = document.querySelector(":root").style;
-          root.setProperty('--systemAvatarDisplay', 'none');
-          root.setProperty('--systemAvatarLayout', 'flex');
+          if (game.settings.get("pf2e-dorako-ux", "avatar.source") === "system") {
+            root.removeProperty('--systemAvatarDisplay');
+            root.removeProperty('--systemAvatarLayout');
+          } else {
+            root.setProperty('--systemAvatarDisplay', 'none');
+            root.setProperty('--systemAvatarLayout', 'flex');
+          }
         },
       },
       size: {
