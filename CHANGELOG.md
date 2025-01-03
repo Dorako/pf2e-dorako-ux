@@ -1,3 +1,7 @@
+# 1.5.9
+
+- (Fix) Fixed an issue where sometimes there would be too many avatars, contributed by @MrVauxs.
+
 # 1.5.8
 
 - (Fix) Removed some logspam.

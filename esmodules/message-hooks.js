@@ -19,7 +19,7 @@ Hooks.on("renderChatMessage", (chatMessage, html, messageData) => {
   }
 
   if (game.settings.get("pf2e-dorako-ux", "avatar.source") !== "system") {
-    html[0].querySelector(".message-header").classList.add("dorako");
+    html[0].querySelector(".message-header").classList.add("dorako-ux");
     injectSenderWrapper(html, messageData);
     injectMessageTag(html, messageData);
     adjustWhisperParticipants(html, messageData);
@@ -112,6 +112,16 @@ function injectAvatar(html, avatar) {
   portrait.classList.add("avatar");
   portrait.classList.add("portrait");
   wrapper.append(portrait);
+  //   <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="scale(
+  //     FONT-VARIANT: JIS83);scale(
+  //     FONT-VARIANT: JIS83);
+  //     /* height: 100px; */
+  //     /* width: 100px; */
+  //     transform: scale(3);
+  // ">
+  //   <circle cx="50%" cy="50%" r="18" fill="#956D58" stroke="#956D58" stroke-width="2px"></circle>
+  //   <circle cx="50%" cy="50%" r="18" fill="transparent" stroke="#E9D7A1" stroke-width="0.5"></circle>
+  // </svg>
   let senderWrapper = html.find(".sender-wrapper")[0];
   portraitAndName.append(senderWrapper);
   portraitAndName.prepend(wrapper);
@@ -242,6 +252,7 @@ function addAvatarsToFlags(message, local = true) {
   const actor = game.actors.get(speaker.actor);
   let actorImg = actor?.img;
   let userImg = message.author?.avatar;
+  // let dynamicImg = token?.ring?.subject;
 
   let userAvatar = new Avatar(message.speaker.alias, userImg);
 
@@ -253,6 +264,15 @@ function addAvatarsToFlags(message, local = true) {
   if (tokenImg) {
     tokenAvatar = new TokenAvatar(message.speaker.alias, tokenImg, token.texture.scaleX, actor.size == "sm");
   }
+
+  // if (dynamicImg) {
+  //   tokenAvatar = new TokenAvatar(
+  //     message.speaker.alias,
+  //     dynamicImg.texture,
+  //     dynamicImg.scale * 1.5,
+  //     actor.size == "sm"
+  //   );
+  // }
 
   if (local) {
     message.updateSource({

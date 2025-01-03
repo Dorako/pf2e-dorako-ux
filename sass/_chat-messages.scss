@@ -1,10 +1,14 @@
-.chat-message .message-header.dorako {
+.chat-message .message-header.dorako-ux {
   background: none;
   padding: 5px 5px 0px 5px;
   margin: -5px -5px 5px -5px;
   border-radius: 5px 5px 0px 0px;
   gap: 5px;
   align-items: center;
+
+  &.with-image .portrait {
+    padding: 0;
+  }
 
   .portrait.token {
     display: var(--systemAvatarDisplay);
@@ -55,6 +59,7 @@
     gap: 5px;
 
     .portrait-wrapper {
+      position: relative;
       width: var(--avatar-size);
       display: flex;
       flex: none;
@@ -62,6 +67,7 @@
       align-items: center;
 
       .portrait {
+        position: absolute;
         height: var(--avatar-size);
         object-fit: contain;
         z-index: 0;
@@ -152,7 +158,7 @@
     }
   }
 
-  >.message-content .message-buttons {
+  > .message-content .message-buttons {
     display: flex;
     margin: 0.35em 0 2px;
     gap: 3px;
