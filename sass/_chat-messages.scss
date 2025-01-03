@@ -1,4 +1,4 @@
-.chat-message .message-header {
+.chat-message .message-header.dorako {
   background: none;
   padding: 5px 5px 0px 5px;
   margin: -5px -5px 5px -5px;
@@ -98,9 +98,6 @@
 
   --adjusted-higher: #009988;
   --adjusted-lower: #cc3311;
-
-  --systemAvatarDisplay: null;
-  --systemAvatarLayout: null;
 }
 
 /* ----------------------------------------- */

@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.chat-message .message-header {
+.chat-message .message-header.dorako {
   background: none;
   padding: 5px 5px 0px 5px;
   margin: -5px -5px 5px -5px;
@@ -7,10 +7,20 @@
   gap: 5px;
   align-items: center;
 }
-.chat-message .message-header .message-metadata {
+.chat-message .message-header.dorako .portrait.token {
+  display: var(--systemAvatarDisplay);
+}
+.chat-message .message-header.dorako span.user {
+  display: var(--systemAvatarDisplay);
+}
+.chat-message .message-header.dorako.with-image {
+  display: var(--systemAvatarLayout, grid);
+  width: var(--systemAvatarLayout, 100%);
+}
+.chat-message .message-header.dorako .message-metadata {
   flex: 4;
 }
-.chat-message .message-header .header-meta {
+.chat-message .message-header.dorako .header-meta {
   border-radius: 3px;
   padding: 2px;
   font-size: x-small;
@@ -20,39 +30,39 @@
   white-space: nowrap;
   border: 1px solid;
 }
-.chat-message .message-header .whisper-to .header-meta {
+.chat-message .message-header.dorako .whisper-to .header-meta {
   margin-right: 3px;
 }
-.chat-message .message-header .player-name,
-.chat-message .message-header .message-sender {
+.chat-message .message-header.dorako .player-name,
+.chat-message .message-header.dorako .message-sender {
   max-width: 160px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 }
-.chat-message .message-header .portrait-and-name {
+.chat-message .message-header.dorako .portrait-and-name {
   flex-grow: 1;
   display: flex;
   flex-basis: 100px;
   gap: 5px;
 }
-.chat-message .message-header .portrait-and-name .portrait-wrapper {
+.chat-message .message-header.dorako .portrait-and-name .portrait-wrapper {
   width: var(--avatar-size);
   display: flex;
   flex: none;
   justify-content: center;
   align-items: center;
 }
-.chat-message .message-header .portrait-and-name .portrait-wrapper .portrait {
+.chat-message .message-header.dorako .portrait-and-name .portrait-wrapper .portrait {
   height: var(--avatar-size);
   object-fit: contain;
   z-index: 0;
   border: unset;
 }
-.chat-message .message-header .portrait-and-name .portrait-wrapper .portrait.actor {
+.chat-message .message-header.dorako .portrait-and-name .portrait-wrapper .portrait.actor {
   border-radius: 3px;
 }
-.chat-message .message-header .portrait-and-name .sender-wrapper {
+.chat-message .message-header.dorako .portrait-and-name .sender-wrapper {
   display: flex;
   gap: 3px;
   flex-direction: column;
@@ -60,54 +70,37 @@
   align-self: center;
   z-index: 1;
 }
-.chat-message .message-header .portrait-and-name .sender-wrapper .message-sender,
-.chat-message .message-header .portrait-and-name .sender-wrapper .player-name {
+.chat-message .message-header.dorako .portrait-and-name .sender-wrapper .message-sender,
+.chat-message .message-header.dorako .portrait-and-name .sender-wrapper .player-name {
   align-self: flex-start;
   line-height: initial;
 }
-
 :root {
-  --degree-success-critical: rgb(0, 128, 0);
-  --degree-success: rgb(0, 0, 255);
-  --degree-failure: rgb(255, 69, 0);
-  --degree-failure-critical: rgb(255, 0, 0);
-  --adjusted-higher: #009988;
-  --adjusted-lower: #cc3311;
+  --degree-success-critical: #008000;
+  --degree-success: #00f;
+  --degree-failure: #ff4500;
+  --degree-failure-critical: #f00;
+  --adjusted-higher: #098;
+  --adjusted-lower: #c31;
 }
-
 /* ----------------------------------------- */
-/* Relocated .flavor-text                                  */
+/* Relocated .flavor-text */
 /* ----------------------------------------- */
 .chat-message .flavor-text .target-dc-result .unadjusted {
   text-decoration: line-through;
 }
-
 .chat-message .flavor-text .target-dc-result .adjusted {
   text-decoration: underline dotted;
 }
-
 .chat-message .flavor-text .effect {
   display: flex;
   align-items: center;
   column-gap: 5px;
 }
-
 .chat-message .flavor-text .effect img {
   height: 32px;
   width: 32px;
 }
-
-.chat-message .message-header .portrait.token {
-  display: var(--systemAvatarDisplay);
-}
-.chat-message .message-header span.user {
-  display: var(--systemAvatarDisplay);
-}
-.chat-message .message-header.with-image {
-  display: var(--systemAvatarLayout, grid);
-  width: var(--systemAvatarLayout, 100%);
-}
-
 .chat-message .flavor-text h4.action {
   font-weight: 700;
   line-height: 1.5em;
@@ -134,7 +127,6 @@
   margin: 0.35em 0 2px;
   gap: 3px;
 }
-
 .chat-message .target-dc-result .adjusted.increased {
   color: var(--adjusted-higher);
 }

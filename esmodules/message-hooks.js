@@ -18,10 +18,13 @@ Hooks.on("renderChatMessage", (chatMessage, html, messageData) => {
     return;
   }
 
-  injectSenderWrapper(html, messageData);
-  injectMessageTag(html, messageData);
-  adjustWhisperParticipants(html, messageData);
-  injectAuthorName(html, messageData);
+  if (game.settings.get("pf2e-dorako-ux", "avatar.source") !== "system") {
+    html[0].querySelector(".message-header").classList.add("dorako");
+    injectSenderWrapper(html, messageData);
+    injectMessageTag(html, messageData);
+    adjustWhisperParticipants(html, messageData);
+    injectAuthorName(html, messageData);
+  }
 
   if (
     (game.settings.get("pf2e-dorako-ux", "avatar.hide-when-token-hidden") &&

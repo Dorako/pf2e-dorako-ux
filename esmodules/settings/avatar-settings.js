@@ -31,7 +31,6 @@ export class AvatarSettings extends SettingsMenuDorakoUX {
           none: "pf2e-dorako-ux.text.disabled",
         },
         requiresReload: false,
-        onChange: refreshChat,
         onChange: () => {
           // Also update in settings.js#39
           const root = document.querySelector(":root").style;
@@ -42,6 +41,7 @@ export class AvatarSettings extends SettingsMenuDorakoUX {
             root.setProperty('--systemAvatarDisplay', 'none');
             root.setProperty('--systemAvatarLayout', 'flex');
           }
+          refreshChat();
         },
       },
       size: {
