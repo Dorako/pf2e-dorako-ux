@@ -97,6 +97,17 @@
   width: 32px;
 }
 
+.chat-message .message-header .portrait.token {
+  display: var(--systemAvatarDisplay);
+}
+.chat-message .message-header span.user {
+  display: var(--systemAvatarDisplay);
+}
+.chat-message .message-header.with-image {
+  display: var(--systemAvatarLayout, grid);
+  width: var(--systemAvatarLayout, 100%);
+}
+
 .chat-message .flavor-text h4.action {
   font-weight: 700;
   line-height: 1.5em;
@@ -258,7 +269,12 @@ body.minimize-hotbar #ui-middle.active #hotbar {
 }
 .dalvyn-journal:not(.premium).journal-entry-page h3:hover,
 .dalvyn-journal:not(.premium) .journal-entry-page h3:hover {
-  background-image: linear-gradient(rgba(173, 111, 89, 0), rgba(173, 111, 89, 0), rgba(173, 111, 89, 0), rgba(173, 111, 89, 0.2666666667));
+  background-image: linear-gradient(
+    rgba(173, 111, 89, 0),
+    rgba(173, 111, 89, 0),
+    rgba(173, 111, 89, 0),
+    rgba(173, 111, 89, 0.2666666667)
+  );
 }
 .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h4,
 .dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h4 {
@@ -271,7 +287,12 @@ body.minimize-hotbar #ui-middle.active #hotbar {
 }
 .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h4:hover,
 .dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h4:hover {
-  background-image: linear-gradient(rgba(2, 37, 110, 0), rgba(2, 37, 110, 0), rgba(2, 37, 110, 0), rgba(2, 37, 110, 0.2666666667));
+  background-image: linear-gradient(
+    rgba(2, 37, 110, 0),
+    rgba(2, 37, 110, 0),
+    rgba(2, 37, 110, 0),
+    rgba(2, 37, 110, 0.2666666667)
+  );
 }
 .dalvyn-journal:not(.premium).journal-entry-page h5,
 .dalvyn-journal:not(.premium) .journal-entry-page h5 {
@@ -283,9 +304,15 @@ body.minimize-hotbar #ui-middle.active #hotbar {
 }
 .dalvyn-journal:not(.premium).journal-entry-page h5:hover,
 .dalvyn-journal:not(.premium) .journal-entry-page h5:hover {
-  background-image: linear-gradient(rgba(2, 37, 110, 0), rgba(2, 37, 110, 0), rgba(2, 37, 110, 0), rgba(2, 37, 110, 0.2666666667));
+  background-image: linear-gradient(
+    rgba(2, 37, 110, 0),
+    rgba(2, 37, 110, 0),
+    rgba(2, 37, 110, 0),
+    rgba(2, 37, 110, 0.2666666667)
+  );
 }
-.dalvyn-journal:not(.premium).journal-entry-content, .dalvyn-journal:not(.premium).journal-entry-page .window-content,
+.dalvyn-journal:not(.premium).journal-entry-content,
+.dalvyn-journal:not(.premium).journal-entry-page .window-content,
 .dalvyn-journal:not(.premium) .journal-entry-page .window-content {
   font-family: "Gelasio";
 }
@@ -313,8 +340,8 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   background-color: #f5efe0;
   color: black;
 }
-.dalvyn-journal:not(.premium).journal-entry-page tr:nth-child(2n+1),
-.dalvyn-journal:not(.premium) .journal-entry-page tr:nth-child(2n+1) {
+.dalvyn-journal:not(.premium).journal-entry-page tr:nth-child(2n + 1),
+.dalvyn-journal:not(.premium) .journal-entry-page tr:nth-child(2n + 1) {
   background-color: #efe3c8;
   color: black;
 }
@@ -323,13 +350,19 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   background-color: #e9d7b0;
   color: black;
 }
-.dalvyn-journal:not(.premium).journal-entry-page table td, .dalvyn-journal:not(.premium).journal-entry-page table th,
+.dalvyn-journal:not(.premium).journal-entry-page table td,
+.dalvyn-journal:not(.premium).journal-entry-page table th,
 .dalvyn-journal:not(.premium) .journal-entry-page table td,
 .dalvyn-journal:not(.premium) .journal-entry-page table th {
   padding: 4px 6px;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content blockquote:not(h6 + p + ul + blockquote, h6 + p + blockquote, h6 + ul + blockquote, h6 + blockquote),
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content blockquote:not(h6 + p + ul + blockquote, h6 + p + blockquote, h6 + ul + blockquote, h6 + blockquote) {
+.dalvyn-journal:not(.premium).journal-entry-page
+  .journal-page-content
+  blockquote:not(h6 + p + ul + blockquote, h6 + p + blockquote, h6 + ul + blockquote, h6 + blockquote),
+.dalvyn-journal:not(.premium)
+  .journal-entry-page
+  .journal-page-content
+  blockquote:not(h6 + p + ul + blockquote, h6 + p + blockquote, h6 + ul + blockquote, h6 + blockquote) {
   border-left-width: 0;
   border-top: 2px solid #cfbf80;
   border-bottom: 2px solid #cfbf80;
@@ -340,12 +373,22 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   margin-left: 0;
   margin-right: 0;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content blockquote:not(h6 + p + ul + blockquote, h6 + p + blockquote, h6 + ul + blockquote, h6 + blockquote):hover,
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content blockquote:not(h6 + p + ul + blockquote, h6 + p + blockquote, h6 + ul + blockquote, h6 + blockquote):hover {
+.dalvyn-journal:not(.premium).journal-entry-page
+  .journal-page-content
+  blockquote:not(h6 + p + ul + blockquote, h6 + p + blockquote, h6 + ul + blockquote, h6 + blockquote):hover,
+.dalvyn-journal:not(.premium)
+  .journal-entry-page
+  .journal-page-content
+  blockquote:not(h6 + p + ul + blockquote, h6 + p + blockquote, h6 + ul + blockquote, h6 + blockquote):hover {
   color: #efdfa2;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote),
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote) {
+.dalvyn-journal:not(.premium).journal-entry-page
+  .journal-page-content
+  :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote),
+.dalvyn-journal:not(.premium)
+  .journal-entry-page
+  .journal-page-content
+  :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote) {
   margin-left: 12px;
   margin-right: 12px;
   margin-top: 0;
@@ -463,34 +506,53 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   border: 0;
   padding: 4px 12px 4px 12px;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote p, .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote p,
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote p,
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote p,
 .dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul + blockquote p,
 .dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + blockquote p {
   font-family: "roboto condensed";
   font-style: normal;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote em, .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote em,
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote em,
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote em,
 .dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul + blockquote em,
 .dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + blockquote em {
   font-style: italic;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote p:has(strong:first-child), .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote p:has(strong:first-child),
-.dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul + blockquote p:has(strong:first-child),
+.dalvyn-journal:not(.premium).journal-entry-page
+  .journal-page-content
+  h6
+  + p
+  + ul
+  + blockquote
+  p:has(strong:first-child),
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote p:has(strong:first-child),
+.dalvyn-journal:not(.premium)
+  .journal-entry-page
+  .journal-page-content
+  h6
+  + p
+  + ul
+  + blockquote
+  p:has(strong:first-child),
 .dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + blockquote p:has(strong:first-child) {
   text-indent: -1em;
   margin-left: 1em;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote p *, .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote p *,
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote p *,
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote p *,
 .dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul + blockquote p *,
 .dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + blockquote p * {
   text-indent: 0;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote p:first-child, .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote p:first-child,
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote p:first-child,
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote p:first-child,
 .dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul + blockquote p:first-child,
 .dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + blockquote p:first-child {
   margin-top: 0;
 }
-.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote hr, .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote hr,
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + blockquote hr,
+.dalvyn-journal:not(.premium).journal-entry-page .journal-page-content h6 + p + ul + blockquote hr,
 .dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + blockquote hr,
 .dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content h6 + p + ul + blockquote hr {
   border-top: 0;
@@ -511,12 +573,31 @@ body.minimize-hotbar #ui-middle.active #hotbar {
 .dalvyn-journal:not(.premium) .dark-theme tbody {
   color: black;
 }
-.foundry2 .dalvyn-journal:not(.premium).journal-entry-page .journal-page-content :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote),
-.foundry2 .dalvyn-journal:not(.premium) .journal-entry-page .journal-page-content :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote),
-.dalvyn-journal.dark-theme:not(.premium).journal-entry-page .journal-page-content :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote),
-.dalvyn-journal.dark-theme:not(.premium) .journal-entry-page .journal-page-content :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote),
-.dalvyn-journal:not(.premium) .dark-theme.journal-entry-page .journal-page-content :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote),
-.dalvyn-journal:not(.premium) .dark-theme .journal-entry-page .journal-page-content :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote) {
+.foundry2
+  .dalvyn-journal:not(.premium).journal-entry-page
+  .journal-page-content
+  :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote),
+.foundry2
+  .dalvyn-journal:not(.premium)
+  .journal-entry-page
+  .journal-page-content
+  :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote),
+.dalvyn-journal.dark-theme:not(.premium).journal-entry-page
+  .journal-page-content
+  :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote),
+.dalvyn-journal.dark-theme:not(.premium)
+  .journal-entry-page
+  .journal-page-content
+  :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote),
+.dalvyn-journal:not(.premium)
+  .dark-theme.journal-entry-page
+  .journal-page-content
+  :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote),
+.dalvyn-journal:not(.premium)
+  .dark-theme
+  .journal-entry-page
+  .journal-page-content
+  :is(h6, h6 + p, h6 + p + ul, h6 + p + blockquote, h6 + p + ul + blockquote) {
   color: black;
 }
 
@@ -569,27 +650,32 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   margin-bottom: 0px;
   padding-bottom: 5px;
 }
-.message.chat-message.dfce-cm-middle, .message.chat-message.dfce-cm-bottom {
+.message.chat-message.dfce-cm-middle,
+.message.chat-message.dfce-cm-bottom {
   position: relative;
   border-radius: 0px;
   margin-top: 0px !important;
 }
-.message.chat-message.dfce-cm-middle .message-content, .message.chat-message.dfce-cm-bottom .message-content {
+.message.chat-message.dfce-cm-middle .message-content,
+.message.chat-message.dfce-cm-bottom .message-content {
   padding-right: 0px;
 }
 .message.chat-message.dfce-cm-middle .sender-wrapper,
-.message.chat-message.dfce-cm-middle .portrait-and-name, .message.chat-message.dfce-cm-bottom .sender-wrapper,
+.message.chat-message.dfce-cm-middle .portrait-and-name,
+.message.chat-message.dfce-cm-bottom .sender-wrapper,
 .message.chat-message.dfce-cm-bottom .portrait-and-name {
   display: none;
 }
-.message.chat-message.dfce-cm-middle .message-header, .message.chat-message.dfce-cm-bottom .message-header {
+.message.chat-message.dfce-cm-middle .message-header,
+.message.chat-message.dfce-cm-bottom .message-header {
   background: transparent !important;
   box-shadow: none;
   margin: 0px;
   padding: 0px;
   padding-right: 5px;
 }
-.message.chat-message.dfce-cm-middle .header-meta, .message.chat-message.dfce-cm-bottom .header-meta {
+.message.chat-message.dfce-cm-middle .header-meta,
+.message.chat-message.dfce-cm-bottom .header-meta {
   display: none;
 }
 .message.chat-message.dfce-cm-middle {
@@ -633,7 +719,7 @@ body.minimize-hotbar #ui-middle.active #hotbar {
   display: none !important;
 }
 
-.dorako-damage-roll .flavor-text > *:nth-child(-n+3) {
+.dorako-damage-roll .flavor-text > *:nth-child(-n + 3) {
   display: none;
 }
 
@@ -692,13 +778,16 @@ nav#controls ol.control-tools > li {
 .dorako-ux {
   --ornamentation: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='33' height='33' overflow='scroll'%3E%3Cstyle%3E.st1{stroke:gray;stroke-miterlimit:10}.st1,.st2{fill:none}%3C/style%3E%3Cg opacity='1'%3E%3Cpath class='st1' d='M.5 20v-7'/%3E%3Cpath class='st2' d='M13 20v-7'/%3E%3Cpath class='st1' d='M13 .5h7'/%3E%3Cpath class='st2' d='M13 13h7'/%3E%3Cpath class='st1' d='M32.5 13v7'/%3E%3Cpath class='st2' d='M20 13v7'/%3E%3Cpath class='st1' d='M20 32.5h-7'/%3E%3Cpath class='st2' d='M20 20h-7'/%3E%3Cpath class='st1' d='M.5.5h3.1v3.1H.5zm3.1 3.1h3.1v3.1H3.6zm3.2 0h3.1v3.1H6.8zM3.6 6.8h3.1v3.1H3.6zm0 0H.5V13M13 .5H6.8v3.1M29.4.5h3.1v3.1h-3.1zm-3.1 3.1h3.1v3.1h-3.1zm0 3.2h3.1v3.1h-3.1zm-3.2-3.2h3.1v3.1h-3.1zm3.2 0V.5H20M32.5 13V6.8h-3.1M29.4 29.4h3.1v3.1h-3.1z'/%3E%3Cpath class='st1' d='M26.3 26.3h3.1v3.1h-3.1zm-3.2 0h3.1v3.1h-3.1zm3.2-3.2h3.1v3.1h-3.1z'/%3E%3Cpath class='st1' d='M29.4 26.3h3.1V20M20 32.5h6.3v-3.1'/%3E%3Cg%3E%3Cpath class='st1' d='M.5 29.4h3.1v3.1H.5zm3.1-3.1h3.1v3.1H3.6zm0-3.2h3.1v3.1H3.6zm3.2 3.2h3.1v3.1H6.8zM6.8 29.4v3.1H13M.5 20v6.3h3.1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
-.dorako-ux.actor.npc.sheet form .sidebar .health-section .hit-points .max.lt10, .dorako-ux.actor.npc.sheet form .sidebar .shield-section .hit-points .max.lt10 {
+.dorako-ux.actor.npc.sheet form .sidebar .health-section .hit-points .max.lt10,
+.dorako-ux.actor.npc.sheet form .sidebar .shield-section .hit-points .max.lt10 {
   width: 12px;
 }
-.dorako-ux.actor.npc.sheet form .sidebar .health-section .hit-points .max.lt100, .dorako-ux.actor.npc.sheet form .sidebar .shield-section .hit-points .max.lt100 {
+.dorako-ux.actor.npc.sheet form .sidebar .health-section .hit-points .max.lt100,
+.dorako-ux.actor.npc.sheet form .sidebar .shield-section .hit-points .max.lt100 {
   width: 28px;
 }
-.dorako-ux.actor.npc.sheet form .sidebar .health-section .hit-points .max.lt1000, .dorako-ux.actor.npc.sheet form .sidebar .shield-section .hit-points .max.lt1000 {
+.dorako-ux.actor.npc.sheet form .sidebar .health-section .hit-points .max.lt1000,
+.dorako-ux.actor.npc.sheet form .sidebar .shield-section .hit-points .max.lt1000 {
   width: 40px;
 }
 .dorako-ux.sheet.pf2e.actor.npc {
@@ -722,7 +811,7 @@ nav#controls ol.control-tools > li {
   --color-pf-primary-light: var(--section-header-text-color);
   --color-pf-primary-darker: var(--section-header-text-color);
 }
-.dorako-ux.sheet.pf2e.actor.npc .sheet-body a.roll[data-statistic=perception] {
+.dorako-ux.sheet.pf2e.actor.npc .sheet-body a.roll[data-statistic="perception"] {
   --color-pf-primary-light: var(--color-pf-primary-light);
   --color-pf-primary-darker: var(--color-text-dark-primary);
 }
@@ -734,11 +823,21 @@ nav#controls ol.control-tools > li {
 .dorako-ux.sheet.pf2e.actor.npc .sidebar header {
   height: 22px;
 }
-.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sidebar select, .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sheet-body select, .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=text], .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=number] {
+.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sidebar select,
+.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sheet-body select,
+.dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type="text"],
+.dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type="number"] {
   color: var(--color-text-dark-input);
   border-color: transparent;
 }
-.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sidebar select:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sidebar select:hover:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sheet-body select:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sheet-body select:hover:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=text]:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=text]:hover:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=number]:focus:not(disabled), .dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type=number]:hover:not(disabled) {
+.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sidebar select:focus:not(disabled),
+.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sidebar select:hover:not(disabled),
+.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sheet-body select:focus:not(disabled),
+.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet .sheet-body select:hover:not(disabled),
+.dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type="text"]:focus:not(disabled),
+.dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type="text"]:hover:not(disabled),
+.dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type="number"]:focus:not(disabled),
+.dorako-ux.sheet.pf2e.actor.npc.pf2e.actor form input[type="number"]:hover:not(disabled) {
   box-shadow: none;
   border-color: transparent;
 }
@@ -776,7 +875,8 @@ nav#controls ol.control-tools > li {
 .dorako-ux.sheet.pf2e.actor.npc .section-container {
   box-shadow: 0px 2px 5px black;
 }
-.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form ol.spell-list, .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form ol.spell-list > li.spell-level-header {
+.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form ol.spell-list,
+.dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form ol.spell-list > li.spell-level-header {
   border-color: transparent;
 }
 .dorako-ux.sheet.pf2e.actor.npc.actor.npc.sheet form .notes .notes-section > h4 {
@@ -851,7 +951,10 @@ nav#controls ol.control-tools > li {
   border-radius: 3px 3px 0px 0px;
   border-bottom: 1px solid var(--section-border-color);
 }
-.dorako-ux.sheet.pf2e.actor.npc form .subsection:not(.damage, .attack).collapsed:not(.empty):hover .side-bar-section-content {
+.dorako-ux.sheet.pf2e.actor.npc
+  form
+  .subsection:not(.damage, .attack).collapsed:not(.empty):hover
+  .side-bar-section-content {
   display: block;
 }
 .dorako-ux.sheet.pf2e.actor.npc form .subsection:not(.damage, .attack).collapsed .side-bar-section-content {

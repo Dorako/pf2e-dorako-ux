@@ -32,6 +32,12 @@ export class AvatarSettings extends SettingsMenuDorakoUX {
         },
         requiresReload: false,
         onChange: refreshChat,
+        onChange: () => {
+          // Also update in settings.js#39
+          const root = document.querySelector(":root").style;
+          root.setProperty('--systemAvatarDisplay', 'none');
+          root.setProperty('--systemAvatarLayout', 'flex');
+        },
       },
       size: {
         name: "pf2e-dorako-ux.settings.avatar-size.name",

@@ -8,32 +8,6 @@ const rgb2hex = (rgb) =>
     .map((n) => parseInt(n, 10).toString(16).padStart(2, "0"))
     .join("")}`;
 
-// Remove system avatar changes
-Hooks.on("renderChatMessage", (app, html, data) => {
-  const source = game.settings.get("pf2e-dorako-ux", "avatar.source");
-  if (source === "system") return;
-
-  function removeAvatars() {
-    const messageHeader = html[0].querySelector(".message-header");
-    if (messageHeader) {
-      messageHeader.classList.remove("with-image");
-    }
-    const systemAvatar = html[0].querySelector("div.portrait");
-    if (systemAvatar) {
-      systemAvatar.style.display = "none";
-    }
-    const systemUserTag = html[0].querySelector("span.user");
-    if (systemUserTag) {
-      systemUserTag.style.display = "none";
-    }
-  }
-
-  // Be after system hack
-  setTimeout(removeAvatars, 0);
-  // Run it twice to ensure it works even if late, fixes #43.
-  setTimeout(removeAvatars, 100);
-});
-
 // Chat cards
 Hooks.on("renderChatMessage", (chatMessage, html, messageData) => {
   const isNarratorToolsMessage = chatMessage.flags["narrator-tools"];
