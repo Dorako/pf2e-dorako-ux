@@ -12,8 +12,8 @@ const rgb2hex = (rgb) =>
 Hooks.on("renderChatMessage", (app, html, data) => {
   const source = game.settings.get("pf2e-dorako-ux", "avatar.source");
   if (source === "system") return;
-  // Be after system hack
-  setTimeout(() => {
+
+  function removeAvatars() {
     const messageHeader = html[0].querySelector(".message-header");
     if (messageHeader) {
       messageHeader.classList.remove("with-image");
@@ -26,7 +26,12 @@ Hooks.on("renderChatMessage", (app, html, data) => {
     if (systemUserTag) {
       systemUserTag.style.display = "none";
     }
-  }, 0);
+  }
+
+  // Be after system hack
+  setTimeout(removeAvatars, 0);
+  // Run it twice to ensure it works even if late, fixes #43.
+  setTimeout(removeAvatars, 100);
 });
 
 // Chat cards
