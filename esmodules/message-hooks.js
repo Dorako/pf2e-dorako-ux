@@ -8,27 +8,6 @@ const rgb2hex = (rgb) =>
     .map((n) => parseInt(n, 10).toString(16).padStart(2, "0"))
     .join("")}`;
 
-// Remove system avatar changes
-Hooks.on("renderChatMessage", (app, html, data) => {
-  const source = game.settings.get("pf2e-dorako-ux", "avatar.source");
-  if (source === "system") return;
-  // Be after system hack
-  setTimeout(() => {
-    const messageHeader = html[0].querySelector(".message-header");
-    if (messageHeader) {
-      messageHeader.classList.remove("with-image");
-    }
-    const systemAvatar = html[0].querySelector("div.portrait");
-    if (systemAvatar) {
-      systemAvatar.style.display = "none";
-    }
-    const systemUserTag = html[0].querySelector("span.user");
-    if (systemUserTag) {
-      systemUserTag.style.display = "none";
-    }
-  }, 0);
-});
-
 // Chat cards
 Hooks.on("renderChatMessage", (chatMessage, html, messageData) => {
   const isNarratorToolsMessage = chatMessage.flags["narrator-tools"];
@@ -39,10 +18,13 @@ Hooks.on("renderChatMessage", (chatMessage, html, messageData) => {
     return;
   }
 
-  injectSenderWrapper(html, messageData);
-  injectMessageTag(html, messageData);
-  adjustWhisperParticipants(html, messageData);
-  injectAuthorName(html, messageData);
+  if (game.settings.get("pf2e-dorako-ux", "avatar.source") !== "system") {
+    html[0].querySelector(".message-header").classList.add("dorako");
+    injectSenderWrapper(html, messageData);
+    injectMessageTag(html, messageData);
+    adjustWhisperParticipants(html, messageData);
+    injectAuthorName(html, messageData);
+  }
 
   if (
     (game.settings.get("pf2e-dorako-ux", "avatar.hide-when-token-hidden") &&

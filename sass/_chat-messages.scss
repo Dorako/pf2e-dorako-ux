@@ -1,10 +1,23 @@
-.chat-message .message-header {
+.chat-message .message-header.dorako {
   background: none;
   padding: 5px 5px 0px 5px;
   margin: -5px -5px 5px -5px;
   border-radius: 5px 5px 0px 0px;
   gap: 5px;
   align-items: center;
+
+  .portrait.token {
+    display: var(--systemAvatarDisplay);
+  }
+
+  span.user {
+    display: var(--systemAvatarDisplay);
+  }
+
+  &.with-image {
+    display: var(--systemAvatarLayout, grid);
+    width: var(--systemAvatarLayout, 100%);
+  }
 
   .message-metadata {
     flex: 4;
@@ -94,14 +107,17 @@
 .chat-message .flavor-text .target-dc-result .unadjusted {
   text-decoration: line-through;
 }
+
 .chat-message .flavor-text .target-dc-result .adjusted {
   text-decoration: underline dotted;
 }
+
 .chat-message .flavor-text .effect {
   display: flex;
   align-items: center;
   column-gap: 5px;
 }
+
 .chat-message .flavor-text .effect img {
   height: 32px;
   width: 32px;
@@ -136,7 +152,7 @@
     }
   }
 
-  > .message-content .message-buttons {
+  >.message-content .message-buttons {
     display: flex;
     margin: 0.35em 0 2px;
     gap: 3px;
@@ -147,18 +163,23 @@
   .adjusted.increased {
     color: var(--adjusted-higher);
   }
+
   .adjusted.decreased {
     color: var(--adjusted-lower);
   }
+
   .degree-of-success .criticalSuccess {
     color: var(--degree-success-critical);
   }
+
   .degree-of-success .success {
     color: var(--degree-success);
   }
+
   .degree-of-success .failure {
     color: var(--degree-failure);
   }
+
   .degree-of-success .criticalFailure {
     color: var(--degree-failure-critical);
   }
