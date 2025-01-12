@@ -60,6 +60,7 @@
 
     .portrait-wrapper {
       position: relative;
+      height: var(--avatar-size);
       width: var(--avatar-size);
       display: flex;
       flex: none;
@@ -104,10 +105,13 @@
 
   --adjusted-higher: #009988;
   --adjusted-lower: #cc3311;
+  --dynamic-token-inner-ring-color: #e9d7a1;
+  --dynamic-token-outer-ring-color: #956d58;
+  --dynamic-token-background-color: #352d18;
 }
 
 /* ----------------------------------------- */
-/* Relocated .flavor-text                                  */
+/* Relocated .flavor-text                    */
 /* ----------------------------------------- */
 
 .chat-message .flavor-text .target-dc-result .unadjusted {

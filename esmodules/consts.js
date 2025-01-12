@@ -32,3 +32,12 @@ export class TokenAvatar extends Avatar {
     this.isSmall = isSmall;
   }
 }
+
+export class SubjectAvatar extends Avatar {
+  constructor(name, image, scale, isSmall) {
+    super(name, image);
+    this.type = "subject-texture";
+    this.scale = scale;
+    this.isSmall = isSmall;
+  }
+}

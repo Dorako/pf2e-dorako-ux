@@ -1,3 +1,7 @@
+# 1.5.10
+
+- (Refinement) Improved the "token" avatar feature, so it supports dynamic ring subject textures as a source.
+
 # 1.5.9
 
 - (Fix) Fixed an issue where sometimes there would be too many avatars, contributed by @MrVauxs.
