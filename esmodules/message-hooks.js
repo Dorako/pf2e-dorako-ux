@@ -113,7 +113,7 @@ function injectAvatar(html, avatar) {
   portrait.classList.add("portrait");
   let dynamicTokenRing = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   dynamicTokenRing.setAttribute("viewBox", "0 0 100 100");
-  dynamicTokenRing.setAttribute("style", "transform: scale(3);");
+  dynamicTokenRing.setAttribute("style", "transform: scale(3); pointer-events: none;");
   dynamicTokenRing.setAttribute("class", "dynamic-ring");
   wrapper.append(dynamicTokenRing);
   wrapper.append(portrait);

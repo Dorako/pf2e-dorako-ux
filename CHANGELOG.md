@@ -1,3 +1,7 @@
+# 1.5.11
+
+- (Fix) Fixed an issue where a blank svg avatar element would be covering up damage buttons etc.
+
 # 1.5.10
 
 - (Refinement) Improved the "token" avatar feature, so it supports dynamic ring subject textures as a source.
