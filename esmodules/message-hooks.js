@@ -113,7 +113,7 @@ function injectAvatar(html, avatar) {
   portrait.classList.add("portrait");
   let dynamicTokenRing = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   dynamicTokenRing.setAttribute("viewBox", "0 0 100 100");
-  dynamicTokenRing.setAttribute("style", "transform: scale(3); pointer-events: none;");
+  dynamicTokenRing.setAttribute("style", "transform: scale(2.5); pointer-events: none;");
   dynamicTokenRing.setAttribute("class", "dynamic-ring");
   wrapper.append(dynamicTokenRing);
   wrapper.append(portrait);
@@ -259,9 +259,10 @@ function addAvatarsToFlags(message, local = true) {
     ? new TokenAvatar(message.speaker.alias, tokenImg, token.texture.scaleX, actor.size == "sm")
     : null;
 
-  let subjectAvatar = token?.ring?.enabled
-    ? new SubjectAvatar(message.speaker.alias, subjectImg.texture, subjectImg.scale * 1.5, actor.size == "sm")
-    : null;
+  let subjectAvatar =
+    token?.ring?.enabled && subjectImg.texture
+      ? new SubjectAvatar(message.speaker.alias, subjectImg.texture, subjectImg.scale * 1.25, actor.size == "sm")
+      : null;
 
   if (local) {
     message.updateSource({
@@ -332,10 +333,31 @@ Hooks.on("renderChatMessage", (message, b) => {
     let smallCorrection = avatar.isSmall ? 1.25 * smallScale : 1;
     avatarElem?.setAttribute("style", "transform: scale(" + Math.abs(avatar.scale) * smallCorrection + ")");
 
-    const svgCode =
-      '<circle cx="50%" cy="50%" r="17.75" fill="var(--dynamic-token-background-color)" stroke="var(--dynamic-token-outer-ring-color)" stroke-width="2px"></circle><circle cx="50%" cy="50%" r="17.75" fill="transparent" stroke="var(--dynamic-token-inner-ring-color)" stroke-width="0.5"></circle>';
+    const svgCode = `
+      <defs>
+        <radialGradient id="inner-ring" cx="0.4" cy="0.33" r="0.8">
+          <stop offset="0%" stop-color="var(--dynamic-token-inner-ring-top-left-color)" />
+          <stop offset="20%" stop-color="var(--dynamic-token-inner-ring-top-left-color)" /> 
+          <stop offset="100%" stop-color="var(--dynamic-token-inner-ring-color)" /> 
+        </radialGradient>
+        <radialGradient id="outer-ring" cx="0.35" cy="0.25" r="0.9">
+          <stop offset="0%" stop-color="var(--dynamic-token-outer-ring-top-left-color)" />
+          <stop offset="20%" stop-color="var(--dynamic-token-outer-ring-top-left-color)" />
+          <stop offset="100%" stop-color="var(--dynamic-token-outer-ring-color)" />
+        </radialGradient> <radialGradient id="bg">
+          <stop offset="0%" stop-color="var(--dynamic-token-background-color)" />
+          <stop offset="80%" stop-color="var(--dynamic-token-background-color)" />
+          <stop offset="100%" stop-color="var(--dynamic-token-background-outer-color)" />
+        </radialGradient>
+      </defs>  
+      <circle cx="50%" cy="50%" r="19.75" width="100" height="100" fill="url(#outer-ring)" /> 
+      <circle cx="50%" cy="50%" r="18.75" width="100" height="100" fill="url(#inner-ring)" /> 
+      <circle cx="50%" cy="50%" r="17.75" width="100" height="100" fill="var(--dynamic-token-dynamic-color)" /> 
+      <circle cx="50%" cy="50%" r="16.75" width="100" height="100" fill="url(#bg)" /> `;
     let dynamicTokenRing = html.getElementsByClassName("dynamic-ring")[0];
     dynamicTokenRing.innerHTML = svgCode;
+    // let wrapper = html.getElementsByClassName("portrait-wrapper")[0];
+    // wrapper.style.setProperty("margin", "6px");
   }
 
   const portraitDegreeSetting = game.settings.get("pf2e-dorako-ux", "avatar.reacts-to-degree-of-success");

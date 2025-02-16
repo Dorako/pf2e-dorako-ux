@@ -89,9 +89,13 @@
   --degree-failure-critical: rgb(255, 0, 0);
   --adjusted-higher: #009988;
   --adjusted-lower: #cc3311;
-  --dynamic-token-inner-ring-color: #e9d7a1;
-  --dynamic-token-outer-ring-color: #956d58;
-  --dynamic-token-background-color: #352d18;
+  --dynamic-token-inner-ring-top-left-color: #563a1d;
+  --dynamic-token-outer-ring-top-left-color: #724a3a;
+  --dynamic-token-inner-ring-color: #fff8ee;
+  --dynamic-token-outer-ring-color: #191215;
+  --dynamic-token-background-outer-color: #000000;
+  --dynamic-token-background-color: #282423;
+  --dynamic-token-dynamic-color: #390a07;
 }
 
 /* ----------------------------------------- */

@@ -1,3 +1,7 @@
+# 1.5.12
+
+- (Refinement) Adjusted the styling of dynamic token rings in chat message avatars to be more detailed.
+
 # 1.5.11
 
 - (Fix) Fixed an issue where a blank svg avatar element would be covering up damage buttons etc.
