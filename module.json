@@ -33,6 +33,14 @@
           "minimum": "2.2.5",
           "verified": "2.2.5"
         }
+      },
+      {
+        "id": "dnd5e",
+        "type": "system",
+        "compatibility": {
+          "minimum": "2.2.5",
+          "verified": "9.9.9"
+        }
       }
     ],
     "recommends": [

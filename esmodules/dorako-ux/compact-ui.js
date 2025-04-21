@@ -18,10 +18,10 @@ Hooks.once("ready", () => {
   }
 });
 
-Hooks.on("closeCombatDock", (app, html, data) => {
-  if (!game.settings.get(`${MODULE_NAME}`, "moving.compact-ui")) return;
-  ui.nav.expand();
-});
+// Hooks.on("closeCombatDock", (app, html, data) => {
+//   if (!game.settings.get(`${MODULE_NAME}`, "moving.compact-ui")) return;
+//   ui.nav.expand();
+// });
 
 // Hooks.once("ready", () => {
 //   const setting = game.settings.get("pf2e-dorako-ux", "moving.minimize-hotbar");
