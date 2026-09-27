@@ -1,3 +1,14 @@
+# 1.6.0
+
+- (New) FVTT V14 and PF2e 8.x compatibility. Requires FVTT V13 or later.
+- (Fix) Fixed chat avatars not showing on V14, as avatar data was being saved empty.
+- (Fix) GM avatars are hidden on secret rolls again when "Hide avatar when secret?" is enabled.
+- (Fix) Fixed an issue where a broken import prevented several features (chat merge, collapsed sidebar, CSS variables etc.) from loading.
+- (Refinement) Control size and sidebar tab size settings work with the V14 interface, and now default to 32px to match core.
+- (Refinement) Chat avatars and rolltype tags are laid out within the PF2e message header.
+- (Maintenance) Removed the rolltype buttons, as core V14 includes its own message mode buttons.
+- (Maintenance) Replaced jQuery and deprecated globals with their V13+ equivalents.
+
 # 1.5.12
 
 - (Refinement) Adjusted the styling of dynamic token rings in chat message avatars to be more detailed.
