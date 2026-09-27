@@ -1,15 +1,9 @@
 import { i18n, titleCase } from "./util.js";
 import { Avatar, ActorAvatar, TokenAvatar, CombatantAvatar, SubjectAvatar } from "./consts.js";
 
-const rgb2hex = (rgb) =>
-  `#${rgb
-    .match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
-    .slice(1)
-    .map((n) => parseInt(n, 10).toString(16).padStart(2, "0"))
-    .join("")}`;
-
 // Chat cards
-Hooks.on("renderChatMessage", (chatMessage, html, messageData) => {
+// Everything is read from the ChatMessage document rather than the hook's context argument, which may be absent
+Hooks.on("renderChatMessageHTML", (chatMessage, html) => {
   const isNarratorToolsMessage = chatMessage.flags["narrator-tools"];
   const isMLDRoundMarker = chatMessage.flags["monks-little-details"]?.roundmarker;
   const isMCDRoundMarker = chatMessage.flags["monks-combat-details"]?.roundmarker;
@@ -18,46 +12,36 @@ Hooks.on("renderChatMessage", (chatMessage, html, messageData) => {
     return;
   }
 
-  // if (game.settings.get("pf2e-dorako-ux", "avatar.source") !== "system") {
-  //   html[0].querySelector(".message-header").classList.add("dorako-ux");
-  //   injectSenderWrapper(html, messageData);
-  //   injectAuthorName(html, messageData);
-  // }
-  adjustWhisperParticipants(html, messageData);
-  injectMessageTag(html, messageData);
-  injectAvatar(html, getAvatar(chatMessage));
-
-  if (
-    (game.settings.get("pf2e-dorako-ux", "avatar.hide-when-token-hidden") &&
-      chatMessage.getFlag("pf2e-dorako-ux", "wasTokenHidden")) ||
-    (game.settings.get("pf2e-dorako-ux", "avatar.hide-gm-avatar-when-secret") && !chatMessage.isContentVisible)
-  ) {
-    // do nothing
-  } else {
-    // injectAvatar(html, getAvatar(chatMessage));
-  }
+  adjustWhisperParticipants(html, chatMessage);
+  injectMessageTag(html, chatMessage);
+  const hideSecretAvatar =
+    game.settings.get("pf2e-dorako-ux", "avatar.hide-gm-avatar-when-secret") && !chatMessage.isContentVisible;
+  if (!hideSecretAvatar) injectAvatar(html, getAvatar(chatMessage));
   moveFlavorTextToContents(html);
 });
 
 // Is damage roll
-Hooks.on("renderChatMessage", (chatMessage, html, messageData) => {
+Hooks.on("renderChatMessageHTML", (chatMessage, html) => {
   if (!game.settings.get("pf2e-dorako-ux", "hiding.remove-attack-info-from-damage-roll-messages")) return;
 
   if (chatMessage?.isDamageRoll && chatMessage?.item?.type !== "spell") {
-    html[0].classList.add("dorako-damage-roll");
-    let flavor = html.find(".flavor-text");
-    flavor.each(function () {
-      $(this).contents().eq(1).wrap("<span/>");
-    });
+    html.classList.add("dorako-damage-roll");
+    for (const flavor of html.querySelectorAll(".flavor-text")) {
+      const node = flavor.childNodes[1];
+      if (!node) continue;
+      const wrapper = document.createElement("span");
+      node.replaceWith(wrapper);
+      wrapper.append(node);
+    }
   }
 });
 
 // Is check roll
-Hooks.on("renderChatMessage", (chatMessage, html, messageData) => {
+Hooks.on("renderChatMessageHTML", (chatMessage, html) => {
   if (!game.settings.get("pf2e-dorako-ux", "hiding.remove-attack-info-from-damage-roll-messages")) return;
 
   if (chatMessage?.isCheckRoll) {
-    html.addClass("dorako-check-roll");
+    html.classList.add("dorako-check-roll");
   }
 });
 
@@ -74,173 +58,117 @@ Hooks.once("ready", () => {
     addAvatarsToFlags(message, false);
   });
 
-  Hooks.on("renderChatMessage", (app, html, data) => {
-    const isKoboldWorksTurnAnnouncerMessage = app.flags["koboldworks-turn-announcer"];
+  Hooks.on("renderChatMessageHTML", (message, html) => {
+    const isKoboldWorksTurnAnnouncerMessage = message.flags["koboldworks-turn-announcer"];
     if (!isKoboldWorksTurnAnnouncerMessage) return;
 
-    const avatar = html.find(".portrait.dorako");
-    avatar.css("transform", `scale(${app.flags["pf2e-dorako-ux"]?.tokenAvatar.scale})`);
-    avatar.css("mask-image", `radial-gradient(circle, black 56%, rgba(0, 0, 0, 0.2) 92%)`);
-    avatar.css("flex", `0px 0px var(--avatar-size)`);
-    avatar.css("height", `var(--avatar-size)`);
-    avatar.css("width", `var(--avatar-size)`);
+    const avatar = html.querySelector(".portrait.dorako");
+    if (!avatar) return;
+    avatar.style.transform = `scale(${message.flags["pf2e-dorako-ux"]?.tokenAvatar?.scale ?? 1})`;
+    avatar.style.maskImage = `radial-gradient(circle, black 56%, rgba(0, 0, 0, 0.2) 92%)`;
+    avatar.style.flex = `0 0 var(--avatar-size)`;
+    avatar.style.height = `var(--avatar-size)`;
+    avatar.style.width = `var(--avatar-size)`;
   });
 });
 
 function moveFlavorTextToContents(html) {
-  let flavor = html.find(".flavor-text")[0];
-  let contents = html.find(".message-content")[0];
-  if (flavor) contents.prepend(flavor);
-}
-
-function injectSenderWrapper(html, messageData) {
-  if (messageData.author === undefined) return;
-  var target = html.find(".message-sender")[0];
-  var wrapper = document.createElement("div");
-  wrapper.classList.add("sender-wrapper");
-  target.parentNode.insertBefore(wrapper, target);
-  wrapper.appendChild(target);
+  const flavor = html.querySelector(".flavor-text");
+  const contents = html.querySelector(".message-content");
+  if (flavor && contents) contents.prepend(flavor);
 }
 
 function injectAvatar(html, avatar) {
   if (!avatar) return;
-  let messageHeader = html.find(".message-header")[0];
-  let dorakoPortraitElem = document.createElement("div");
+  const messageHeader = html.querySelector(".message-header");
+  if (!messageHeader) return;
+  const dorakoPortraitElem = document.createElement("div");
   dorakoPortraitElem.setAttribute("class", "portrait token dorako");
-  // let portraitAndName = document.createElement("div");
-  // portraitAndName.classList.add("portrait-and-name");
-  // messageHeader.prepend(portraitAndName);
-  // let wrapper = document.createElement("div");
-  // wrapper.classList.add("portrait-wrapper");
-  // let portrait = document.createElement("img");
-  // portrait.classList.add("avatar");
-  // portrait.classList.add("portrait");
-  let dynamicTokenRing = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  dynamicTokenRing.setAttribute("viewBox", "0 0 100 100");
-  dynamicTokenRing.setAttribute("style", "transform: scale(2.5); pointer-events: none;");
-  dynamicTokenRing.setAttribute("class", "dynamic-ring");
-
   messageHeader.prepend(dorakoPortraitElem);
-
-  // wrapper.append(dynamicTokenRing);
-  // portraitElem.append(dynamicTokenRing);
-  // wrapper.append(portrait);
-  // let senderWrapper = html.find(".sender-wrapper")[0];
-  // portraitAndName.append(senderWrapper);
-  // portraitAndName.prepend(wrapper);
+  // Use the system's portrait layout even for messages where PF2e doesn't add its own portrait
+  messageHeader.classList.add("with-image");
 }
 
-function injectAuthorName(html, messageData) {
-  if (messageData.author === undefined) return;
-  if (game.settings.get("pf2e-dorako-ux", "other.enable-player-tags")) {
-    const messageSenderElem = html.find(".sender-wrapper");
-    const playerName = messageData.author.name;
-    const playerNameElem = document.createElement("span");
-    playerNameElem.appendChild(document.createTextNode(playerName));
-    playerNameElem.classList.add("player-name");
-    playerNameElem.classList.add("header-meta");
-    if (playerName === messageData.alias) {
-      html.find(".message-sender").addClass("dorako-display-none");
-    }
-    messageSenderElem.append(playerNameElem);
-  }
-}
-
-function injectMessageTag(html, messageData) {
+function injectMessageTag(html, message) {
   const setting = game.settings.get("pf2e-dorako-ux", "other.enable-rolltype-indication");
   if (setting == false) {
     return;
   }
-  const messageMetadata = html.find(".message-header");
+  const messageHeader = html.querySelector(".message-header");
+  if (!messageHeader) return;
 
-  const rolltype = $("<span>");
-  rolltype.addClass("rolltype");
-  // rolltype.addClass("header-meta");
+  const rolltype = document.createElement("span");
+  rolltype.classList.add("rolltype");
 
-  const whisperTargets = messageData.message.whisper;
+  const whisperTargets = message.whisper;
 
-  const isBlind = messageData.message.blind;
-  if (isBlind) rolltype.addClass("blind");
-  const isWhisper = messageData.isWhisper;
-  if (isWhisper) rolltype.addClass("whisper");
-  const isSelf = whisperTargets.length === 1 && whisperTargets[0] === messageData.message.author;
-  const isRoll = messageData.message.rolls !== undefined && messageData.message.rolls.length > 0;
+  const isBlind = message.blind;
+  if (isBlind) rolltype.classList.add("blind");
+  const isWhisper = whisperTargets.length > 0;
+  if (isWhisper) rolltype.classList.add("whisper");
+  const isSelf = whisperTargets.length === 1 && whisperTargets[0] === message.author?.id;
+  const isRoll = message.isRoll;
 
   if (isBlind) {
-    rolltype.text(i18n("pf2e-dorako-ux.text.secret"));
-    messageMetadata.prepend(rolltype);
+    rolltype.textContent = i18n("pf2e-dorako-ux.text.secret");
+    messageHeader.prepend(rolltype);
   } else if (isRoll && isSelf) {
-    rolltype.text(i18n("pf2e-dorako-ux.text.self-roll"));
-    messageMetadata.prepend(rolltype);
-  } else if (isRoll && whisperTargets.length > 0) {
-    rolltype.text(i18n("pf2e-dorako-ux.text.gm-only"));
-    rolltype.addClass("whisper");
-    messageMetadata.prepend(rolltype);
-  } else if (isWhisper && whisperTargets.length > 0) {
-    // do nothing
-  } else if (isWhisper) {
-    rolltype.text(i18n("pf2e-dorako-ux.text.whisper"));
-    messageMetadata.insertAdjacentHTML("beforeend", rolltype);
+    rolltype.textContent = i18n("pf2e-dorako-ux.text.self-roll");
+    messageHeader.prepend(rolltype);
+  } else if (isRoll && isWhisper) {
+    rolltype.textContent = i18n("pf2e-dorako-ux.text.gm-only");
+    rolltype.classList.add("whisper");
+    messageHeader.prepend(rolltype);
   }
 
   if (game.settings.get("pf2e-dorako-ux", "moving.animate-messages")) {
     // Draw attention to direct whispers from players to GM
-    const isGmSpeaker = game.users.get(messageData.message.author)?.isGM;
-    const isGmTarget = game.users.get(whisperTargets?.[0])?.isGM;
+    const isGmSpeaker = message.author?.isGM;
+    const isGmTarget = game.users.get(whisperTargets[0])?.isGM;
     if (!(isBlind || isSelf) && isWhisper && !isGmSpeaker && isGmTarget) {
-      html[0].classList.add("attention");
+      html.classList.add("attention");
     }
   }
 }
 
-function adjustWhisperParticipants(html, messageData) {
-  const whisperTargetIds = messageData.message.whisper;
-  const isWhisper = messageData.isWhisper;
-  const isRoll = messageData.message.rolls !== undefined && messageData.message.rolls > 0;
+function adjustWhisperParticipants(html, message) {
+  const whisperTargetIds = message.whisper;
+  const isWhisper = whisperTargetIds.length > 0;
 
-  const authorId = messageData.message.author;
+  const authorId = message.author?.id;
   const userId = game.user.id;
 
   if (!isWhisper) return;
   if (userId !== authorId && !whisperTargetIds.includes(userId)) return;
 
   // remove the old whisper to content, if it exists
-  html.find(".whisper-to").detach();
+  html.querySelectorAll(".whisper-to").forEach((e) => e.remove());
 
-  if (messageData.message?.flags?.pf2e?.context?.type == "damage-taken") return;
+  if (message.flags?.pf2e?.context?.type == "damage-taken") return;
 
   // if this is a roll
-  if (isRoll) return;
+  if (message.isRoll) return;
 
-  const messageHeader = html.find(".message-header");
+  const messageHeader = html.querySelector(".message-header");
+  if (!messageHeader) return;
 
-  const whisperParticipants = $("<span>");
-  whisperParticipants.addClass("dux");
-  whisperParticipants.addClass("whisper-to");
+  const whisperParticipants = document.createElement("span");
+  whisperParticipants.classList.add("dux", "whisper-to");
 
-  const whisperFrom = $("<span>");
-  const fromText = titleCase(i18n("pf2e-dorako-ux.text.from"));
-  whisperFrom.text(`${fromText}: ${messageData.author.name}`);
-  whisperFrom.addClass("tag");
-
-  const whisperTo = $("<span>");
-
-  const whisperToLabel = $("<span>");
+  const whisperTo = document.createElement("span");
+  const whisperToLabel = document.createElement("span");
   const toText = titleCase(i18n("pf2e-dorako-ux.text.to"));
-  whisperToLabel.text(`${toText}: `);
-  // whisperToLabel.addClass("tag");
+  whisperToLabel.textContent = `${toText}: `;
   whisperTo.append(whisperToLabel);
   whisperParticipants.append(whisperTo);
 
-  const recipients = $("<span>");
+  const recipients = document.createElement("span");
   whisperParticipants.append(recipients);
 
   for (const whisperId of whisperTargetIds) {
-    const recipient = $("<span>");
-    recipient.text(game.users.get(whisperId)?.name);
-    recipient.addClass("tag");
-    recipient.addClass("whisper");
-
+    const recipient = document.createElement("span");
+    recipient.textContent = game.users.get(whisperId)?.name ?? "";
+    recipient.classList.add("tag", "whisper");
     recipients.append(recipient);
   }
 
@@ -255,10 +183,11 @@ function addAvatarsToFlags(message, local = true) {
   let speaker = message.speaker;
   const actor = game.actors.get(speaker.actor);
   let actorImg = actor?.img;
-  const token = game.scenes.get(speaker.scene)?.tokens.get(speaker.token) ?? actor.prototypeToken;
+  const token = game.scenes.get(speaker.scene)?.tokens.get(speaker.token) ?? actor?.prototypeToken;
   let tokenImg = token?.texture.src;
   let userImg = message.author?.avatar;
   let subjectImg = token?.ring?.subject;
+  const isSmall = actor?.size == "sm";
 
   let userAvatar = new Avatar(message.speaker.alias, userImg);
 
@@ -266,48 +195,46 @@ function addAvatarsToFlags(message, local = true) {
 
   let actorAvatar = actorImg ? new ActorAvatar(message.speaker.alias, actorImg) : null;
 
-  let tokenAvatar = tokenImg
-    ? new TokenAvatar(message.speaker.alias, tokenImg, token.texture.scaleX, actor.size == "sm")
-    : null;
+  let tokenAvatar = tokenImg ? new TokenAvatar(message.speaker.alias, tokenImg, token.texture.scaleX, isSmall) : null;
 
   let subjectAvatar =
-    token?.ring?.enabled && subjectImg.texture
-      ? new SubjectAvatar(message.speaker.alias, subjectImg.texture, subjectImg.scale * 1.25, actor.size == "sm")
+    token?.ring?.enabled && subjectImg?.texture
+      ? new SubjectAvatar(message.speaker.alias, subjectImg.texture, subjectImg.scale * 1.25, isSmall)
       : null;
 
+  // Flags only keep plain objects; class instances would be stored as {}
+  const plain = (avatar) => (avatar ? { ...avatar } : null);
+  const flags = {
+    "flags.pf2e-dorako-ux.userAvatar": plain(userAvatar),
+    "flags.pf2e-dorako-ux.combatantAvatar": plain(combatantAvatar),
+    "flags.pf2e-dorako-ux.tokenAvatar": plain(tokenAvatar),
+    "flags.pf2e-dorako-ux.actorAvatar": plain(actorAvatar),
+    "flags.pf2e-dorako-ux.subjectAvatar": plain(subjectAvatar),
+  };
+
   if (local) {
-    message.updateSource({
-      "flags.pf2e-dorako-ux.userAvatar": userAvatar,
-      "flags.pf2e-dorako-ux.combatantAvatar": combatantAvatar,
-      "flags.pf2e-dorako-ux.tokenAvatar": tokenAvatar,
-      "flags.pf2e-dorako-ux.actorAvatar": actorAvatar,
-      "flags.pf2e-dorako-ux.subjectAvatar": subjectAvatar,
-    });
-  } else if (game.user.id == message.author.id) {
-    message.update({
-      "flags.pf2e-dorako-ux.userAvatar": userAvatar,
-      "flags.pf2e-dorako-ux.combatantAvatar": combatantAvatar,
-      "flags.pf2e-dorako-ux.tokenAvatar": tokenAvatar,
-      "flags.pf2e-dorako-ux.actorAvatar": actorAvatar,
-      "flags.pf2e-dorako-ux.subjectAvatar": subjectAvatar,
-    });
+    message.updateSource(flags);
+  } else if (game.user.id == message.author?.id) {
+    message.update(flags);
   }
 }
 
 function getAvatar(message) {
-  // return message.getFlag("pf2e-dorako-ux", "subjectAvatar");
   const source = game.settings.get("pf2e-dorako-ux", "avatar.source");
   if (source == "none" || source == "system") {
     return null;
   }
 
-  let combatantAvatar = message.getFlag("pf2e-dorako-ux", "combatantAvatar");
-  let tokenAvatar = message.getFlag("pf2e-dorako-ux", "tokenAvatar");
-  let actorAvatar = message.getFlag("pf2e-dorako-ux", "actorAvatar");
-  let subjectAvatar = message.getFlag("pf2e-dorako-ux", "subjectAvatar");
-  let userAvatar = game.settings.get("pf2e-dorako-ux", "avatar.use-user-avatar")
-    ? message.getFlag("pf2e-dorako-ux", "userAvatar")
-    : null;
+  // Ignore avatars without an image, e.g. flags saved as {} before class instances were converted to plain objects
+  const flag = (key) => {
+    const avatar = message.getFlag("pf2e-dorako-ux", key);
+    return avatar?.image ? avatar : null;
+  };
+  let combatantAvatar = flag("combatantAvatar");
+  let tokenAvatar = flag("tokenAvatar");
+  let actorAvatar = flag("actorAvatar");
+  let subjectAvatar = flag("subjectAvatar");
+  let userAvatar = game.settings.get("pf2e-dorako-ux", "avatar.use-user-avatar") ? flag("userAvatar") : null;
 
   if (
     game.settings.get("pf2e-dorako-ux", "avatar.hide-when-token-hidden") &&
@@ -324,22 +251,19 @@ function getAvatar(message) {
 }
 
 // Add avatar if message contains avatar data
-Hooks.on("renderChatMessage", (message, b) => {
+Hooks.on("renderChatMessageHTML", (message, html) => {
   let avatar = getAvatar(message);
   if (!avatar) {
-    let messageHeader = b[0].getElementsByClassName("message-header")[0];
-    messageHeader.classList.add("no-image");
+    html.querySelector(".message-header")?.classList.add("no-image");
     return;
   }
-  let html = b[0];
 
-  let avatarElem = html.getElementsByClassName("portrait dorako")[0];
+  let avatarElem = html.querySelector(".portrait.dorako");
   if (!avatarElem) return;
 
   let avatarImgElement = document.createElement("img");
   avatarImgElement.src = avatar.image;
   avatarElem.append(avatarImgElement);
-  // avatarElem.src = avatar.image;
 
   const smallScale = game.settings.get("pf2e-dorako-ux", "avatar.small-creature-token-avatar-size");
   let smallCorrection = avatar.isSmall ? 1.25 * smallScale : 1;
@@ -359,8 +283,8 @@ Hooks.on("renderChatMessage", (message, b) => {
       <defs>
         <radialGradient id="inner-ring" cx="0.4" cy="0.33" r="0.8">
           <stop offset="0%" stop-color="var(--dynamic-token-inner-ring-top-left-color)" />
-          <stop offset="20%" stop-color="var(--dynamic-token-inner-ring-top-left-color)" /> 
-          <stop offset="100%" stop-color="var(--dynamic-token-inner-ring-color)" /> 
+          <stop offset="20%" stop-color="var(--dynamic-token-inner-ring-top-left-color)" />
+          <stop offset="100%" stop-color="var(--dynamic-token-inner-ring-color)" />
         </radialGradient>
         <radialGradient id="outer-ring" cx="0.35" cy="0.25" r="0.9">
           <stop offset="0%" stop-color="var(--dynamic-token-outer-ring-top-left-color)" />
@@ -371,21 +295,16 @@ Hooks.on("renderChatMessage", (message, b) => {
           <stop offset="80%" stop-color="var(--dynamic-token-background-color)" />
           <stop offset="100%" stop-color="var(--dynamic-token-background-outer-color)" />
         </radialGradient>
-      </defs>  
-      <circle cx="50%" cy="50%" r="19.75" width="100" height="100" fill="url(#outer-ring)"></circle> 
+      </defs>
+      <circle cx="50%" cy="50%" r="19.75" width="100" height="100" fill="url(#outer-ring)"></circle>
       <circle cx="50%" cy="50%" r="18.75" width="100" height="100" fill="url(#inner-ring)"></circle>
       <circle cx="50%" cy="50%" r="17.75" width="100" height="100" fill="var(--dynamic-token-dynamic-color)"></circle>
       <circle cx="50%" cy="50%" r="16.75" width="100" height="100" fill="url(#bg)"></circle>`;
-    // let dynamicTokenRing = html.getElementsByClassName("dynamic-ring")[0];
     let dynamicTokenRing = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    // viewBox="0 0 100 100" style="transform: scale(2.5); pointer-events: none;" class="dynamic-ring">
     dynamicTokenRing.innerHTML = svgCode;
     dynamicTokenRing.setAttribute("viewBox", "0 0 45 45");
-    // dynamicTokenRing.style.transform = "scale(" + newScale + ")";
     dynamicTokenRing.style.pointerEvents = "none";
     avatarElem.prepend(dynamicTokenRing);
-    // let wrapper = html.getElementsByClassName("portrait-wrapper")[0];
-    // wrapper.style.setProperty("margin", "6px");
   }
 
   const portraitDegreeSetting = game.settings.get("pf2e-dorako-ux", "avatar.reacts-to-degree-of-success");
@@ -395,20 +314,16 @@ Hooks.on("renderChatMessage", (message, b) => {
     if (outcome === undefined) return;
     if (outcome === "criticalFailure") {
       avatarElem.style.filter = `saturate(0.2) drop-shadow(0px 0px 6px black)`;
-      // let wrapper = html.getElementsByClassName("portrait token dorako")[0];
-      // wrapper?.setAttribute("style", "filter: saturate(0.2) drop-shadow(0px 0px 6px black)");
     } else if (outcome === "criticalSuccess") {
       avatarElem.style.filter = `drop-shadow(0px 0px 6px lightgreen)`;
-      // let wrapper = html.getElementsByClassName("portrait token dorako")[0];
-      // wrapper?.setAttribute("style", "filter: drop-shadow(0px 0px 6px lightgreen)");
     }
   }
 });
 
 // Add .spell to spells
-Hooks.on("renderChatMessage", (app, html, data) => {
-  const item = app?.item;
+Hooks.on("renderChatMessageHTML", (message, html) => {
+  const item = message?.item;
   if (!item) return;
   if (!item.constructor.name.includes("SpellPF2e")) return;
-  html[0].classList.add("spell");
+  html.classList.add("spell");
 });

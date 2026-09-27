@@ -268,6 +268,7 @@ function overrideTokenHud() {
     return;
   }
 
+  const Token = foundry.canvas.placeables.Token;
   const origRefreshEffects = Token.prototype._refreshEffects;
   Token.prototype._refreshEffects = function (...args) {
     if (this) {
@@ -290,7 +291,7 @@ function overrideTokenHud() {
     if (effectTexture) {
       icon = new PIXI.Sprite(effectTexture);
     } else {
-      const texture = await loadTexture(src, { fallback: fallbackEffectIcon });
+      const texture = await foundry.canvas.loadTexture(src, { fallback: fallbackEffectIcon });
       const rawEffectIcon = new PIXI.Sprite(texture);
 
       if (game.system.id === "pf2e" && src == game.settings.get("pf2e", "deathIcon")) {

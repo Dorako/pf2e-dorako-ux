@@ -1,14 +1,14 @@
-class SettingsMenuDorakoUX extends FormApplication {
+class SettingsMenuDorakoUX extends foundry.appv1.api.FormApplication {
   static namespace;
 
   static get defaultOptions() {
     const options = super.defaultOptions;
     options.classes.push("settings-menu");
 
-    return mergeObject(options, {
+    return foundry.utils.mergeObject(options, {
       title: `pf2e-dorako-ux.settings.${this.namespace}.name`,
       id: `${this.namespace}-settings`,
-      template: `modules/pf2e-dorako-ui/templates/menu.hbs`,
+      template: `modules/pf2e-dorako-ux/templates/menu.hbs`,
       width: 550,
       height: "auto",
       closeOnSubmit: false,
@@ -60,7 +60,7 @@ class SettingsMenuDorakoUX extends FormApplication {
         isRange: setting.type === Number && !!setting.range,
       };
     });
-    return mergeObject(await super.getData(), {
+    return foundry.utils.mergeObject(await super.getData(), {
       settings: templateData,
       instructions: `pf2e-dorako-ux.settings.${this.namespace}.hint`,
     });

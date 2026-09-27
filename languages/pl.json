@@ -112,11 +112,11 @@
         "name": "Restrukturyzacja kart postaci niezależnych?"
       },
       "control-size": {
-        "hint": "(domyślnie: 36px) Zmienia rozmiar elementów sterujących i nawigacyjnych",
+        "hint": "(domyślnie: 32px) Zmienia rozmiar elementów sterujących i nawigacyjnych",
         "name": "Rozmiar elementu sterującego"
       },
       "sidebar-tab-size": {
-        "hint": "(domyślnie: 22px) Zmienia rozmiar ikon zakładek paska bocznego.",
+        "hint": "(domyślnie: 32px) Zmienia rozmiar ikon zakładek paska bocznego.",
         "name": "Rozmiar zakładek paska bocznego"
       },
       "enable-player-tags": {

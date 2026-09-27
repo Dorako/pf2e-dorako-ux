@@ -13,8 +13,8 @@
   ],
   "version": "1.0.0",
   "compatibility": {
-    "minimum": "12",
-    "verified": "12"
+    "minimum": "13",
+    "verified": "14"
   },
   "relationships": {
     "systems": [
@@ -22,24 +22,8 @@
         "id": "pf2e",
         "type": "system",
         "compatibility": {
-          "minimum": "6.0.0",
-          "verified": "6.0.0"
-        }
-      },
-      {
-        "id": "swade",
-        "type": "system",
-        "compatibility": {
-          "minimum": "2.2.5",
-          "verified": "2.2.5"
-        }
-      },
-      {
-        "id": "dnd5e",
-        "type": "system",
-        "compatibility": {
-          "minimum": "2.2.5",
-          "verified": "9.9.9"
+          "minimum": "8.0.0",
+          "verified": "8.5.1"
         }
       }
     ],
@@ -125,7 +109,7 @@
     "esmodules/dorako-ux/sidebar-resizer.js"
   ],
   "changelog": "https://github.com/Dorako/pf2e-dorako-ux/blob/master/CHANGELOG.md",
-  "download": "https://github.com/Dorako/pf2e-dorako-ux/archive/refs/tags/v1.11.3.zip",
+  "download": "https://github.com/Dorako/pf2e-dorako-ux/releases/latest/download/module.zip",
   "manifest": "https://github.com/Dorako/pf2e-dorako-ux/releases/latest/download/module.json",
   "readme": "https://github.com/Dorako/pf2e-dorako-ux",
   "bugs": "https://github.com/Dorako/pf2e-dorako-ux/issues"

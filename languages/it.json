@@ -81,7 +81,7 @@
         "name": "Attivare l'interfaccia utente compatta?"
       },
       "control-size": {
-        "hint": "(predefinito: 36px) Modifica le dimensioni dei controlli e degli elementi di navigazione",
+        "hint": "(predefinito: 32px) Modifica le dimensioni dei controlli e degli elementi di navigazione",
         "name": "Dimensione controllo"
       },
       "controls-alignment": {

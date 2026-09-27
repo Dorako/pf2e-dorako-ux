@@ -1,38 +1,4 @@
 /* ----------------------------------------- */
-/* DFCE Rolltype Buttons                     */
-/* ----------------------------------------- */
-
-#chat-controls {
-  padding: 0px;
-  gap: var(--sidebar-gap);
-  .buttons {
-    gap: var(--sidebar-gap);
-    flex-wrap: nowrap;
-  }
-}
-
-#dorako-rt-buttons {
-  flex: 1 0 170px;
-  button.active {
-    color: var(--color-text-light-highlight);
-    background-color: var(--color-border-highlight);
-    border: 1px solid var(--color-border-highlight-alt);
-  }
-}
-
-#dorako-nonrt-buttons {
-  flex: 1 1 30px !important; // Chat reactions unsets this
-
-  &:empty {
-    display: none;
-  }
-
-  > button {
-    flex: 1 1 32px;
-  }
-}
-
-/* ----------------------------------------- */
 /* DFCE Chat Merge                           */
 /* ----------------------------------------- */
 

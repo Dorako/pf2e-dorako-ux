@@ -90,7 +90,7 @@
         "name": "Activer l'interface utilisateur compacte ?"
       },
       "control-size": {
-        "hint": "(par défaut : 36px) Modifie la taille des contrôles et des éléments de navigation",
+        "hint": "(par défaut : 32px) Modifie la taille des contrôles et des éléments de navigation",
         "name": "Taille des contrôles"
       },
       "controls-alignment": {

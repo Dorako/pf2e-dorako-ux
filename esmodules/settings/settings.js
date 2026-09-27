@@ -39,7 +39,6 @@ Hooks.once("init", async () => {
   // Also update in /avatar-settings.js#35
   const avatar = game.settings.get("pf2e-dorako-ux", "avatar.source")
   if (avatar !== "system") {
-    document.documentElement.style.setProperty('--systemAvatarDisplay', 'none');
-    document.documentElement.style.setProperty('--systemAvatarLayout', 'flex');
+    document.documentElement.style.setProperty("--systemAvatarDisplay", "none");
   }
 });

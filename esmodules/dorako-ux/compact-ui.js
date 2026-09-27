@@ -8,12 +8,14 @@ Hooks.once("ready", () => {
   body.addEventListener("mousemove", toggleActive);
 
   function toggleActive(e) {
-    const offsetLeft = $("body").find("#ui-left")[0] ? $("body").find("#ui-left")[0].offsetLeft : 0;
+    const uiLeft = document.getElementById("ui-left");
+    if (!uiLeft) return;
+    const offsetLeft = uiLeft.offsetLeft;
     if (e.clientX < offsetLeft + 150) {
-      $("body").find("#ui-left").addClass("active");
+      uiLeft.classList.add("active");
     }
     if (e.clientX > offsetLeft + 200) {
-      $("body").find("#ui-left").removeClass("active");
+      uiLeft.classList.remove("active");
     }
   }
 });
