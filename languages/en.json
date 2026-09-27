@@ -112,11 +112,11 @@
         "name": "Restructure NPC sheets?"
       },
       "control-size": {
-        "hint": "(default: 36px) Changes the size of controls and navigation elements",
+        "hint": "(default: 32px) Changes the size of controls and navigation elements",
         "name": "Control size"
       },
       "sidebar-tab-size": {
-        "hint": "(default: 22px) Changes the size of sidebar tab icons",
+        "hint": "(default: 32px) Changes the size of sidebar tab icons",
         "name": "Sidebar tab size"
       },
       "enable-player-tags": {
@@ -127,6 +127,7 @@
         "hint": "Adds a tag containing the type of roll to chat messages",
         "name": "Enable rolltype tag?"
       },
+      "reset-changes": "Reset Changes",
       "send-to-chat": {
         "hint": "Sends content to chat as if sent via sheet",
         "name": "Add 'Send' button to window header?"

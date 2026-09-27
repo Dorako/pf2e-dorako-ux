@@ -1,47 +1,21 @@
-:root {
-  --controls-margin: 8px;
+// Core sets --control-size on #ui-left and on every .ui-control, so the setting has to be applied at both levels
+#ui-left,
+#ui-left .ui-control {
+  --control-size: var(--dorako-control-size, 32px);
 }
 
-nav#controls {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  display: flex;
-  align-items: var(--controls-alignment);
-
-  // Fix foundry's inconsistent gaps
-  ol.control-tools.sub-controls > li,
-  ol.control-tools.main-controls {
-    margin-right: var(--controls-margin);
+#scene-controls {
+  > menu {
+    justify-content: var(--controls-alignment, start);
   }
 
-  ol.control-tools {
-    &.main-control {
-      margin-right: var(--controls-margin);
-    }
-
-    li.control-tool,
-    > li {
-      margin-bottom: var(--controls-margin);
-      height: var(--control-size);
-      width: var(--control-size);
-      font-size: calc(var(--control-size) - 12px);
-    }
+  .ui-control {
+    font-size: calc(var(--control-size) / 2);
   }
 }
 
 .combat-sidebar li.combatant .token-name {
   z-index: 1;
-}
-
-#fps {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 60px;
-
-  label {
-    display: none;
-  }
 }
 
 #ui-bottom.centered {

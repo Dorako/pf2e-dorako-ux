@@ -1,4 +1,5 @@
 import { SettingsMenuDorakoUX } from "./menu.js";
+import { setCardsTabHidden, setChatControlIconHidden, setLogoHidden } from "../util.js";
 
 export class HidingSettings extends SettingsMenuDorakoUX {
   static namespace = "hiding";
@@ -74,7 +75,7 @@ export class HidingSettings extends SettingsMenuDorakoUX {
         type: Boolean,
         requiresReload: false,
         onChange: (value) => {
-          $("#sidebar").toggleClass("no-compendium-banner-images");
+          document.body.classList.toggle("no-compendium-banner-images", value);
         },
       },
       "no-logo": {
@@ -85,13 +86,7 @@ export class HidingSettings extends SettingsMenuDorakoUX {
         default: true,
         type: Boolean,
         requiresReload: false,
-        onChange: (value) => {
-          if (value) {
-            $("#logo")[0].style.setProperty("display", "none", "important");
-          } else {
-            $("#logo")[0].style.setProperty("display", "unset");
-          }
-        },
+        onChange: (value) => setLogoHidden(value),
       },
       "no-chat-control-icon": {
         name: "pf2e-dorako-ux.settings.no-chat-control-icon.name",
@@ -101,13 +96,7 @@ export class HidingSettings extends SettingsMenuDorakoUX {
         default: true,
         type: Boolean,
         requiresReload: false,
-        onChange: (value) => {
-          if (value) {
-            $("#chat-controls")[0].classList.add("no-chat-control-icon");
-          } else {
-            $("#chat-controls")[0].classList.remove("no-chat-control-icon");
-          }
-        },
+        onChange: (value) => setChatControlIconHidden(value),
       },
       "no-cards": {
         name: "pf2e-dorako-ux.settings.no-cards.name",
@@ -117,13 +106,7 @@ export class HidingSettings extends SettingsMenuDorakoUX {
         default: false,
         type: Boolean,
         requiresReload: false,
-        onChange: (value) => {
-          if (value) {
-            $(".item[data-tab=cards]").addClass("dorako-display-none");
-          } else {
-            $(".item[data-tab=cards]").removeClass("dorako-display-none");
-          }
-        },
+        onChange: (value) => setCardsTabHidden(value),
       },
     };
   }

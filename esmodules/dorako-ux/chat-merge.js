@@ -22,7 +22,7 @@ export default class ChatMerge {
 
   static init() {
     // libWrapperShared.register("ChatLog.prototype.deleteMessage", this._deleteMessage.bind(this));
-    Hooks.on("renderChatMessage", this._renderChatMessage);
+    Hooks.on("renderChatMessageHTML", this._renderChatMessage);
     Hooks.on("deleteChatMessage", this.deleteMessage);
   }
 
@@ -44,28 +44,28 @@ export default class ChatMerge {
   static deleteMessage(message, flags) {
     if (flags.deleteAll === true) return;
     const messageId = message._id;
-    const element = document.querySelector(`li[data-message-id="${messageId}"`);
+    const element = ui.chat?.element?.querySelector(`li[data-message-id="${messageId}"]`);
     // If we were a TOP
     if (element?.classList?.contains("dfce-cm-top")) {
       element.classList.remove("dfce-cm-top");
       // If the next element was a middle, make it a top
-      if (element.nextElementSibling.classList.contains("dfce-cm-middle")) {
+      if (element.nextElementSibling?.classList.contains("dfce-cm-middle")) {
         element.nextElementSibling.classList.remove("dfce-cm-middle");
         element.nextElementSibling.classList.add("dfce-cm-top");
       }
       // Otherwise, it was a bottom and should now become a normal message again
-      else element.nextElementSibling.classList.remove("dfce-cm-bottom");
+      else element.nextElementSibling?.classList.remove("dfce-cm-bottom");
     }
     // If we were a BOTTOM
     else if (element?.classList?.contains("dfce-cm-bottom")) {
       element.classList.remove("dfce-cm-bottom");
       // If the previous element was a middle, make it a bottom
-      if (element.previousElementSibling.classList.contains("dfce-cm-middle")) {
+      if (element.previousElementSibling?.classList.contains("dfce-cm-middle")) {
         element.previousElementSibling.classList.remove("dfce-cm-middle");
         element.previousElementSibling.classList.add("dfce-cm-bottom");
       }
       // Otherwise, it was a top and should now become a normal message again
-      else element.previousElementSibling.classList.remove("dfce-cm-top");
+      else element.previousElementSibling?.classList.remove("dfce-cm-top");
     }
     // If we were a MIDDLE, let the above and below snug and they'll be fine
     else if (element?.classList?.contains("dfce-cm-middle")) element.classList.remove("dfce-cm-middle");
@@ -104,15 +104,15 @@ export default class ChatMerge {
   // }
 
   static _processAllMessage(element) {
-    element = element ?? $(document.body);
+    element = element ?? document.body;
     // Remove the old CSS class designations
-    element.find(".dfce-cm-top").removeClass("dfce-cm-top");
-    element.find(".dfce-cm-middle").removeClass("dfce-cm-middle");
-    element.find(".dfce-cm-bottom").removeClass("dfce-cm-bottom");
+    for (const cls of ["dfce-cm-top", "dfce-cm-middle", "dfce-cm-bottom"]) {
+      element.querySelectorAll(`.${cls}`).forEach((e) => e.classList.remove(cls));
+    }
     // If we are disabled, return
     if (!ChatMerge._enabled) return;
     // Collect all rendered chat messages
-    const messages = element.find("li.chat-message");
+    const messages = element.querySelectorAll("li.chat-message");
     // Return if there are no messages rendered
     if (messages.length === 0) return;
 
@@ -130,15 +130,15 @@ export default class ChatMerge {
 
   static _renderChatMessage(message, html, _cmd) {
     if (!ChatMerge._enabled) return;
-    // Find the most recent message in the chat log
-    const partnerElem = $(`li.chat-message`).last()[0];
+    // Find the most recent message in the sidebar chat log
+    const partnerElem = ui.chat?.element?.querySelector("ol.chat-log > li.chat-message:last-child");
     // If there is no message, return
     if (partnerElem === null || partnerElem === undefined) return;
     // get the ChatMessage document associated with the html
     const partner = game.messages.get(partnerElem.getAttribute("data-message-id"));
     if (!message || !partner) return;
     // Update styling of the chat messages
-    ChatMerge._styleChatMessages(message, html[0], partner, partnerElem);
+    ChatMerge._styleChatMessages(message, html, partner, partnerElem);
   }
 
   static _inTimeFrame(current, previous) {

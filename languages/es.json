@@ -90,7 +90,7 @@
         "name": "¿Activar la interfaz compacta?"
       },
       "control-size": {
-        "hint": "(por defecto: 36px) Cambia el tamaño de los controles y los elementos de navegación",
+        "hint": "(por defecto: 32px) Cambia el tamaño de los controles y los elementos de navegación",
         "name": "Control de tamaño"
       },
       "controls-alignment": {

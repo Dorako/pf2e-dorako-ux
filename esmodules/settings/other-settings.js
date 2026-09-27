@@ -39,7 +39,7 @@ export class OtherSettings extends SettingsMenuDorakoUX {
         hint: "pf2e-dorako-ux.settings.control-size.hint",
         scope: "client",
         type: Number,
-        default: 36,
+        default: 32,
         range: {
           min: 18,
           max: 72,
@@ -49,7 +49,7 @@ export class OtherSettings extends SettingsMenuDorakoUX {
         requiresReload: false,
         onChange: (value) => {
           const root = document.querySelector(":root").style;
-          root.setProperty("--control-size", `${value}px`);
+          root.setProperty("--dorako-control-size", `${value}px`);
         },
       },
       "sidebar-tab-size": {
@@ -57,7 +57,7 @@ export class OtherSettings extends SettingsMenuDorakoUX {
         hint: "pf2e-dorako-ux.settings.sidebar-tab-size.hint",
         scope: "client",
         type: Number,
-        default: 22,
+        default: 32,
         range: {
           min: 14,
           max: 48,
@@ -67,7 +67,7 @@ export class OtherSettings extends SettingsMenuDorakoUX {
         requiresReload: false,
         onChange: (value) => {
           const root = document.querySelector(":root").style;
-          root.setProperty("--sidebar-tab-size", `${value}px`);
+          root.setProperty("--dorako-sidebar-tab-size", `${value}px`);
         },
       },
       "enable-player-tags": {

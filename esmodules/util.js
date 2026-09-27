@@ -51,3 +51,20 @@ export function i18nFormat(key, data) {
 export function titleCase(string) {
   return string[0].toUpperCase() + string.slice(1).toLowerCase();
 }
+
+// The Foundry logo was removed in V13, so this only matters if another module re-adds it
+export function setLogoHidden(hidden) {
+  const logo = document.getElementById("logo");
+  if (!logo) return;
+  if (hidden) logo.style.setProperty("display", "none", "important");
+  else logo.style.removeProperty("display");
+}
+
+export function setCardsTabHidden(hidden) {
+  const tab = document.querySelector('#sidebar nav.tabs button[data-tab="cards"]')?.closest("li");
+  tab?.classList.toggle("dorako-display-none", hidden);
+}
+
+export function setChatControlIconHidden(hidden) {
+  document.getElementById("chat-controls")?.classList.toggle("no-chat-control-icon", hidden);
+}

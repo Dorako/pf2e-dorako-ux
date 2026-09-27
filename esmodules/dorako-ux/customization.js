@@ -1,7 +1,6 @@
-import { debug } from "../util.js";
+import { debug, setCardsTabHidden, setChatControlIconHidden, setLogoHidden } from "../util.js";
 import { MODULE_NAME } from "../consts.js";
 import ChatMerge from "../dorako-ux/chat-merge.js";
-import ChatRollPrivacy from "../dorako-ux/chat-rolltype-buttons.js";
 
 function injectCSS(filename) {
   const head = document.getElementsByTagName("head")[0];
@@ -15,31 +14,25 @@ function injectCSS(filename) {
 
 Hooks.once("ready", () => {
   if (!game.settings.get("pf2e-dorako-ux", "moving.center-hotbar")) return;
-  document.getElementById("ui-bottom").classList.add("centered");
+  document.getElementById("ui-bottom")?.classList.add("centered");
 });
 
 Hooks.once("ready", () => {
-  if (game.settings.get("pf2e-dorako-ux", "hiding.no-logo")) {
-    $("#logo")[0].style.setProperty("display", "none", "important");
-  }
+  if (game.settings.get("pf2e-dorako-ux", "hiding.no-logo")) setLogoHidden(true);
 });
 
 Hooks.once("ready", () => {
   if (game.settings.get("pf2e-dorako-ux", "hiding.no-compendium-banner-images")) {
-    $("body").addClass("no-compendium-banner-images");
+    document.body.classList.add("no-compendium-banner-images");
   }
 });
 
-Hooks.on("renderChatLogPF2e", (app, html, data) => {
-  if (game.settings.get("pf2e-dorako-ux", "hiding.no-chat-control-icon")) {
-    html.find("#chat-controls")[0].classList.add("no-chat-control-icon");
-  }
+Hooks.on("renderChatLog", () => {
+  if (game.settings.get("pf2e-dorako-ux", "hiding.no-chat-control-icon")) setChatControlIconHidden(true);
 });
 
 Hooks.once("renderSidebar", () => {
-  const noCards = game.settings.get("pf2e-dorako-ux", "hiding.no-cards");
-  if (!noCards) return;
-  $(".item[data-tab=cards]").addClass("dorako-display-none");
+  if (game.settings.get("pf2e-dorako-ux", "hiding.no-cards")) setCardsTabHidden(true);
 });
 
 Hooks.once("init", async () => {
@@ -51,20 +44,15 @@ Hooks.once("init", async () => {
     ChatMerge.init();
   }
 
-  if (game.settings.get("pf2e-dorako-ux", "moving.adjust-chat-controls")) {
-    ChatRollPrivacy.setup();
-    ChatRollPrivacy.init();
-  }
-
   debug(`INJECTING CSS VARIABLES`);
   injectCSS("fonts");
 
   const root = document.querySelector(":root").style;
 
   root.setProperty("--avatar-size", game.settings.get("pf2e-dorako-ux", "avatar.size").toString() + "px");
-  root.setProperty("--control-size", game.settings.get("pf2e-dorako-ux", "other.control-size").toString() + "px");
+  root.setProperty("--dorako-control-size", game.settings.get("pf2e-dorako-ux", "other.control-size").toString() + "px");
   root.setProperty(
-    "--sidebar-tab-size",
+    "--dorako-sidebar-tab-size",
     game.settings.get("pf2e-dorako-ux", "other.sidebar-tab-size").toString() + "px"
   );
   root.setProperty("--controls-alignment", game.settings.get("pf2e-dorako-ux", "moving.controls-alignment").toString());
@@ -72,17 +60,18 @@ Hooks.once("init", async () => {
   debug(`INIT COMPLETE`);
 });
 
-Hooks.once("ready", (app, html, data) => {
+Hooks.once("ready", () => {
   if (!game.settings.get(`${MODULE_NAME}`, "hiding.start-sidebar-collapsed")) return;
   ui.sidebar.collapse();
 });
 
-Hooks.once("ready", async (app, html, data) => {
+Hooks.once("ready", async () => {
   if (!game.settings.get(`${MODULE_NAME}`, "hiding.start-navigation-collapsed")) return;
   await new Promise((r) => setTimeout(r, 100));
   ui.nav.collapse();
 });
 
+// PF2e item sheets are still ApplicationV1, so this hook is unchanged
 Hooks.on("getItemSheetPF2eHeaderButtons", (sheet, buttons) => {
   if (!game.settings.get(`${MODULE_NAME}`, "other.send-to-chat")) {
     return;
@@ -100,7 +89,7 @@ Hooks.on("getItemSheetPF2eHeaderButtons", (sheet, buttons) => {
         const actor =
           canvas.tokens.controlled[0]?.actor ?? // Selected token's corresponding actor
           game.user?.character ?? // Assigned actor
-          new Actor({ name: game.user.name, type: "character" }); // Dummy actor fallback
+          new Actor.implementation({ name: game.user.name, type: "character" }); // Dummy actor fallback
 
         await new sheet.document.constructor(json, { parent: actor }).toChat();
       }
@@ -110,25 +99,27 @@ Hooks.on("getItemSheetPF2eHeaderButtons", (sheet, buttons) => {
 
 Hooks.on("renderCombatTracker", addScalingToCombatTrackerAvatars);
 
-function addScalingToCombatTrackerAvatars(app, html, data) {
+function addScalingToCombatTrackerAvatars(app, html) {
+  const combat = app.viewed ?? game.combat;
+  if (!combat) return;
   const combatImagesActive = game.modules.get("combat-tracker-images")?.active;
-  $(".combatant", html).each(function () {
-    let id = this.dataset.combatantId;
-    let combatant = game.combat.combatants.get(id);
-    let scale = combatant.token.texture.scaleX;
-    let tokenImageElem = this.getElementsByClassName("token-image")[0];
-    if (scale < 1 || (combatImagesActive && combatant.actor.getFlag("combat-tracker-images", "trackerImage"))) {
+  for (const combatantElem of html.querySelectorAll(".combatant[data-combatant-id]")) {
+    const combatant = combat.combatants.get(combatantElem.dataset.combatantId);
+    const tokenImageElem = combatantElem.querySelector(".token-image");
+    if (!combatant || !tokenImageElem) continue;
+    let scale = combatant.token?.texture.scaleX ?? 1;
+    if (scale < 1 || (combatImagesActive && combatant.actor?.getFlag("combat-tracker-images", "trackerImage"))) {
       scale = 1;
     }
-    tokenImageElem.setAttribute("style", "transform: scale(" + Math.abs(scale) + ")");
-  });
+    tokenImageElem.style.transform = "scale(" + Math.abs(scale) + ")";
+  }
 }
 
-for (const appName of ["JournalSheet", "JournalPageSheet"]) {
-  Hooks.on("render" + appName, (app, html, data) => {
+for (const appName of ["JournalEntrySheet", "JournalEntryPageSheet"]) {
+  Hooks.on("render" + appName, (app, html) => {
     const isDalvyn = game.settings.get("pf2e-dorako-ux", "other.skin-crb-journal");
     if (!isDalvyn) return;
     if (app.id.includes("Compendium-pf2e-criticaldeck")) return;
-    html.closest(".app").find(".journal-entry-content").addClass("dalvyn-journal");
+    html.querySelector(".journal-entry-content")?.classList.add("dalvyn-journal");
   });
 }

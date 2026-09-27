@@ -8,22 +8,8 @@
   }
 }
 
-#chat-form {
-  --chatform-height: 100px;
-  flex: 0 0 var(--chatform-height);
-  > .dorako-resize {
-    width: 100%;
-    height: 4px;
-    position: fixed;
-    cursor: row-resize;
-  }
-}
-
-#sidebar-tabs {
-  font-size: calc(var(--sidebar-tab-width) - 8px);
-  --sidebar-tab-height: var(--sidebar-tab-size);
-  --sidebar-tab-width: var(--sidebar-tab-size);
-  > item {
-    align-self: center;
-  }
+// Core sets --control-size on every .ui-control, so override it on the tab buttons themselves
+#sidebar-tabs .ui-control {
+  --control-size: var(--dorako-sidebar-tab-size, 32px);
+  font-size: calc(var(--control-size) / 2);
 }

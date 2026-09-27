@@ -29,7 +29,7 @@
         "name": "Kompaktes UI aktivieren?"
       },
       "control-size": {
-        "hint": "(Standard: 36px) Ändert die Größe von Steuer- und Navigationselementen"
+        "hint": "(Standard: 32px) Ändert die Größe von Steuer- und Navigationselementen"
       },
       "controls-alignment": {
         "choice": {
